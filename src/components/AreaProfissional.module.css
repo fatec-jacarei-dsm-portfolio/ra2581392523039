@@ -1,0 +1,285 @@
+.profissional {
+  min-height: 100vh;
+  padding: 100px 0;
+  background: var(--color-bg-primary);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* Introduction */
+.intro {
+  width: 100%;
+}
+
+.introCard {
+  display: flex;
+  gap: 2rem;
+  background: var(--color-bg-card);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.avatar {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  box-shadow: 0 8px 32px var(--color-accent-glow);
+}
+
+.introText {
+  flex: 1;
+}
+
+.introText h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+}
+
+.introText p {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.contactInfo {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.contactInfo span {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+/* Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.statCard {
+  background: var(--color-bg-card);
+  padding: 2rem 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+  transition: all var(--transition-base);
+}
+
+.statCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent-primary);
+  box-shadow: 0 8px 32px var(--color-accent-glow);
+}
+
+.statValue {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-accent-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.statLabel {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Career Path */
+.careerPath {
+  background: var(--color-bg-card);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.careerTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.careerItems {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.careerItem {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--color-bg-elevated);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+}
+
+.careerItem:hover {
+  transform: translateY(-2px);
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.careerIcon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.careerContent {
+  flex: 1;
+}
+
+.careerContent h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.careerContent p {
+  font-size: 0.875rem;
+  color: var(--color-accent-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.careerPeriod {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Philosophy */
+.philosophy {
+  width: 100%;
+}
+
+.philosophyCard {
+  background: linear-gradient(135deg, var(--color-bg-card), var(--color-bg-elevated));
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.philosophyCard h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.philosophyCard blockquote {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+  border-left: 3px solid var(--color-accent-primary);
+}
+
+.values {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.value {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: var(--color-bg-primary);
+  border-radius: var(--radius-md);
+}
+
+.valueIcon {
+  font-size: 1.25rem;
+}
+
+.value span:last-child {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+@media (max-width: 1024px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .values {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .profissional {
+    padding: 80px 0;
+  }
+  
+  .introCard {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .contactInfo {
+    justify-content: center;
+  }
+  
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .careerItems {
+    flex-direction: column;
+  }
+  
+  .values {
+    grid-template-columns: 1fr;
+  }
+  
+  .philosophyCard blockquote {
+    font-size: 1.1rem;
+  }
+}
+

@@ -1,0 +1,264 @@
+.interesses {
+  min-height: 100vh;
+  padding: 100px 0;
+  background: var(--color-bg-secondary);
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.card {
+  position: relative;
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+
+.card:hover,
+.card.active {
+  border-color: var(--accent-color, var(--color-accent-primary));
+  transform: translateY(-4px);
+}
+
+.cardBackground {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 0%, var(--accent-color, rgba(99, 102, 241, 0.1)) 100%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.card:hover .cardBackground,
+.card.active .cardBackground {
+  opacity: 1;
+}
+
+.cardContent {
+  position: relative;
+  z-index: 1;
+}
+
+.icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.shortDesc {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+}
+
+/* Styles List */
+.stylesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.styleTag {
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid;
+  background: transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.expandedContent {
+  margin-top: 1rem;
+  overflow: hidden;
+}
+
+.fullDesc {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-sm);
+}
+
+.cardGlow {
+  position: absolute;
+  bottom: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, var(--accent-color, var(--color-accent-primary)) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+}
+
+.card:hover .cardGlow,
+.card.active .cardGlow {
+  opacity: 0.15;
+}
+
+/* Quote Section */
+.quoteSection {
+  width: 100%;
+}
+
+.quoteCard {
+  position: relative;
+  background: linear-gradient(135deg, var(--color-bg-card), var(--color-bg-elevated));
+  padding: 3rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+}
+
+.quoteIcon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.quoteCard blockquote {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+.quoteCard cite {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-accent-secondary);
+  font-style: normal;
+}
+
+/* Inspiration Section */
+.inspirationSection {
+  width: 100%;
+}
+
+.inspirationTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.inspirationGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.inspirationCard {
+  background: var(--color-bg-card);
+  padding: 2rem 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+  transition: all var(--transition-base);
+}
+
+.inspirationCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.inspirationIcon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.inspirationCard h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.inspirationCard p {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .inspirationGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .interesses {
+    padding: 80px 0;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .inspirationGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .quoteCard {
+    padding: 2rem 1.5rem;
+  }
+  
+  .quoteCard blockquote {
+    font-size: 1.25rem;
+  }
+}
+
