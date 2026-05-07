@@ -33,8 +33,8 @@ export interface Project {
   /** Se preferir, pode passar apenas o ID do vídeo (ex: xxxx) */
   youtubeVideoId?: string;
   image?: string;
-  /** Origem do projeto: 'fatec' | 'etec' */
-  source?: 'fatec' | 'etec';
+  /** Origem do projeto: 'fatec' | 'etec' | 'personal' */
+  source?: 'fatec' | 'etec' | 'personal';
 }
 
 

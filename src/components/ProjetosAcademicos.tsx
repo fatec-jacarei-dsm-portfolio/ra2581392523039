@@ -55,6 +55,34 @@ const techIcons: Record<string, React.ReactNode> = {
   )
 };
 
+// ── Sub-section divider ─────────────────────────────────────────────────────
+interface SubsectionHeaderProps {
+  badge: string;
+  badgeColor?: string;
+  title: string;
+  subtitle: string;
+  style?: React.CSSProperties;
+}
+function SubsectionHeader({ badge, badgeColor = '#6366f1', title, subtitle, style }: SubsectionHeaderProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className={styles.subsectionHeader}
+      style={style}
+    >
+      <div className={styles.subsectionBadge}>
+        <span className={styles.subsectionDot} style={{ background: badgeColor }} />
+        {badge}
+      </div>
+      <h3 className={styles.subsectionTitle}>{title}</h3>
+      <p className={styles.subsectionSubtitle}>{subtitle}</p>
+    </motion.div>
+  );
+}
+
+// ── Project card ────────────────────────────────────────────────────────────
 function ProjectCard({ project, index, onDetails }: { project: any, index: number, onDetails: () => void }) {
   const { rotateX, rotateY, handleMouseMove, handleMouseLeave } = useTilt();
   const { language } = useAppContext();
@@ -98,6 +126,7 @@ function ProjectCard({ project, index, onDetails }: { project: any, index: numbe
   );
 }
 
+// ── ETEC portfolio card ─────────────────────────────────────────────────────
 function EtecPortfolioCard({ portfolio, index }: { portfolio: any, index: number }) {
   const { language } = useAppContext();
   const t = translations[language].projects;
@@ -132,26 +161,28 @@ function EtecPortfolioCard({ portfolio, index }: { portfolio: any, index: number
   );
 }
 
+// ── Main component ──────────────────────────────────────────────────────────
 export default function ProjetosAcademicos() {
   const { language } = useAppContext();
   const t = translations[language].projects;
   const [filter, setFilter] = useState('Todos');
   const [modalProject, setModalProject] = useState<any>(null);
 
-  // Only FATEC projects in the main grid
-  const fatecProjects = projects.filter(p => p.source === 'fatec');
+  const fatecProjects  = projects.filter(p => p.source === 'fatec');
+  const personalProjects = projects.filter(p => p.source === 'personal');
+
   const categories = ['Todos', 'React', 'TypeScript', 'PHP', 'JavaScript'];
 
-  const filteredProjects = useMemo(() => {
+  const filteredFatec = useMemo(() => {
     if (filter === 'Todos') return fatecProjects;
     return fatecProjects.filter(p => p.tags.includes(filter));
-  }, [filter, fatecProjects]);
+  }, [filter]);
 
   return (
     <section id="projetos" className={styles.projetos}>
       <div className={styles.container}>
 
-        {/* ── Header ── */}
+        {/* ── Main header ── */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -161,36 +192,29 @@ export default function ProjetosAcademicos() {
           <p className={styles.sectionSubtitle}>{t.subtitle}</p>
         </motion.div>
 
-        {/* ── FATEC Projects ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className={styles.subsectionHeader}
-        >
-          <div className={styles.subsectionBadge}>
-            <span className={styles.subsectionDot} />
-            FATEC Jacareí
-          </div>
-          <h3 className={styles.subsectionTitle}>{t.fatec_section}</h3>
-          <p className={styles.subsectionSubtitle}>{t.fatec_subtitle}</p>
+        {/* ══ FATEC Jacareí ══ */}
+        <SubsectionHeader
+          badge="FATEC Jacareí"
+          badgeColor="#6366f1"
+          title={t.fatec_section}
+          subtitle={t.fatec_subtitle}
+        />
 
-          <div className={styles.filterContainer}>
-            {categories.map(cat => (
-              <button
-                key={cat}
-                className={`${styles.filterButton} ${filter === cat ? styles.filterActive : ''}`}
-                onClick={() => setFilter(cat)}
-              >
-                {cat === 'Todos' ? t.filter_all : cat}
-              </button>
-            ))}
-          </div>
-        </motion.div>
+        <div className={styles.filterContainer}>
+          {categories.map(cat => (
+            <button
+              key={cat}
+              className={`${styles.filterButton} ${filter === cat ? styles.filterActive : ''}`}
+              onClick={() => setFilter(cat)}
+            >
+              {cat === 'Todos' ? t.filter_all : cat}
+            </button>
+          ))}
+        </div>
 
         <motion.div layout className={styles.grid}>
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project, index) => (
+            {filteredFatec.map((project, index) => (
               <ProjectCard
                 key={project.id}
                 project={project}
@@ -201,21 +225,34 @@ export default function ProjetosAcademicos() {
           </AnimatePresence>
         </motion.div>
 
-        {/* ── ETEC Portfolios ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className={styles.subsectionHeader}
+        {/* ══ Projetos Pessoais ══ */}
+        <SubsectionHeader
+          badge="Projetos Independentes"
+          badgeColor="#10b981"
+          title={t.personal_section}
+          subtitle={t.personal_subtitle}
           style={{ marginTop: '5rem' }}
-        >
-          <div className={styles.subsectionBadge} style={{ '--badge-color': '#8b5cf6' } as React.CSSProperties}>
-            <span className={styles.subsectionDot} style={{ background: '#8b5cf6' }} />
-            ETEC São José dos Campos
-          </div>
-          <h3 className={styles.subsectionTitle}>{t.etec_section}</h3>
-          <p className={styles.subsectionSubtitle}>{t.etec_subtitle}</p>
-        </motion.div>
+        />
+
+        <div className={styles.grid}>
+          {personalProjects.map((project, index) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              index={index}
+              onDetails={() => setModalProject(project)}
+            />
+          ))}
+        </div>
+
+        {/* ══ Portfólios ETEC ══ */}
+        <SubsectionHeader
+          badge="ETEC São José dos Campos"
+          badgeColor="#8b5cf6"
+          title={t.etec_section}
+          subtitle={t.etec_subtitle}
+          style={{ marginTop: '5rem' }}
+        />
 
         <div className={styles.etecGrid}>
           {etecPortfolios.map((portfolio, index) => (

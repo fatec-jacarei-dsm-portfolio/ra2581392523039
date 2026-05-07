@@ -10,7 +10,7 @@ export const personalInfo = {
   linkedin: 'https://www.linkedin.com/in/joão-pedro-luvisari-severiano-bb1aa9303/',
   instagram: 'https://www.instagram.com/pedro_luvisari/',
   // Link para a foto de perfil (arquivo local dentro do projeto)
-  avatarUrl: '/Perfil%20atualizada.JPG',
+  avatarUrl: `${import.meta.env.BASE_URL}Perfil atualizada.JPG`,
 };
 
 export const education: Education[] = [
@@ -67,7 +67,7 @@ Tecnologias utilizadas:
 • Protótipos/Planejamento: Hack (ideias e prototipação durante o desenvolvimento)`,
     tags: ['JavaScript', 'PHP', 'SCSS', 'HTML', 'CSS', 'Hack'],
     githubUrl: 'https://github.com/JoaoPedroLuvisariSeveriano/PetNexus',
-    source: 'etec'
+    source: 'personal'
   },
   {
     id: '2',
@@ -93,7 +93,7 @@ Tecnologias utilizadas:
     description: 'Sistema de Gestão Acadêmica é uma aplicação web full-stack desenvolvida para facilitar a administração de instituições de ensino. O projeto oferece módulos para cadastro e gerenciamento de alunos, cursos, turmas, professores e lançamentos de notas, com APIs REST no back-end e interface responsiva no front-end. O código está organizado em pastas /frontend e /backend, permitindo desenvolvimento e deploy independentes. Linguagens utilizadas: TypeScript (97.4%), JavaScript (2.2%) e Other (0.4%).',
     tags: ['TypeScript', 'JavaScript', 'Other'],
     githubUrl: 'https://github.com/JoaoPedroLuvisariSeveriano/Sistema-de-Gestao-Academica',
-    source: 'fatec'
+    source: 'personal'
   }
 ];
 
@@ -101,19 +101,19 @@ Tecnologias utilizadas:
 export const etecPortfolios = [
   {
     id: 'etec-portfolio-1',
-    title: 'Portfólio ETEC – 1º Ano (2023)',
-    description: 'Portfólio desenvolvido durante o 1º ano do Curso Técnico em Desenvolvimento de Sistemas na ETEC São José dos Campos. Contém projetos, atividades e aprendizados do período.',
+    title: 'Portfólio ETEC – 1º Período (2024)',
+    description: 'Portfólio desenvolvido durante o 1º período do Curso Técnico em Desenvolvimento de Sistemas na ETEC São José dos Campos. Contém projetos, atividades e aprendizados do período.',
     url: 'https://sites.google.com/view/joopedroluvisariseveriano/p%C3%A1gina-inicial?authuser=1',
-    year: '2023 – 1º Ano',
+    year: '2024 – 1º Período',
     icon: '📚',
     color: '#6366f1'
   },
   {
     id: 'etec-portfolio-2',
-    title: 'Portfólio ETEC – 2º Ano (2024)',
-    description: 'Portfólio desenvolvido durante o 2º ano do Curso Técnico em Desenvolvimento de Sistemas na ETEC São José dos Campos. Inclui o TCC PetNexus e projetos avançados do curso.',
+    title: 'Portfólio ETEC – 2º Período (2024)',
+    description: 'Portfólio desenvolvido durante o 2º período do Curso Técnico em Desenvolvimento de Sistemas na ETEC São José dos Campos. Inclui o TCC PetNexus e projetos avançados do curso.',
     url: 'https://sites.google.com/view/joopedroluvisariseveriano1/p%C3%A1gina-inicial?authuser=1',
-    year: '2024 – 2º Ano',
+    year: '2024 – 2º Período',
     icon: '🎓',
     color: '#8b5cf6'
   }

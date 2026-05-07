@@ -46,6 +46,13 @@ export default function Hero() {
               src={personalInfo.avatarUrl}
               alt={`Foto de perfil de ${personalInfo.name}`}
               loading="eager"
+              onError={(e) => {
+                // Fallback: try with BASE_URL explicitly
+                const el = e.currentTarget;
+                if (!el.src.includes('?fallback')) {
+                  el.src = `${import.meta.env.BASE_URL}Perfil atualizada.JPG?fallback`;
+                }
+              }}
             />
           </motion.div>
 
