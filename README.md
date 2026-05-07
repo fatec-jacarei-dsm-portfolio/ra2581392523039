@@ -27,7 +27,6 @@ Portfólio pessoal desenvolvido com **React + TypeScript + Vite**, com animaçõ
 | 🎨 **Design Dark Premium** | Tema escuro com glassmorphism, gradientes e efeitos visuais modernos |
 | 🖱️ **Cursor Customizado** | Cursor interativo que acompanha o mouse |
 | ⌨️ **Command Palette** | Paleta de comandos ativada com `Ctrl+K` para navegação rápida |
-| 🎵 **Widget Spotify** | Widget de "Now Playing" integrado |
 | 🌐 **Multilíngue** | Suporte completo a **Português** e **Inglês** |
 | 📱 **Responsivo** | Layout adaptado para mobile, tablet e desktop |
 | 🔄 **Animações** | Scroll suave com Lenis + animações de entrada com Framer Motion |
