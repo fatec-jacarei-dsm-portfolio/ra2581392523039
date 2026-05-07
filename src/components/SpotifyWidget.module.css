@@ -1,0 +1,50 @@
+.widget {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(25, 20, 20, 0.4);
+  backdrop-filter: blur(8px);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(29, 185, 84, 0.2);
+  width: fit-content;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.status {
+  font-size: 0.65rem;
+  color: #1DB954;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+}
+
+.artist {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.visualizer {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 16px;
+  margin-left: 0.5rem;
+}
+
+.bar {
+  width: 2px;
+  background: #1DB954;
+  border-radius: 1px;
+}

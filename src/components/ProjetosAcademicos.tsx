@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { projects } from '../data/portfolio';
-import styles from './ProjetosAcademicos.module.css';
+import React, { useState, useMemo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { projects, etecPortfolios } from '../data/portfolio';
+import { useTilt } from '../hooks/useTilt';
+import { useAppContext } from '../context/AppContext';
+import { translations } from '../data/translations';
+import ProjectModal from './ProjectModal';
+import styles from './ProjetosAcademicosFix.module.css';
 
 const techIcons: Record<string, React.ReactNode> = {
   JavaScript: (
@@ -16,12 +20,12 @@ const techIcons: Record<string, React.ReactNode> = {
   ),
   React: (
     <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
-      <path d="M12 10.11c1.03 0 1.87.84 1.87 1.89c0 1-.84 1.85-1.87 1.85c-1.03 0-1.87-.85-1.87-1.85c0-1.05.84-1.89 1.87-1.89M7.37 20c.63.38 2.01-.2 3.6-1.7c-.52-.59-1.03-1.23-1.51-1.9a22.7 22.7 0 01-2.4-.36c-.51 2.14-.32 3.61.31 3.96m.71-5.74l-.29-.51c-.11.29-.22.58-.29.86c.27.06.57.11.88.16l-.3-.51m6.54-.76l.81-1.5l-.81-1.5c-.3-.53-.62-1-.91-1.47C13.17 9 12.6 8.8 12 8.8s-1.17.2-1.71.67c-.29.47-.61.94-.91 1.47L8.57 12l.81 1.5c.3.53.62 1 .91 1.47c.54.47 1.11.67 1.71.67s1.17-.2 1.71-.67c.29-.47.61-.94.91-1.47M12 6.78c-.19.22-.39.45-.59.72h1.18c-.2-.27-.4-.5-.59-.72m0 10.44c.19-.22.39-.45.59-.72h-1.18c.2.27.4.5.59.72M16.62 4c-.62-.38-2 .2-3.59 1.7c.52.59 1.03 1.23 1.51 1.9c.82.08 1.63.2 2.4.36c.51-2.14.32-3.61-.32-3.96m-.7 5.74l.29.51c.11-.29.22-.58.29-.86c-.27-.06-.57-.11-.88-.16l.3.51m1.45-6.87c1.07.45 1.72 1.08 2.03 1.93c.25-.22.45-.45.59-.72h-1.18c-.13.18-.31.36-.52.54c-.37.32-.75.64-1.17.96l.25 1.26c.38-.11.73-.25 1.06-.42c-.34-.52-.78-1.09-1.06-1.55M8.7 1.27c.18.26.35.53.51.83h1.09c.08-.12.18-.24.28-.35c.35-.38.73-.68 1.13-1l-.25-1.26c-.38.18-.77.39-1.13.71c-.4.36-.78.78-1.14 1.22l.51.25M15.71 17.5c-.54-.47-1.11-.67-1.71-.67s-1.17.2-1.71.67c-.29.47-.61.94-.91 1.47l-.81 1.5l.81 1.5c.3.53.62 1 .91 1.47c.54.47 1.11.67 1.71.67s1.17-.2 1.71-.67c.29-.47.61-.94.91-1.47l.81-1.5l-.81-1.5c-.3-.53-.62-1-.91-1.47m-2.43 3.02c.34.52.78 1.09 1.06 1.55c.34.17.69.31 1.06.42l.25-1.26c-.42-.32-.8-.64-1.13-.96c-.2-.18-.4-.36-.52-.54h-1.18c.14.27.34.5.59.72c.31-.85.96-1.48 2.03-1.93l-.26 1.1m-2.16-9.45c.18-.26.4-.5.59-.72h-1.18c-.2.27-.4.5-.59.72l.39.39l.79.79z"/>
+      <path d="M12 10.11c1.03 0 1.87.84 1.87 1.89c0 1-.84 1.85-1.87 1.85c-1.03 0-1.87-.85-1.87-1.85c0-1.05.84-1.89 1.87-1.89M7.37 20c.63.38 2.01-.2 3.6-1.7c-.52-.59-1.03-1.23-1.51-1.9a22.7 22.7 0 01-2.4-.36c-.51 2.14-.32 3.61.31 3.96m.71-5.74l-.29-.51c-.11.29-.22.58-.29.86c.27.06.57.11.88.16l-.3-.51m6.54-.76l.81-1.5l-.81-1.5c-.3-.53-.62-1-.91-1.47C13.17 9 12.6 8.8 12 8.8s-1.17.2-1.71.67c-.29.47-.61.94-.91 1.47L8.57 12l.81 1.5c.3.53.62 1 .91 1.47c.54.47 1.11.67 1.71.67s1.17-.2 1.71-.67c.29-.47.61-.94.91-1.47M12 6.78c-.19.22-.39.45-.59.72h1.18c-.2-.27-.4-.5-.59-.72m0 10.44c.19-.22.39-.45.59-.72h-1.18c.2.27.4.5.59.72M16.62 4c-.62-.38-2 .2-3.59 1.7c.52.59 1.03 1.23 1.51 1.9c.82.08 1.63.2 2.4.36c.51-2.14.32-3.61-.32-3.96m-.7 5.74l.29.51c.11-.29.22-.58.29-.86c-.27-.06-.57-.11-.88-.16l.3.51z"/>
     </svg>
   ),
   PHP: (
     <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
-      <path d="M12.001 0L5.5 5.855l.929-.002L11.5 1.293l.5.5-.929 4.062h5.929l-.928 4.062.5.5-1.5 1.5h-2l1.5-1.5-.5-.5h-3.072l-.5 2h6.072l-.5 2h-6.5l.5.5 3.572 3.308-3.572 3.308-.5.5h2.5l3.5-3.5 3.5 3.5h2.5l-4.071-3.785L21.5 14.5l-1.5-1.5-3.571 3.43-3.429-3.43-1.5 1.5 3.429 3.43-3.429 3.43-1.5-1.5 3.429-3.43L7 16.5l1.5-1.5.5.5h3.072l.5-2H8.5l-.5-.5-3.572-3.308L11 1.5l.5-.5.929 4.062H5.5l-.5-.5.929-4.062L12.001 0z" />
+      <path d="M7.01 10.207h-.944l-.515 2.648h.838c.556 0 .97-.105 1.242-.314.272-.21.455-.559.55-1.049.092-.47.05-.802-.124-.995-.175-.193-.523-.29-1.047-.29zM12 5.688C5.373 5.688 0 8.514 0 12s5.373 6.313 12 6.313S24 15.486 24 12c0-3.486-5.373-6.312-12-6.312zm-3.26 7.451c-.261.25-.575.438-.917.551-.336.108-.765.164-1.285.164H5.357l-.356 1.836H3.652l1.23-6.326h2.688c.799 0 1.369.188 1.709.563.34.375.43.94.27 1.69-.07.358-.19.672-.351.93-.161.258-.37.48-.603.592l.145.75zm5.077-.576h-1.16l.403-2.069h-1.138l-.403 2.069h-1.16l1.23-6.326h1.16l-.407 2.09h1.138l.407-2.09h1.161l-1.231 6.326zm5.52-1.261c-.261.25-.575.438-.917.551-.336.108-.765.164-1.285.164H16l-.357 1.836h-1.349l1.231-6.326h2.688c.799 0 1.368.188 1.709.563.34.375.43.94.27 1.69-.072.358-.191.672-.351.93-.162.258-.37.48-.604.592zm-1.098-1.95h-.944l-.516 2.648h.838c.556 0 .971-.105 1.242-.314.272-.21.456-.559.551-1.049.092-.47.049-.802-.124-.995-.175-.193-.522-.29-1.047-.29z"/>
     </svg>
   ),
   SCSS: (
@@ -43,119 +47,190 @@ const techIcons: Record<string, React.ReactNode> = {
     <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
       <path d="M12 0L1.5 6v12L12 24l10.5-6V6L12 0zm0 3.5l7.5 4.5v9l-7.5 4.5-7.5-4.5v-9l7.5-4.5z" />
     </svg>
+  ),
+  Other: (
+    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true">
+      <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 15h-2v-2h2v2Zm0-4h-2V7h2v6Z" />
+    </svg>
   )
 };
 
+function ProjectCard({ project, index, onDetails }: { project: any, index: number, onDetails: () => void }) {
+  const { rotateX, rotateY, handleMouseMove, handleMouseLeave } = useTilt();
+  const { language } = useAppContext();
+  const t = translations[language].projects;
+
+  return (
+    <motion.div
+      layout
+      className={styles.card}
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.9 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ rotateX, rotateY }}
+    >
+      <div className={styles.cardInner}>
+        <div className={styles.cardFront}>
+          <div className={styles.cardIcon}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 className={styles.cardTitle}>{project.title}</h3>
+          <p className={styles.cardDescription}>{project.description}</p>
+          <div className={styles.tags}>
+            {project.tags.slice(0, 3).map((tag: string) => (
+              <span key={tag} className={styles.tag}>
+                {techIcons[tag] && <span className={styles.tagIcon}>{techIcons[tag]}</span>}
+                {tag}
+              </span>
+            ))}
+          </div>
+          <button className={styles.detailsBtn} onClick={onDetails}>
+            {t.details}
+          </button>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+function EtecPortfolioCard({ portfolio, index }: { portfolio: any, index: number }) {
+  const { language } = useAppContext();
+  const t = translations[language].projects;
+
+  return (
+    <motion.a
+      href={portfolio.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={styles.etecCard}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.15 }}
+      whileHover={{ y: -6, scale: 1.02 }}
+      style={{ '--etec-color': portfolio.color } as React.CSSProperties}
+    >
+      <div className={styles.etecCardGlow} style={{ background: portfolio.color }} />
+      <div className={styles.etecCardContent}>
+        <div className={styles.etecIcon}>{portfolio.icon}</div>
+        <div className={styles.etecBadge}>{portfolio.year}</div>
+        <h3 className={styles.etecTitle}>{portfolio.title}</h3>
+        <p className={styles.etecDescription}>{portfolio.description}</p>
+        <span className={styles.etecLink}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16">
+            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+          </svg>
+          {t.etec_visit}
+        </span>
+      </div>
+    </motion.a>
+  );
+}
+
 export default function ProjetosAcademicos() {
-  const [selectedProject, setSelectedProject] = useState<string | null>(null);
+  const { language } = useAppContext();
+  const t = translations[language].projects;
+  const [filter, setFilter] = useState('Todos');
+  const [modalProject, setModalProject] = useState<any>(null);
+
+  // Only FATEC projects in the main grid
+  const fatecProjects = projects.filter(p => p.source === 'fatec');
+  const categories = ['Todos', 'React', 'TypeScript', 'PHP', 'JavaScript'];
+
+  const filteredProjects = useMemo(() => {
+    if (filter === 'Todos') return fatecProjects;
+    return fatecProjects.filter(p => p.tags.includes(filter));
+  }, [filter, fatecProjects]);
 
   return (
     <section id="projetos" className={styles.projetos}>
       <div className={styles.container}>
+
+        {/* ── Header ── */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: '-100px' }}
         >
-          <h2 className="section-title">Projetos Acadêmicos</h2>
-          <p className="section-subtitle">
-            Projetos desenvolvidos durante minha formação que demonstram minhas habilidades técnicas e criatividade
-          </p>
+          <h2 className={styles.sectionTitle}>{t.title}</h2>
+          <p className={styles.sectionSubtitle}>{t.subtitle}</p>
         </motion.div>
 
-        <div className={styles.grid}>
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              className={`${styles.card} ${selectedProject === project.id ? styles.active : ''}`}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              onClick={() => setSelectedProject(selectedProject === project.id ? null : project.id)}
-            >
-              <div className={styles.cardInner}>
-                <div className={styles.cardFront}>
-                  <div className={styles.cardIcon}>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                      <path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <h3 className={styles.cardTitle}>{project.title}</h3>
-                  <p className={styles.cardDescription}>{project.description}</p>
-                  <div className={styles.tags}>
-                    {project.tags.slice(0, 3).map(tag => (
-                      <span key={tag} className={styles.tag}>
-                        {techIcons[tag] && <span className={styles.tagIcon}>{techIcons[tag]}</span>}
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <div className={styles.cardFooter}>
-                    <span className={styles.viewMore}>
-                      Ver detalhes
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16">
-                        <path d="M5 12h14M12 5l7 7-7 7" />
-                      </svg>
-                    </span>
-                  </div>
-                </div>
-                
-                <div className={styles.cardBack}>
-                  <h3 className={styles.cardTitle}>{project.title}</h3>
-                  <p className={styles.cardDescription}>{project.description}</p>
-                  
-                  <div className={styles.allTags}>
-                    {project.tags.map(tag => (
-                      <span key={tag} className={styles.tag}>
-                        {techIcons[tag] && <span className={styles.tagIcon}>{techIcons[tag]}</span>}
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  <div className={styles.links}>
-                    {project.githubUrl && (
-                      <motion.a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.link}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                        GitHub
-                      </motion.a>
-                    )}
-                    {project.liveUrl && (
-                      <motion.a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`${styles.link} ${styles.liveLink}`}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="20" height="20">
-                          <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
-                        </svg>
-                        Demo
-                      </motion.a>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+        {/* ── FATEC Projects ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className={styles.subsectionHeader}
+        >
+          <div className={styles.subsectionBadge}>
+            <span className={styles.subsectionDot} />
+            FATEC Jacareí
+          </div>
+          <h3 className={styles.subsectionTitle}>{t.fatec_section}</h3>
+          <p className={styles.subsectionSubtitle}>{t.fatec_subtitle}</p>
+
+          <div className={styles.filterContainer}>
+            {categories.map(cat => (
+              <button
+                key={cat}
+                className={`${styles.filterButton} ${filter === cat ? styles.filterActive : ''}`}
+                onClick={() => setFilter(cat)}
+              >
+                {cat === 'Todos' ? t.filter_all : cat}
+              </button>
+            ))}
+          </div>
+        </motion.div>
+
+        <motion.div layout className={styles.grid}>
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project, index) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                index={index}
+                onDetails={() => setModalProject(project)}
+              />
+            ))}
+          </AnimatePresence>
+        </motion.div>
+
+        {/* ── ETEC Portfolios ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className={styles.subsectionHeader}
+          style={{ marginTop: '5rem' }}
+        >
+          <div className={styles.subsectionBadge} style={{ '--badge-color': '#8b5cf6' } as React.CSSProperties}>
+            <span className={styles.subsectionDot} style={{ background: '#8b5cf6' }} />
+            ETEC São José dos Campos
+          </div>
+          <h3 className={styles.subsectionTitle}>{t.etec_section}</h3>
+          <p className={styles.subsectionSubtitle}>{t.etec_subtitle}</p>
+        </motion.div>
+
+        <div className={styles.etecGrid}>
+          {etecPortfolios.map((portfolio, index) => (
+            <EtecPortfolioCard key={portfolio.id} portfolio={portfolio} index={index} />
           ))}
         </div>
+
       </div>
+
+      <ProjectModal
+        project={modalProject}
+        isOpen={!!modalProject}
+        onClose={() => setModalProject(null)}
+        language={language}
+      />
     </section>
   );
 }
-

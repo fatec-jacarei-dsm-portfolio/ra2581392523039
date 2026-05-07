@@ -36,7 +36,16 @@ export default function AreaProfissional() {
           >
             <div className={styles.introCard}>
               <div className={styles.avatar}>
-                <span>JP</span>
+                {personalInfo.avatarUrl ? (
+                  <img
+                    className={styles.avatarImg}
+                    src={personalInfo.avatarUrl}
+                    alt={`Foto de perfil de ${personalInfo.name}`}
+                    loading="lazy"
+                  />
+                ) : (
+                  <span>{personalInfo.name.split(' ')[0].slice(0, 2).toUpperCase()}</span>
+                )}
               </div>
               <div className={styles.introText}>
                 <h3>Desenvolvedor</h3>

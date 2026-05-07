@@ -9,8 +9,19 @@
   background: transparent;
 }
 
+.progressBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--color-accent-primary);
+  transform-origin: 0%;
+  z-index: 1001;
+}
+
 .navbar.scrolled {
-  background: rgba(10, 10, 15, 0.85);
+  background: var(--color-bg-navbar);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   padding: 0.75rem 0;
@@ -46,6 +57,36 @@
   background: var(--color-accent-primary);
   border-radius: 50%;
   animation: pulse 2s infinite;
+}
+
+.rightSide {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.controlBtn {
+  font-size: 1.25rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.4rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.controlBtn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.1);
 }
 
 .navLinks {
@@ -140,7 +181,7 @@
   top: 100%;
   left: 0;
   right: 0;
-  background: rgba(10, 10, 15, 0.98);
+  background: var(--color-bg-navbar);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   padding: 1rem;

@@ -1,20 +1,32 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
+import { useAppContext } from '../context/AppContext';
+import { translations } from '../data/translations';
 import styles from './Navbar.module.css';
 
-const navItems = [
-  { id: 'hero', label: 'Início' },
-  { id: 'curriculo', label: 'Currículo' },
-  { id: 'profissional', label: 'Profissional' },
-  { id: 'projetos', label: 'Projetos' },
-  { id: 'certificados', label: 'Certificados' },
-  { id: 'interesses', label: 'Interesses' }
-];
-
 export default function Navbar() {
+  const { language, setLanguage, theme, toggleTheme } = useAppContext();
   const [activeSection, setActiveSection] = useState('hero');
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const t = translations[language];
+
+  const navItems = [
+    { id: 'hero', label: t.nav.hero },
+    { id: 'curriculo', label: t.nav.curriculo },
+    { id: 'profissional', label: t.nav.profissional },
+    { id: 'projetos', label: t.nav.projetos },
+    { id: 'certificados', label: t.nav.certificados },
+    { id: 'interesses', label: t.nav.interesses },
+    { id: 'contact', label: t.nav.contact }
+  ];
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,7 +48,7 @@ export default function Navbar() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [language]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -53,6 +65,7 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
     >
+      <motion.div className={styles.progressBar} style={{ scaleX }} />
       <div className={styles.container}>
         <motion.a 
           href="#hero" 
@@ -64,35 +77,54 @@ export default function Navbar() {
           <span className={styles.logoDot}></span>
         </motion.a>
 
-        <ul className={styles.navLinks}>
-          {navItems.map((item) => (
-            <li key={item.id}>
-              <motion.button
-                onClick={() => scrollToSection(item.id)}
-                className={`${styles.navLink} ${activeSection === item.id ? styles.active : ''}`}
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {item.label}
-                {activeSection === item.id && (
-                  <motion.div 
-                    className={styles.activeIndicator}
-                    layoutId="activeIndicator"
-                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                  />
-                )}
-              </motion.button>
-            </li>
-          ))}
-        </ul>
+        <div className={styles.rightSide}>
+          <ul className={styles.navLinks}>
+            {navItems.map((item) => (
+              <li key={item.id}>
+                <motion.button
+                  onClick={() => scrollToSection(item.id)}
+                  className={`${styles.navLink} ${activeSection === item.id ? styles.active : ''}`}
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {item.label}
+                  {activeSection === item.id && (
+                    <motion.div 
+                      className={styles.activeIndicator}
+                      layoutId="activeIndicator"
+                      transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                    />
+                  )}
+                </motion.button>
+              </li>
+            ))}
+          </ul>
 
-        <button 
-          className={styles.mobileToggle}
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          <span className={`${styles.hamburger} ${isMobileMenuOpen ? styles.open : ''}`}></span>
-        </button>
+          <div className={styles.controls}>
+            <button 
+              className={styles.controlBtn}
+              onClick={() => setLanguage(language === 'pt' ? 'en' : 'pt')}
+              title={language === 'pt' ? 'Switch to English' : 'Mudar para Português'}
+            >
+              {language === 'pt' ? '🇺🇸' : '🇧🇷'}
+            </button>
+            <button 
+              className={styles.controlBtn}
+              onClick={toggleTheme}
+              title={theme === 'dark' ? 'Mudar para Light Mode' : 'Switch to Dark Mode'}
+            >
+              {theme === 'dark' ? '☀️' : '🌙'}
+            </button>
+          </div>
+
+          <button 
+            className={styles.mobileToggle}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span className={`${styles.hamburger} ${isMobileMenuOpen ? styles.open : ''}`}></span>
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>

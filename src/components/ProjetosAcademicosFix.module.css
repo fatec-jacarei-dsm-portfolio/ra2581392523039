@@ -1,0 +1,462 @@
+/* ═══════════════════════════════════════
+   Section wrapper
+═══════════════════════════════════════ */
+.projetos {
+  min-height: 100vh;
+  padding: 100px 0 120px;
+  background: var(--color-bg-secondary);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ═══════════════════════════════════════
+   Section header
+═══════════════════════════════════════ */
+.sectionTitle {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--color-text-primary), var(--color-accent-tertiary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sectionSubtitle {
+  font-size: 1.125rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 3.5rem;
+  max-width: 600px;
+}
+
+/* ═══════════════════════════════════════
+   Sub-section headers (FATEC / ETEC)
+═══════════════════════════════════════ */
+.subsectionHeader {
+  margin-bottom: 2rem;
+}
+
+.subsectionBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent-tertiary);
+  margin-bottom: 0.75rem;
+}
+
+.subsectionDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent-primary);
+  display: inline-block;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(1.4); }
+}
+
+.subsectionTitle {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.subsectionSubtitle {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 1.75rem;
+  max-width: 580px;
+}
+
+/* ═══════════════════════════════════════
+   Filter bar
+═══════════════════════════════════════ */
+.filterContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.filterButton {
+  padding: 0.5rem 1.1rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.filterButton:hover {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: rgba(99, 102, 241, 0.3);
+  color: var(--color-text-primary);
+}
+
+.filterActive {
+  background: var(--color-accent-primary);
+  border-color: var(--color-accent-primary);
+  color: white;
+}
+
+.filterActive:hover {
+  background: var(--color-accent-secondary);
+  color: white;
+}
+
+/* ═══════════════════════════════════════
+   FATEC project cards grid
+═══════════════════════════════════════ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.card {
+  position: relative;
+  height: 450px;
+  perspective: 2000px;
+  cursor: pointer;
+}
+
+.cardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.card.active .cardInner {
+  transform: rotateY(180deg);
+}
+
+.cardFront,
+.cardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.cardFront {
+  background: rgba(26, 26, 36, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.cardFront:hover {
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: 0 0 40px rgba(99, 102, 241, 0.15);
+}
+
+.cardIcon {
+  width: 60px;
+  height: 60px;
+  flex: 0 0 auto;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.cardIcon svg {
+  width: 32px;
+  height: 32px;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  color: var(--color-accent-secondary);
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.cardDescription {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  flex: 1;
+  -webkit-line-clamp: unset;
+  margin-bottom: 1.5rem;
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.cardDescription::-webkit-scrollbar { width: 4px; }
+.cardDescription::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 2px; }
+.cardDescription::-webkit-scrollbar-thumb { background: rgba(99,102,241,0.5); border-radius: 2px; }
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tag {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-accent-tertiary);
+  background: rgba(99, 102, 241, 0.1);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.tagIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardBack {
+  background: linear-gradient(135deg, var(--color-bg-card), var(--color-bg-elevated));
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  transform: rotateY(180deg);
+}
+
+.detailsBtn {
+  margin-top: auto;
+  padding: 0.6rem;
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--color-accent-tertiary);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.detailsBtn:hover {
+  background: var(--color-accent-primary);
+  color: white;
+}
+
+/* ═══════════════════════════════════════
+   GitHub button (modal / back of card)
+═══════════════════════════════════════ */
+.githubButtonWrap {
+  margin-top: 0.75rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.githubButton {
+  display: inline-flex;
+  width: auto;
+  max-width: 420px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.6rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, rgba(99,102,241,1), rgba(139,92,246,1));
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  border: none;
+  transition: all var(--transition-fast);
+}
+
+.githubButton:hover {
+  box-shadow: 0 6px 28px rgba(99,102,241,0.35);
+  transform: translateY(-1px);
+}
+
+/* ═══════════════════════════════════════
+   ETEC Portfolio cards
+═══════════════════════════════════════ */
+.etecGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.etecCard {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  background: rgba(26, 26, 36, 0.5);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  min-height: 280px;
+}
+
+.etecCard:hover {
+  border-color: var(--etec-color, #6366f1);
+  box-shadow: 0 0 50px color-mix(in srgb, var(--etec-color, #6366f1) 20%, transparent);
+}
+
+.etecCardGlow {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  opacity: 0.08;
+  filter: blur(40px);
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.etecCard:hover .etecCardGlow {
+  opacity: 0.18;
+}
+
+.etecCardContent {
+  position: relative;
+  z-index: 1;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.etecIcon {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.etecBadge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--etec-color, #6366f1);
+  background: color-mix(in srgb, var(--etec-color, #6366f1) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--etec-color, #6366f1) 30%, transparent);
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+  width: fit-content;
+}
+
+.etecTitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.etecDescription {
+  font-size: 0.925rem;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  flex: 1;
+  margin-bottom: 1.75rem;
+}
+
+.etecLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--etec-color, #6366f1);
+  text-decoration: none;
+  transition: gap 0.2s ease;
+}
+
+.etecCard:hover .etecLink {
+  gap: 0.75rem;
+}
+
+/* ═══════════════════════════════════════
+   YouTube embed
+═══════════════════════════════════════ */
+.youtubeWrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.youtubeIframe {
+  width: 100%;
+  height: 360px;
+  border: 0;
+  border-radius: var(--radius-md);
+}
+
+/* ═══════════════════════════════════════
+   Responsive
+═══════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .grid,
+  .etecGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .projetos {
+    padding: 80px 0 100px;
+  }
+
+  .card {
+    height: auto;
+    min-height: 380px;
+  }
+
+  .cardFront,
+  .cardBack {
+    padding: 1.5rem;
+  }
+
+  .cardTitle {
+    font-size: 1.25rem;
+  }
+
+  .youtubeIframe {
+    height: 260px;
+  }
+
+  .etecCardContent {
+    padding: 1.75rem;
+  }
+}

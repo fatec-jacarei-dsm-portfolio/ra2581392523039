@@ -28,8 +28,15 @@ export interface Project {
   tags: string[];
   githubUrl?: string;
   liveUrl?: string;
+  /** Link direto do vídeo no YouTube (ex: https://www.youtube.com/watch?v=xxxx) */
+  youtubeUrl?: string;
+  /** Se preferir, pode passar apenas o ID do vídeo (ex: xxxx) */
+  youtubeVideoId?: string;
   image?: string;
+  /** Origem do projeto: 'fatec' | 'etec' */
+  source?: 'fatec' | 'etec';
 }
+
 
 export interface Certificate {
   id: string;

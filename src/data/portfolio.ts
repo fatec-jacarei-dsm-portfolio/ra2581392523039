@@ -7,8 +7,10 @@ export const personalInfo = {
   email: 'joaopedroluvisariseveriano@gmail.com',
   location: 'São José dos Campos, Brasil',
   github: 'https://github.com/JoaoPedroLuvisariSeveriano',
-  linkedin: 'https://www.linkedin.com/in/jo%C3%A3o-pedro-luvisari-severiano-bb1aa9303/',
-  instagram: 'https://www.instagram.com/pedro_luvisari/'
+  linkedin: 'https://www.linkedin.com/in/joão-pedro-luvisari-severiano-bb1aa9303/',
+  instagram: 'https://www.instagram.com/pedro_luvisari/',
+  // Link para a foto de perfil (arquivo local dentro do projeto)
+  avatarUrl: '/Perfil%20atualizada.JPG',
 };
 
 export const education: Education[] = [
@@ -53,23 +55,67 @@ export const projects: Project[] = [
   {
     id: '1',
     title: 'TCC ETEC – PetNexus',
-    description: 'O PetNexus é um sistema de gerenciamento de PetShop e clínica veterinária, que possibilita a marcação de consultas e cirurgias para o seu Pet, além de oferecer uma área de gestão de controle de estoque e venda de produtos.',
+    description: `PetNexus (TCC – ETEC) é um sistema web para gestão de PetShop e clínica veterinária. O projeto permite:
+• Agendamento de consultas e cirurgias
+• Controle de estoque e registro de vendas
+• Organização por funcionalidades (cadastros, fluxo de atendimento e relatórios)
+
+Tecnologias utilizadas:
+• Frontend: JavaScript, HTML, CSS (SCSS)
+• Backend: PHP
+• Estilo/Layouts: SCSS
+• Protótipos/Planejamento: Hack (ideias e prototipação durante o desenvolvimento)`,
     tags: ['JavaScript', 'PHP', 'SCSS', 'HTML', 'CSS', 'Hack'],
-    githubUrl: 'https://github.com/JoaoPedroLuvisariSeveriano/PetNexus'
+    githubUrl: 'https://github.com/JoaoPedroLuvisariSeveriano/PetNexus',
+    source: 'etec'
   },
   {
     id: '2',
-    title: 'ABP FATEC – AgriRS-Lab',
+    title: 'ABP FATEC 1 – AgriRS-Lab',
     description: 'O projeto ABP (Aprendizagem Baseada em Projeto), desenvolvido como atividade do 1° semestre do curso de Desenvolvimento de Software Multiplataforma da Fatec Jacareí, tem como objetivo criar um website para o Laboratório de Sensoriamento Remoto Agrícola do INPE (AgriRS Lab).\n\nO site busca:\n• Centralizar informações importantes sobre o laboratório.\n• Ampliar a visibilidade das pesquisas e projetos do AgriRS Lab.\n• Facilitar o acesso do público às iniciativas e atividades do laboratório.\n• Divulgar informações sobre a equipe, áreas de atuação, publicações científicas, oportunidades de trabalho e formas de contato.\n\nO projeto contribui para manter as atividades e descobertas científicas atualizadas para a comunidade e promove a divulgação do laboratório para interessados em conhecer ou colaborar com o trabalho desenvolvido.',
     tags: ['HTML', 'CSS', 'JavaScript'],
-    githubUrl: 'https://github.com/KaimanByte/AgriRS-Lab'
+    githubUrl: 'https://github.com/KaimanByte/AgriRS-Lab',
+    youtubeUrl: 'https://www.youtube.com/embed/jQnsITIP0jw',
+    source: 'fatec'
   },
   {
     id: '3',
-    title: 'ABP FATEC – 2º Período',
+    title: 'ABP FATEC 2 – Conecta Fatec Jacareí',
     description: 'O projeto acadêmico integrador desenvolvido no 2º período do curso de Desenvolvimento de Software Multiplataforma da Fatec Jacareí tem como foco a criação de soluções tecnológicas para problemas reais da secretaria da Fatec Jacareí.\n\nEsse projeto busca aplicar os conhecimentos adquiridos em sala de aula em um contexto prático, promovendo inovação e contribuindo para a melhoria dos processos internos da instituição.',
     tags: ['JavaScript', 'TypeScript', 'React', 'HTML', 'CSS'],
-    githubUrl: 'https://github.com'
+    githubUrl: 'https://github.com/KaimanByte/Conecta-Fatec-Jacarei',
+    youtubeUrl: 'https://www.youtube.com/embed/7bFm-wabf_s',
+    source: 'fatec'
+  },
+  {
+    id: '4',
+    title: 'Sistema de Gestão Acadêmica',
+    description: 'Sistema de Gestão Acadêmica é uma aplicação web full-stack desenvolvida para facilitar a administração de instituições de ensino. O projeto oferece módulos para cadastro e gerenciamento de alunos, cursos, turmas, professores e lançamentos de notas, com APIs REST no back-end e interface responsiva no front-end. O código está organizado em pastas /frontend e /backend, permitindo desenvolvimento e deploy independentes. Linguagens utilizadas: TypeScript (97.4%), JavaScript (2.2%) e Other (0.4%).',
+    tags: ['TypeScript', 'JavaScript', 'Other'],
+    githubUrl: 'https://github.com/JoaoPedroLuvisariSeveriano/Sistema-de-Gestao-Academica',
+    source: 'fatec'
+  }
+];
+
+// Portfólios da ETEC – links para os Google Sites
+export const etecPortfolios = [
+  {
+    id: 'etec-portfolio-1',
+    title: 'Portfólio ETEC – 1º Ano (2023)',
+    description: 'Portfólio desenvolvido durante o 1º ano do Curso Técnico em Desenvolvimento de Sistemas na ETEC São José dos Campos. Contém projetos, atividades e aprendizados do período.',
+    url: 'https://sites.google.com/view/joopedroluvisariseveriano/p%C3%A1gina-inicial?authuser=1',
+    year: '2023 – 1º Ano',
+    icon: '📚',
+    color: '#6366f1'
+  },
+  {
+    id: 'etec-portfolio-2',
+    title: 'Portfólio ETEC – 2º Ano (2024)',
+    description: 'Portfólio desenvolvido durante o 2º ano do Curso Técnico em Desenvolvimento de Sistemas na ETEC São José dos Campos. Inclui o TCC PetNexus e projetos avançados do curso.',
+    url: 'https://sites.google.com/view/joopedroluvisariseveriano1/p%C3%A1gina-inicial?authuser=1',
+    year: '2024 – 2º Ano',
+    icon: '🎓',
+    color: '#8b5cf6'
   }
 ];
 
@@ -145,7 +191,7 @@ export const personalInterests: PersonalInterest[] = [
     id: '4',
     title: 'Leitura',
     description: 'Gosto de ler',
-    icon: '📚',
+    icon: '📖',
     color: '#f59e0b',
     styles: ['Ficção', 'Tecnologia', 'Desenvolvimento Pessoal']
   },
@@ -166,4 +212,3 @@ export const personalInterests: PersonalInterest[] = [
     styles: ['Explorar novas culturas', 'Conhecer novos lugares', 'Inspiração para novos projetos']
   }
 ];
-

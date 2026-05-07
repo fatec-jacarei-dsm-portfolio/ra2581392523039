@@ -18,18 +18,19 @@
 }
 
 .card {
-  background: var(--color-bg-card);
+  background: rgba(26, 26, 36, 0.4);
+  backdrop-filter: blur(12px);
   border-radius: var(--radius-lg);
   border: 1px solid rgba(255, 255, 255, 0.05);
   overflow: hidden;
   cursor: pointer;
   transition: all var(--transition-base);
+  perspective: 1000px;
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(99, 102, 241, 0.3);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: 0 0 40px rgba(99, 102, 241, 0.15);
 }
 
 .cardImage {

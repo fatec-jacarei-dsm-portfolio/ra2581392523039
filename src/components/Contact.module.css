@@ -1,0 +1,102 @@
+.contact {
+  padding: 100px 0;
+  background: var(--color-bg-primary);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+
+.form {
+  background: var(--color-bg-card);
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.field {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.field label {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+.field input, .field textarea {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  color: var(--color-text-primary);
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.field input:focus, .field textarea:focus {
+  border-color: var(--color-accent-primary);
+}
+
+.submit {
+  width: 100%;
+  padding: 1rem;
+  background: var(--color-accent-primary);
+  color: white;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.submit:hover {
+  background: var(--color-accent-secondary);
+  box-shadow: 0 8px 24px var(--color-accent-glow);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contactCard {
+  background: var(--color-bg-card);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.contactCard h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.contactCard p {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+.icon {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
