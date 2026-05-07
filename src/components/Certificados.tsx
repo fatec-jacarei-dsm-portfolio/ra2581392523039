@@ -90,7 +90,7 @@ export default function Certificados() {
           </div>
           <div className={styles.statDivider}></div>
           <div className={styles.statItem}>
-            <span className={styles.statNumber}>2024</span>
+            <span className={styles.statNumber}>2026</span>
             <span className={styles.statLabel}>Ano Atual</span>
           </div>
         </motion.div>
