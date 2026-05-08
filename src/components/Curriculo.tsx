@@ -5,10 +5,10 @@ import { translations } from '../data/translations';
 import styles from './Curriculo.module.css';
 
 const skillCategories = [
-  { key: 'frontend', label: 'Frontend', color: '#6366f1' },
-  { key: 'backend', label: 'Backend', color: '#10b981' },
-  { key: 'tools', label: 'Ferramentas', color: '#f59e0b' },
-  { key: 'soft', label: 'Soft Skills', color: '#f43f5e' }
+  { key: 'frontend', color: '#6366f1' },
+  { key: 'backend', color: '#10b981' },
+  { key: 'tools', color: '#f59e0b' },
+  { key: 'soft', color: '#f43f5e' }
 ];
 
 const skillIcons: Record<string, string> = {
@@ -169,7 +169,7 @@ export default function Curriculo() {
             {skillCategories.map((category, catIndex) => (
               <div key={category.key} className={styles.skillCategory}>
                 <h4 className={styles.skillCategoryTitle} style={{ color: category.color }}>
-                  {(tSkills.categories as any)[category.key] || category.label}
+                  {(tSkills.categories as any)[category.key] || category.key}
                 </h4>
                 <div className={styles.skillsList}>
                   {getSkillsByCategory(category.key).map((skill, skillIndex) => (

@@ -58,6 +58,7 @@ export const translations = {
     spotify: {
       listeningNow: 'Ouvindo agora'
     },
+    skills: {
       title: 'Minhas Habilidades',
       subtitle: 'Tecnologias e ferramentas que utilizo no dia a dia.',
       categories: {
@@ -294,6 +295,7 @@ export const translations = {
     spotify: {
       listeningNow: 'Listening now'
     },
+    skills: {
       title: 'My Skills',
       subtitle: 'Technologies and tools I use on a daily basis.',
       categories: {
