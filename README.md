@@ -100,8 +100,8 @@ Portfolio/
 
 | Ano | Portfólio | Acesso |
 |-----|-----------|--------|
-| **2023 – 1º Ano** | Portfólio ETEC – 1º Ano | [🌐 Acessar](https://sites.google.com/view/joopedroluvisariseveriano/p%C3%A1gina-inicial?authuser=1) |
-| **2024 – 2º Ano** | Portfólio ETEC – 2º Ano | [🌐 Acessar](https://sites.google.com/view/joopedroluvisariseveriano1/p%C3%A1gina-inicial?authuser=1) |
+| **2024 – 1º Período** | Portfólio ETEC – 1º Ano | [🌐 Acessar](https://sites.google.com/view/joopedroluvisariseveriano/p%C3%A1gina-inicial?authuser=1) |
+| **2024 – 2º Período** | Portfólio ETEC – 2º Ano | [🌐 Acessar](https://sites.google.com/view/joopedroluvisariseveriano1/p%C3%A1gina-inicial?authuser=1) |
 | **TCC 2025** | **PetNexus** – Sistema de Gestão PetShop | [🔗 GitHub](https://github.com/JoaoPedroLuvisariSeveriano/PetNexus) |
 
 ---
