@@ -117,7 +117,94 @@ export const translations = {
       links: 'Links do Projeto',
       repo: 'Repositório',
       video: 'Vídeo Demonstrativo',
-      sourceCode: 'Código Fonte'
+      sourceCode: 'Código Fonte',
+      about: 'Sobre o Projeto',
+      challenges: 'Desafios',
+      challengesDesc: 'Implementação de arquitetura escalável e integração de APIs.',
+      takeaways: 'Aprendizado',
+      takeawaysDesc: 'Domínio de hooks avançados e animações complexas.',
+      videoNotAvailable: 'Vídeo não disponível'
+    },
+    data: {
+      education: [
+        {
+          id: '1',
+          institution: 'Fatec Jacareí',
+          degree: 'Tecnólogo em Desenvolvimento de Software Multiplataforma',
+          period: '2025 - 2028 (cursando)',
+          description: 'Formação tecnológica focada em desenvolvimento de software multiplataforma, arquitetura de sistemas e práticas ágeis.'
+        },
+        {
+          id: '2',
+          institution: 'ETEC São José dos Campos',
+          degree: 'Técnico em Desenvolvimento de Sistemas',
+          period: '2024 - 2025',
+          description: 'Formação técnica com foco em programação, banco de dados e desenvolvimento web.'
+        }
+      ],
+      projects: [
+        {
+          id: '1',
+          title: 'TCC ETEC – PetNexus',
+          description: 'PetNexus (TCC – ETEC) é um sistema web para gestão de PetShop e clínica veterinária. O projeto permite agendamento de consultas, controle de estoque e organização por funcionalidades.',
+          source: 'personal'
+        },
+        {
+          id: '2',
+          title: 'ABP FATEC 1 – AgriRS-Lab',
+          description: 'Website para o Laboratório de Sensoriamento Remoto Agrícola do INPE, visando centralizar informações e ampliar a visibilidade das pesquisas.',
+          source: 'fatec'
+        },
+        {
+          id: '3',
+          title: 'ABP FATEC 2 – Conecta Fatec Jacareí',
+          description: 'Solução tecnológica desenvolvida para otimizar processos internos da secretaria da Fatec Jacareí.',
+          source: 'fatec'
+        },
+        {
+          id: '4',
+          title: 'Sistema de Gestão Acadêmica',
+          description: 'Aplicação full-stack para administração escolar, com gestão de alunos, cursos, turmas e notas.',
+          source: 'personal'
+        }
+      ],
+      etecPortfolios: [
+        {
+          id: 'etec-portfolio-1',
+          title: 'Portfólio ETEC – 1º Período (2024)',
+          description: 'Projetos e aprendizados do 1º período do Curso Técnico na ETEC.',
+          year: '2024 – 1º Período'
+        },
+        {
+          id: 'etec-portfolio-2',
+          title: 'Portfólio ETEC – 2º Período (2024)',
+          description: 'TCC PetNexus e projetos avançados do 2º período na ETEC.',
+          year: '2024 – 2º Período'
+        }
+      ],
+      diplomas: [
+        {
+          id: '1',
+          title: 'Técnico em Desenvolvimento de Sistemas',
+          issuer: 'ETEC São José dos Campos',
+          date: '2024'
+        }
+      ],
+      certificates: [
+        { id: '1', title: 'Getting Started with Cisco Packet Tracer', issuer: 'Cisco Networking Academy' },
+        { id: '2', title: 'Linux Unhatched', issuer: 'Cisco Networking Academy' },
+        { id: '3', title: 'Gerenciamento de Ameaças Cibernéticas', issuer: 'Cisco Networking Academy' },
+        { id: '4', title: 'Introdução à Cibersegurança', issuer: 'Cisco Networking Academy' },
+        { id: '5', title: 'Escola de Inovadores (20ª Edição)', issuer: 'Escola de Inovadores' }
+      ],
+      personalInterests: [
+        { id: '1', title: 'Música', description: 'Gosto de ouvir Música', styles: ['Eletrônico', 'Reggae', 'Hip Hop'] },
+        { id: '2', title: 'Games', description: 'Gosto de jogar', styles: ['FPS', 'MMORPG', 'Estratégia'] },
+        { id: '3', title: 'Fotografia', description: 'Gosto de tirar fotos', styles: ['Natureza', 'Urbana', 'Viagens'] },
+        { id: '4', title: 'Leitura', description: 'Gosto de ler', styles: ['Ficção', 'Tecnologia', 'Desenvolvimento Pessoal'] },
+        { id: '5', title: 'Cinema', description: 'Gosto de assistir filmes', styles: ['Ficção Científica', 'Drama', 'Ação'] },
+        { id: '6', title: 'Viajar', description: 'Gosto de viajar', styles: ['Cultura', 'Novos Lugares', 'Inspiração'] }
+      ]
     },
     commandPalette: {
       placeholder: 'O que você está procurando?',
@@ -244,7 +331,94 @@ export const translations = {
       links: 'Project Links',
       repo: 'Repository',
       video: 'Demo Video',
-      sourceCode: 'Source Code'
+      sourceCode: 'Source Code',
+      about: 'About the Project',
+      challenges: 'Challenges',
+      challengesDesc: 'Implementing scalable architecture and API integration.',
+      takeaways: 'Key Takeaways',
+      takeawaysDesc: 'Mastery of advanced hooks and complex animations.',
+      videoNotAvailable: 'Video not available'
+    },
+    data: {
+      education: [
+        {
+          id: '1',
+          institution: 'Fatec Jacareí',
+          degree: 'Multiplatform Software Development Technologist',
+          period: '2025 - 2028 (current)',
+          description: 'Technological training focused on multiplatform software development, systems architecture, and agile practices.'
+        },
+        {
+          id: '2',
+          institution: 'ETEC São José dos Campos',
+          degree: 'Systems Development Technician',
+          period: '2024 - 2025',
+          description: 'Technical training focusing on programming, database, and web development.'
+        }
+      ],
+      projects: [
+        {
+          id: '1',
+          title: 'ETEC TCC – PetNexus',
+          description: 'PetNexus (ETEC TCC) is a web system for PetShop and veterinary clinic management, allowing appointment scheduling and inventory control.',
+          source: 'personal'
+        },
+        {
+          id: '2',
+          title: 'FATEC ABP 1 – AgriRS-Lab',
+          description: 'Website for INPE\'s Agricultural Remote Sensing Laboratory, aiming to centralize info and increase research visibility.',
+          source: 'fatec'
+        },
+        {
+          id: '3',
+          title: 'FATEC ABP 2 – Conecta Fatec Jacareí',
+          description: 'Technological solution developed to optimize internal processes at Fatec Jacareí\'s secretariat.',
+          source: 'fatec'
+        },
+        {
+          id: '4',
+          title: 'Academic Management System',
+          description: 'Full-stack application for school administration, including student, course, class, and grade management.',
+          source: 'personal'
+        }
+      ],
+      etecPortfolios: [
+        {
+          id: 'etec-portfolio-1',
+          title: 'ETEC Portfolio – 1st Period (2024)',
+          description: 'Projects and learnings from the 1st period of the Technical Course at ETEC.',
+          year: '2024 – 1st Period'
+        },
+        {
+          id: 'etec-portfolio-2',
+          title: 'ETEC Portfolio – 2nd Period (2024)',
+          description: 'PetNexus TCC and advanced projects from the 2nd period at ETEC.',
+          year: '2024 – 2nd Period'
+        }
+      ],
+      diplomas: [
+        {
+          id: '1',
+          title: 'Systems Development Technician',
+          issuer: 'ETEC São José dos Campos',
+          date: '2024'
+        }
+      ],
+      certificates: [
+        { id: '1', title: 'Getting Started with Cisco Packet Tracer', issuer: 'Cisco Networking Academy' },
+        { id: '2', title: 'Linux Unhatched', issuer: 'Cisco Networking Academy' },
+        { id: '3', title: 'Cyber Threat Management', issuer: 'Cisco Networking Academy' },
+        { id: '4', title: 'Introduction to Cybersecurity', issuer: 'Cisco Networking Academy' },
+        { id: '5', title: 'School of Innovators (20th Edition)', issuer: 'School of Innovators' }
+      ],
+      personalInterests: [
+        { id: '1', title: 'Music', description: 'I like listening to Music', styles: ['Electronic', 'Reggae', 'Hip Hop'] },
+        { id: '2', title: 'Games', description: 'I like playing games', styles: ['FPS', 'MMORPG', 'Strategy'] },
+        { id: '3', title: 'Photography', description: 'I like taking photos', styles: ['Nature', 'Urban', 'Travel'] },
+        { id: '4', title: 'Reading', description: 'I like reading', styles: ['Fiction', 'Technology', 'Personal Development'] },
+        { id: '5', title: 'Cinema', description: 'I like watching movies', styles: ['Sci-Fi', 'Drama', 'Action'] },
+        { id: '6', title: 'Travel', description: 'I like traveling', styles: ['Culture', 'New Places', 'Inspiration'] }
+      ]
     },
     commandPalette: {
       placeholder: 'What are you looking for?',

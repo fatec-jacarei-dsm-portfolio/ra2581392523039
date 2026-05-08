@@ -71,7 +71,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            {personalInfo.title}
+            {language === 'pt' ? 'Desenvolvedor de Software Multiplataforma' : 'Multiplatform Software Developer'}
           </motion.h2>
           
           <motion.p 

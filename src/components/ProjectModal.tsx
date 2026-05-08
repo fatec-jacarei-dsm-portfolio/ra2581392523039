@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
+import { translations } from '../data/translations';
 import styles from './ProjectModal.module.css';
 
 interface ProjectModalProps {
@@ -10,6 +11,7 @@ interface ProjectModalProps {
 
 export default function ProjectModal({ project, isOpen, onClose, language }: ProjectModalProps) {
   if (!project) return null;
+  const t = translations[language].projectModal;
 
   return (
     <AnimatePresence>
@@ -42,17 +44,17 @@ export default function ProjectModal({ project, isOpen, onClose, language }: Pro
 
               <div className={styles.main}>
                 <div className={styles.description}>
-                  <h3>{language === 'pt' ? 'Sobre o Projeto' : 'About the Project'}</h3>
+                  <h3>{t.about}</h3>
                   <p>{project.description}</p>
                   
                   <div className={styles.details}>
                     <div className={styles.detailItem}>
-                      <h4>{language === 'pt' ? 'Desafios' : 'Challenges'}</h4>
-                      <p>{language === 'pt' ? 'Implementação de arquitetura escalável e integração de APIs.' : 'Implementing scalable architecture and API integration.'}</p>
+                      <h4>{t.challenges}</h4>
+                      <p>{t.challengesDesc}</p>
                     </div>
                     <div className={styles.detailItem}>
-                      <h4>{language === 'pt' ? 'Aprendizado' : 'Key Takeaways'}</h4>
-                      <p>{language === 'pt' ? 'Domínio de hooks avançados e animações complexas.' : 'Mastery of advanced hooks and complex animations.'}</p>
+                      <h4>{t.takeaways}</h4>
+                      <p>{t.takeawaysDesc}</p>
                     </div>
                   </div>
                 </div>
@@ -67,7 +69,7 @@ export default function ProjectModal({ project, isOpen, onClose, language }: Pro
                     />
                   ) : (
                     <div className={styles.placeholder}>
-                      {language === 'pt' ? 'Vídeo não disponível' : 'Video not available'}
+                      {t.videoNotAvailable}
                     </div>
                   )}
                   

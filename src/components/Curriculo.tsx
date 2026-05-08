@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { education, experiences, skills } from '../data/portfolio';
+import { experiences, skills } from '../data/portfolio';
 import { useAppContext } from '../context/AppContext';
 import { translations } from '../data/translations';
 import styles from './Curriculo.module.css';
@@ -68,7 +68,7 @@ export default function Curriculo() {
                 {t.education}
               </h3>
               <div className={styles.timeline}>
-                {education.map((edu, index) => (
+                {(translations[language].data as any).education.map((edu: any, index: number) => (
                   <motion.div 
                     key={edu.id}
                     className={styles.timelineItem}
@@ -141,8 +141,8 @@ export default function Curriculo() {
                     <div className={styles.timelineDot}></div>
                     <div className={styles.timelineContent}>
                       <span className={styles.period}>{t.present}</span>
-                      <h4 className={styles.role}>Buscando primeira oportunidade</h4>
-                      <h5 className={styles.company}>Mercado de Tecnologia</h5>
+                      <h4 className={styles.role}>{language === 'pt' ? 'Buscando primeira oportunidade' : 'Seeking first opportunity'}</h4>
+                      <h5 className={styles.company}>{language === 'pt' ? 'Mercado de Tecnologia' : 'Technology Market'}</h5>
                       <p className={styles.description}>
                         {t.emptyExperience}
                       </p>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { certificates } from '../data/portfolio';
 import { useTilt } from '../hooks/useTilt';
@@ -48,7 +48,14 @@ export default function Certificados() {
   const t = translations[language].certificados;
   const [selectedCertificate, setSelectedCertificate] = useState<string | null>(null);
 
-  const selectedCert = certificates.find(c => c.id === selectedCertificate);
+  const localizedCertificates = useMemo(() => {
+    return certificates.map(c => {
+      const translated = (translations[language].data as any).certificates.find((tc: any) => tc.id === c.id);
+      return { ...c, ...translated };
+    });
+  }, [language]);
+
+  const selectedCert = localizedCertificates.find(c => c.id === selectedCertificate);
 
   return (
     <section id="certificados" className={styles.certificados}>
@@ -66,7 +73,7 @@ export default function Certificados() {
         </motion.div>
 
         <div className={styles.grid}>
-          {certificates.map((cert, index) => (
+          {localizedCertificates.map((cert, index) => (
             <CertificateCard 
               key={cert.id} 
               cert={cert} 
@@ -84,7 +91,7 @@ export default function Certificados() {
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           <div className={styles.statItem}>
-            <span className={styles.statNumber}>{certificates.length}</span>
+            <span className={styles.statNumber}>{localizedCertificates.length}</span>
             <span className={styles.statLabel}>{t.stats.certs}</span>
           </div>
           <div className={styles.statDivider}></div>

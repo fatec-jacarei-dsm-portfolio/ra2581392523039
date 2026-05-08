@@ -168,15 +168,29 @@ export default function ProjetosAcademicos() {
   const [filter, setFilter] = useState('Todos');
   const [modalProject, setModalProject] = useState<any>(null);
 
-  const fatecProjects  = projects.filter(p => p.source === 'fatec');
-  const personalProjects = projects.filter(p => p.source === 'personal');
+  const localizedProjects = useMemo(() => {
+    return projects.map(p => {
+      const translated = (translations[language].data as any).projects.find((tp: any) => tp.id === p.id);
+      return { ...p, ...translated };
+    });
+  }, [language]);
+
+  const localizedEtecPortfolios = useMemo(() => {
+    return etecPortfolios.map(p => {
+      const translated = (translations[language].data as any).etecPortfolios.find((tp: any) => tp.id === p.id);
+      return { ...p, ...translated };
+    });
+  }, [language]);
+
+  const fatecProjects = localizedProjects.filter(p => p.source === 'fatec');
+  const personalProjects = localizedProjects.filter(p => p.source === 'personal');
 
   const categories = ['Todos', 'React', 'TypeScript', 'PHP', 'JavaScript'];
 
   const filteredFatec = useMemo(() => {
     if (filter === 'Todos') return fatecProjects;
     return fatecProjects.filter(p => p.tags.includes(filter));
-  }, [filter]);
+  }, [filter, fatecProjects]);
 
   return (
     <section id="projetos" className={styles.projetos}>
@@ -255,7 +269,7 @@ export default function ProjetosAcademicos() {
         />
 
         <div className={styles.etecGrid}>
-          {etecPortfolios.map((portfolio, index) => (
+          {localizedEtecPortfolios.map((portfolio, index) => (
             <EtecPortfolioCard key={portfolio.id} portfolio={portfolio} index={index} />
           ))}
         </div>

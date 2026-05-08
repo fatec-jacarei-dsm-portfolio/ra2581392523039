@@ -28,65 +28,71 @@ export default function InteressesPessoais() {
         <div className={styles.content}>
           {/* Interactive Grid */}
           <div className={styles.grid}>
-            {personalInterests.map((interest, index) => (
-              <motion.div
-                key={interest.id}
-                className={`${styles.card} ${activeInterest === interest.id ? styles.active : ''}`}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                onClick={() => setActiveInterest(activeInterest === interest.id ? null : interest.id)}
-                style={{ '--accent-color': interest.color } as React.CSSProperties}
-              >
-                <div className={styles.cardBackground} />
-                <div className={styles.cardContent}>
-                  <motion.span 
-                    className={styles.icon}
-                    animate={activeInterest === interest.id ? { scale: [1, 1.2, 1], rotate: [0, 5, -5, 0] } : {}}
-                    transition={{ duration: 0.5 }}
-                  >
-                    {interest.icon}
-                  </motion.span>
-                  <h3 className={styles.title}>{interest.title}</h3>
-                  <p className={styles.shortDesc}>
-                    {interest.description}
-                  </p>
-                  
-                  {/* Styles Tags - Always visible for interests with styles */}
-                  {interest.styles && interest.styles.length > 0 && (
-                    <div className={styles.stylesList}>
-                      {interest.styles.map((style, styleIndex) => (
-                        <span 
-                          key={styleIndex} 
-                          className={styles.styleTag}
-                          style={{ borderColor: interest.color, color: interest.color }}
-                        >
-                          {style}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                  
-                  <AnimatePresence>
-                    {activeInterest === interest.id && (
-                      <motion.div
-                        className={styles.expandedContent}
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <div className={styles.tags}>
-                          <span className={styles.tag} style={{ background: interest.color }}>★ {t.featured}</span>
-                        </div>
-                      </motion.div>
+            {(translations[language].data as any).personalInterests.map((interest: any, index: number) => {
+              // Find the original interest for color and icon
+              const baseInterest = personalInterests.find(i => i.id === interest.id);
+              if (!baseInterest) return null;
+              
+              return (
+                <motion.div
+                  key={interest.id}
+                  className={`${styles.card} ${activeInterest === interest.id ? styles.active : ''}`}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  onClick={() => setActiveInterest(activeInterest === interest.id ? null : interest.id)}
+                  style={{ '--accent-color': baseInterest.color } as React.CSSProperties}
+                >
+                  <div className={styles.cardBackground} />
+                  <div className={styles.cardContent}>
+                    <motion.span 
+                      className={styles.icon}
+                      animate={activeInterest === interest.id ? { scale: [1, 1.2, 1], rotate: [0, 5, -5, 0] } : {}}
+                      transition={{ duration: 0.5 }}
+                    >
+                      {baseInterest.icon}
+                    </motion.span>
+                    <h3 className={styles.title}>{interest.title}</h3>
+                    <p className={styles.shortDesc}>
+                      {interest.description}
+                    </p>
+                    
+                    {/* Styles Tags - Always visible for interests with styles */}
+                    {interest.styles && interest.styles.length > 0 && (
+                      <div className={styles.stylesList}>
+                        {interest.styles.map((style: string, styleIndex: number) => (
+                          <span 
+                            key={styleIndex} 
+                            className={styles.styleTag}
+                            style={{ borderColor: baseInterest.color, color: baseInterest.color }}
+                          >
+                            {style}
+                          </span>
+                        ))}
+                      </div>
                     )}
-                  </AnimatePresence>
-                </div>
-                <div className={styles.cardGlow} />
-              </motion.div>
-            ))}
+                  
+                    <AnimatePresence>
+                      {activeInterest === interest.id && (
+                        <motion.div
+                          className={styles.expandedContent}
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <div className={styles.tags}>
+                            <span className={styles.tag} style={{ background: baseInterest.color }}>★ {t.featured}</span>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                  <div className={styles.cardGlow} />
+                </motion.div>
+              );
+            })}
           </div>
 
           {/* Quote Section */}

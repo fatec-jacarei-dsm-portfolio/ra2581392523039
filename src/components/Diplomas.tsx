@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { diplomas } from '../data/portfolio';
 import { useTilt } from '../hooks/useTilt';
@@ -48,7 +48,14 @@ export default function Diplomas() {
   const t = translations[language].diplomas;
   const [selectedDiploma, setSelectedDiploma] = useState<string | null>(null);
 
-  const selectedDip = diplomas.find(d => d.id === selectedDiploma);
+  const localizedDiplomas = useMemo(() => {
+    return diplomas.map(d => {
+      const translated = (translations[language].data as any).diplomas.find((td: any) => td.id === d.id);
+      return { ...d, ...translated };
+    });
+  }, [language]);
+
+  const selectedDip = localizedDiplomas.find(d => d.id === selectedDiploma);
 
   return (
     <section id="diplomas" className={styles.certificados}>
@@ -66,7 +73,7 @@ export default function Diplomas() {
         </motion.div>
 
         <div className={styles.grid}>
-          {diplomas.map((diploma, index) => (
+          {localizedDiplomas.map((diploma, index) => (
             <DiplomaCard 
               key={diploma.id} 
               diploma={diploma} 
@@ -84,7 +91,7 @@ export default function Diplomas() {
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           <div className={styles.statItem}>
-            <span className={styles.statNumber}>{diplomas.length}</span>
+            <span className={styles.statNumber}>{localizedDiplomas.length}</span>
             <span className={styles.statLabel}>{t.stats.diplomas}</span>
           </div>
           <div className={styles.statDivider}></div>
