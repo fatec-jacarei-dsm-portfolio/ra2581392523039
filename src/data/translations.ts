@@ -223,12 +223,6 @@ export const translations = {
         { id: '5', title: 'Cinema', description: 'Gosto de assistir filmes', styles: ['Ficção Científica', 'Drama', 'Ação'] },
         { id: '6', title: 'Viajar', description: 'Gosto de viajar', styles: ['Cultura', 'Novos Lugares', 'Inspiração'] }
       ]
-    },
-    commandPalette: {
-      placeholder: 'O que você está procurando?',
-      shortcut: 'ESC',
-      themeSwitch: 'Mudar Tema',
-      langSwitch: 'Mudar para Inglês'
     }
   },
   en: {
@@ -455,12 +449,6 @@ export const translations = {
         { id: '5', title: 'Cinema', description: 'I like watching movies', styles: ['Sci-Fi', 'Drama', 'Action'] },
         { id: '6', title: 'Travel', description: 'I like traveling', styles: ['Culture', 'New Places', 'Inspiration'] }
       ]
-    },
-    commandPalette: {
-      placeholder: 'What are you looking for?',
-      shortcut: 'ESC',
-      themeSwitch: 'Toggle Theme',
-      langSwitch: 'Switch to Portuguese'
     }
   }
 };

@@ -25,9 +25,13 @@ export default function CommandPalette() {
 
   const actions = [
     { id: 'hero', icon: '🏠', label: t.nav.hero, action: () => scrollTo('hero') },
-    { id: 'projetos', icon: '🚀', label: t.nav.projetos, action: () => scrollTo('projetos') },
     { id: 'curriculo', icon: '📄', label: t.nav.curriculo, action: () => scrollTo('curriculo') },
+    { id: 'profissional', icon: '💼', label: t.nav.profissional, action: () => scrollTo('profissional') },
+    { id: 'projetos', icon: '🚀', label: t.nav.projetos, action: () => scrollTo('projetos') },
     { id: 'diplomas', icon: '🎓', label: t.nav.diplomas, action: () => scrollTo('diplomas') },
+    { id: 'certificados', icon: '📜', label: t.nav.certificados, action: () => scrollTo('certificados') },
+    { id: 'interesses', icon: '🎨', label: t.nav.interesses, action: () => scrollTo('interesses') },
+    { id: 'contact', icon: '📧', label: t.nav.contact, action: () => scrollTo('contact') },
     { id: 'theme', icon: '🌗', label: t.commandPalette.toggleTheme, action: toggleTheme },
     { id: 'lang', icon: '🌍', label: t.commandPalette.switchLanguage, action: () => setLanguage(language === 'pt' ? 'en' : 'pt') },
   ];
