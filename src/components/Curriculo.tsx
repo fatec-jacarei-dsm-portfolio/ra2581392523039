@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { education, experiences, skills } from '../data/portfolio';
+import { useAppContext } from '../context/AppContext';
+import { translations } from '../data/translations';
 import styles from './Curriculo.module.css';
 
 const skillCategories = [
@@ -29,6 +31,10 @@ const skillIcons: Record<string, string> = {
 };
 
 export default function Curriculo() {
+  const { language } = useAppContext();
+  const t = translations[language].curriculo;
+  const tSkills = translations[language].skills;
+
   const getSkillsByCategory = (category: string) => 
     skills.filter(skill => skill.category === category);
 
@@ -41,9 +47,9 @@ export default function Curriculo() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="section-title">Currículo</h2>
+          <h2 className="section-title">{t.title}</h2>
           <p className="section-subtitle">
-            Minha formação acadêmica, experiência profissional e habilidades técnicas
+            {t.subtitle}
           </p>
         </motion.div>
 
@@ -59,7 +65,7 @@ export default function Curriculo() {
             >
               <h3 className={styles.sectionTitle}>
                 <span className={styles.icon}>🎓</span>
-                Formação Acadêmica
+                {t.education}
               </h3>
               <div className={styles.timeline}>
                 {education.map((edu, index) => (
@@ -93,7 +99,7 @@ export default function Curriculo() {
             >
               <h3 className={styles.sectionTitle}>
                 <span className={styles.icon}>💼</span>
-                Experiência Profissional
+                {t.experience}
               </h3>
               {experiences.length > 0 ? (
                 <div className={styles.timeline}>
@@ -134,13 +140,11 @@ export default function Curriculo() {
                   >
                     <div className={styles.timelineDot}></div>
                     <div className={styles.timelineContent}>
-                      <span className={styles.period}>Em construção</span>
+                      <span className={styles.period}>{t.present}</span>
                       <h4 className={styles.role}>Buscando primeira oportunidade</h4>
                       <h5 className={styles.company}>Mercado de Tecnologia</h5>
                       <p className={styles.description}>
-                        Atualmente em formação na FATEC, desenvolvendo projetos acadêmicos 
-                        e adquirindo habilidades em desenvolvimento web. Ansioso para aplicar 
-                        meus conhecimentos em um ambiente profissional.
+                        {t.emptyExperience}
                       </p>
                     </div>
                   </motion.div>
@@ -159,13 +163,13 @@ export default function Curriculo() {
           >
             <h3 className={styles.sectionTitle}>
               <span className={styles.icon}>⚡</span>
-              Habilidades
+              {tSkills.title}
             </h3>
             
             {skillCategories.map((category, catIndex) => (
               <div key={category.key} className={styles.skillCategory}>
                 <h4 className={styles.skillCategoryTitle} style={{ color: category.color }}>
-                  {category.label}
+                  {category.key === 'tools' && language === 'en' ? 'Tools' : category.label}
                 </h4>
                 <div className={styles.skillsList}>
                   {getSkillsByCategory(category.key).map((skill, skillIndex) => (

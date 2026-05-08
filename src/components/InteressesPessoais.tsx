@@ -1,9 +1,13 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { personalInterests } from '../data/portfolio';
+import { useAppContext } from '../context/AppContext';
+import { translations } from '../data/translations';
 import styles from './InteressesPessoais.module.css';
 
 export default function InteressesPessoais() {
+  const { language } = useAppContext();
+  const t = translations[language].interesses;
   const [activeInterest, setActiveInterest] = useState<string | null>(null);
 
   return (
@@ -15,9 +19,9 @@ export default function InteressesPessoais() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="section-title">Interesses Pessoais</h2>
+          <h2 className="section-title">{t.title}</h2>
           <p className="section-subtitle">
-            O que me inspira e motiva fora do mundo da tecnologia
+            {t.subtitle}
           </p>
         </motion.div>
 
@@ -74,7 +78,7 @@ export default function InteressesPessoais() {
                         transition={{ duration: 0.3 }}
                       >
                         <div className={styles.tags}>
-                          <span className={styles.tag} style={{ background: interest.color }}>★ Destaque</span>
+                          <span className={styles.tag} style={{ background: interest.color }}>★ {t.featured}</span>
                         </div>
                       </motion.div>
                     )}
@@ -96,11 +100,9 @@ export default function InteressesPessoais() {
             <div className={styles.quoteCard}>
               <div className={styles.quoteIcon}>💭</div>
               <blockquote>
-                "A criatividade é a inteligência se divertindo. Busco sempre encontrar 
-                inspiração em tudo ao meu redor, transformando experiências cotidianas 
-                em motivação para novos projetos."
+                {t.quote}
               </blockquote>
-              <cite>— João Pedro</cite>
+              <cite>{t.author}</cite>
             </div>
           </motion.div>
 
@@ -112,27 +114,27 @@ export default function InteressesPessoais() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <h3 className={styles.inspirationTitle}>Fontes de Inspiração</h3>
+            <h3 className={styles.inspirationTitle}>{t.inspiration.title}</h3>
             <div className={styles.inspirationGrid}>
               <div className={styles.inspirationCard}>
                 <span className={styles.inspirationIcon}>🌟</span>
-                <h4>Inovação</h4>
-                <p>Tecnologias emergentes e novas abordagens para problemas antigos</p>
+                <h4>{t.inspiration.innovation.title}</h4>
+                <p>{t.inspiration.innovation.desc}</p>
               </div>
               <div className={styles.inspirationCard}>
                 <span className={styles.inspirationIcon}>🎨</span>
-                <h4>Arte & Design</h4>
-                <p>Fotografia, ilustração e design de interfaces</p>
+                <h4>{t.inspiration.art.title}</h4>
+                <p>{t.inspiration.art.desc}</p>
               </div>
               <div className={styles.inspirationCard}>
                 <span className={styles.inspirationIcon}>🌍</span>
-                <h4>Viajens</h4>
-                <p>Novas culturas e perspectivas de vida</p>
+                <h4>{t.inspiration.travel.title}</h4>
+                <p>{t.inspiration.travel.desc}</p>
               </div>
               <div className={styles.inspirationCard}>
                 <span className={styles.inspirationIcon}>📖</span>
-                <h4>Aprendizado</h4>
-                <p>Livros, podcasts e cursos diversos</p>
+                <h4>{t.inspiration.learning.title}</h4>
+                <p>{t.inspiration.learning.desc}</p>
               </div>
             </div>
           </motion.div>

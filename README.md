@@ -33,6 +33,7 @@ Portfólio pessoal desenvolvido com **React + TypeScript + Vite**, com animaçõ
 | 🃏 **Cards 3D** | Efeito de tilt 3D nos cards de projeto |
 | 📽️ **Modal de Projeto** | Modal detalhado com vídeo YouTube e link para GitHub |
 | 🎓 **Portfólios ETEC** | Links diretos para os portfólios Google Sites da ETEC |
+| 📜 **Diplomas** | Exibição do Diploma de Técnico em Desenvolvimento de Sistemas |
 
 ---
 
@@ -50,6 +51,7 @@ Portfolio/
 │   │   ├── Curriculo.tsx                   # Formação e experiência
 │   │   ├── AreaProfissional.tsx            # Área profissional
 │   │   ├── ProjetosAcademicos.tsx          # Projetos FATEC + Portfólios ETEC ⭐
+│   │   ├── Diplomas.tsx                   # Seção de Diplomas
 │   │   ├── Certificados.tsx               # Certificados
 │   │   ├── InteressesPessoais.tsx         # Interesses pessoais
 │   │   ├── Skills.tsx                     # Dashboard de habilidades

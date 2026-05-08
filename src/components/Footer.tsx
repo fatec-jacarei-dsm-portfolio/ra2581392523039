@@ -1,8 +1,12 @@
 import { motion } from 'framer-motion';
 import { personalInfo } from '../data/portfolio';
+import { useAppContext } from '../context/AppContext';
+import { translations } from '../data/translations';
 import styles from './Footer.module.css';
 
 export default function Footer() {
+  const { language } = useAppContext();
+  const t = translations[language].footer;
   const currentYear = new Date().getFullYear();
 
   return (
@@ -69,9 +73,9 @@ export default function Footer() {
           <div className={styles.divider}></div>
 
           <div className={styles.copyright}>
-            <p>© {currentYear} {personalInfo.name}. Todos os direitos reservados.</p>
+            <p>© {currentYear} {personalInfo.name}. {t.rights}</p>
             <p className={styles.madeWith}>
-              Feito com <span className={styles.heart}>♥</span> usando React & TypeScript
+              {language === 'pt' ? 'Feito com' : 'Made with'} <span className={styles.heart}>♥</span> {language === 'pt' ? 'usando' : 'using'} React & TypeScript
             </p>
           </div>
         </motion.div>

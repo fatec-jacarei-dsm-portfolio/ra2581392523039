@@ -162,6 +162,17 @@ export const certificates: Certificate[] = [
   }
 ];
 
+export const diplomas = [
+  {
+    id: '1',
+    title: 'Técnico em Desenvolvimento de Sistemas',
+    issuer: 'ETEC São José dos Campos',
+    date: '2024',
+    imageUrl: `${import.meta.env.BASE_URL}Diploma Desenvolvimento de Sistemas ETEC.jpeg`,
+    credentialUrl: ''
+  }
+];
+
 export const personalInterests: PersonalInterest[] = [
   {
     id: '1',

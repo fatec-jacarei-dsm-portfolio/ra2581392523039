@@ -1,7 +1,5 @@
-@"
 node_modules/
 dist/
 build/
 .env
 .vscode/
-"@ | Out-File -Encoding utf8 .gitignore

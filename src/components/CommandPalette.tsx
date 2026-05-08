@@ -27,6 +27,7 @@ export default function CommandPalette() {
     { id: 'hero', icon: '🏠', label: t.nav.hero, action: () => scrollTo('hero') },
     { id: 'projetos', icon: '🚀', label: t.nav.projetos, action: () => scrollTo('projetos') },
     { id: 'curriculo', icon: '📄', label: t.nav.curriculo, action: () => scrollTo('curriculo') },
+    { id: 'diplomas', icon: '🎓', label: t.nav.diplomas, action: () => scrollTo('diplomas') },
     { id: 'theme', icon: '🌗', label: language === 'pt' ? 'Mudar Tema' : 'Toggle Theme', action: toggleTheme },
     { id: 'lang', icon: '🌍', label: language === 'pt' ? 'Switch to English' : 'Mudar para Português', action: () => setLanguage(language === 'pt' ? 'en' : 'pt') },
   ];

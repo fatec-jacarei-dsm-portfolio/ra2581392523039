@@ -16,6 +16,7 @@ export default function Navbar() {
     { id: 'curriculo', label: t.nav.curriculo },
     { id: 'profissional', label: t.nav.profissional },
     { id: 'projetos', label: t.nav.projetos },
+    { id: 'diplomas', label: t.nav.diplomas },
     { id: 'certificados', label: t.nav.certificados },
     { id: 'interesses', label: t.nav.interesses },
     { id: 'contact', label: t.nav.contact }

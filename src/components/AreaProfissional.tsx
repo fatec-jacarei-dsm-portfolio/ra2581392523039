@@ -1,8 +1,13 @@
 import { motion } from 'framer-motion';
 import { personalInfo } from '../data/portfolio';
+import { useAppContext } from '../context/AppContext';
+import { translations } from '../data/translations';
 import styles from './AreaProfissional.module.css';
 
 export default function AreaProfissional() {
+  const { language } = useAppContext();
+  const t = translations[language].areaProfissional;
+
   return (
     <section id="profissional" className={styles.profissional}>
       <div className={styles.container}>
@@ -13,7 +18,7 @@ export default function AreaProfissional() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="section-title">Área Profissional</h2>
+          <h2 className="section-title">{t.title}</h2>
           <h3 style={{ 
             textAlign: 'center', 
             fontSize: '1.25rem', 
@@ -21,7 +26,7 @@ export default function AreaProfissional() {
             color: 'var(--text-secondary)',
             marginTop: '0.5rem'
           }}>
-            Minha trajetória profissional e contribuições no mercado de tecnologia
+            {t.subtitle}
           </h3>
         </motion.div>
 
@@ -48,12 +53,9 @@ export default function AreaProfissional() {
                 )}
               </div>
               <div className={styles.introText}>
-                <h3>Desenvolvedor</h3>
+                <h3>{t.role}</h3>
                 <p>
-                  Sou um profissional dedicado ao desenvolvimento web, com foco em criar 
-                  experiências digitais memoráveis e funcionais. Atualmente busco minha primeira 
-                  oportunidade no mercado de tecnologia, animado para aplicar os conhecimentos 
-                  adquiridos durante minha formação acadêmica.
+                  {t.description}
                 </p>
                 <div className={styles.contactInfo}>
                   <span>📍 {personalInfo.location}</span>
@@ -72,10 +74,10 @@ export default function AreaProfissional() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             {[
-              { value: '0', label: 'Anos de Experiência' },
-              { value: '3', label: 'Projetos Concluídos' },
-              { value: '8+', label: 'Tecnologias' },
-              { value: '100%', label: 'Comprometimento' }
+              { value: '0', label: t.stats.years },
+              { value: '3', label: t.stats.projects },
+              { value: '8+', label: t.stats.techs },
+              { value: '100%', label: t.stats.commitment }
             ].map((stat, index) => (
               <motion.div 
                 key={stat.label}
@@ -100,28 +102,26 @@ export default function AreaProfissional() {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <div className={styles.philosophyCard}>
-              <h3>Minha Filosofia</h3>
+              <h3>{t.philosophy.title}</h3>
               <blockquote>
-                "A tecnologia deve ser uma extensão da criatividade humana, 
-                não uma barreira. Cada linha de código é uma oportunidade de 
-                criar algo que faça a diferença na vida das pessoas."
+                {t.philosophy.quote}
               </blockquote>
               <div className={styles.values}>
                 <div className={styles.value}>
                   <span className={styles.valueIcon}>🎯</span>
-                  <span>Foco em Resultados</span>
+                  <span>{t.philosophy.values[0]}</span>
                 </div>
                 <div className={styles.value}>
                   <span className={styles.valueIcon}>🔄</span>
-                  <span>Melhoria Contínua</span>
+                  <span>{t.philosophy.values[1]}</span>
                 </div>
                 <div className={styles.value}>
                   <span className={styles.valueIcon}>🤝</span>
-                  <span>Colaboração</span>
+                  <span>{t.philosophy.values[2]}</span>
                 </div>
                 <div className={styles.value}>
                   <span className={styles.valueIcon}>💡</span>
-                  <span>Inovação</span>
+                  <span>{t.philosophy.values[3]}</span>
                 </div>
               </div>
             </div>

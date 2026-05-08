@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { certificates } from '../data/portfolio';
+import { diplomas } from '../data/portfolio';
 import { useTilt } from '../hooks/useTilt';
 import { useAppContext } from '../context/AppContext';
 import { translations } from '../data/translations';
-import styles from './Certificados.module.css';
+import styles from './Diplomas.module.css';
 
-function CertificateCard({ cert, index, onClick }: { cert: any, index: number, onClick: () => void }) {
+function DiplomaCard({ diploma, index, onClick }: { diploma: any, index: number, onClick: () => void }) {
   const { rotateX, rotateY, handleMouseMove, handleMouseLeave } = useTilt();
 
   return (
@@ -22,7 +22,7 @@ function CertificateCard({ cert, index, onClick }: { cert: any, index: number, o
       style={{ rotateX, rotateY }}
     >
       <div className={styles.cardImage}>
-        <img src={cert.imageUrl} alt={cert.title} loading="lazy" />
+        <img src={diploma.imageUrl} alt={diploma.title} loading="lazy" />
         <div className={styles.overlay}>
           <span className={styles.zoomIcon}>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -33,25 +33,25 @@ function CertificateCard({ cert, index, onClick }: { cert: any, index: number, o
         </div>
       </div>
       <div className={styles.cardContent}>
-        <h3 className={styles.cardTitle}>{cert.title}</h3>
+        <h3 className={styles.cardTitle}>{diploma.title}</h3>
         <div className={styles.cardMeta}>
-          <span className={styles.issuer}>{cert.issuer}</span>
-          <span className={styles.date}>{cert.date}</span>
+          <span className={styles.issuer}>{diploma.issuer}</span>
+          <span className={styles.date}>{diploma.date}</span>
         </div>
       </div>
     </motion.div>
   );
 }
 
-export default function Certificados() {
+export default function Diplomas() {
   const { language } = useAppContext();
-  const t = translations[language].certificados;
-  const [selectedCertificate, setSelectedCertificate] = useState<string | null>(null);
+  const t = translations[language].diplomas;
+  const [selectedDiploma, setSelectedDiploma] = useState<string | null>(null);
 
-  const selectedCert = certificates.find(c => c.id === selectedCertificate);
+  const selectedDip = diplomas.find(d => d.id === selectedDiploma);
 
   return (
-    <section id="certificados" className={styles.certificados}>
+    <section id="diplomas" className={styles.certificados}>
       <div className={styles.container}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -66,12 +66,12 @@ export default function Certificados() {
         </motion.div>
 
         <div className={styles.grid}>
-          {certificates.map((cert, index) => (
-            <CertificateCard 
-              key={cert.id} 
-              cert={cert} 
+          {diplomas.map((diploma, index) => (
+            <DiplomaCard 
+              key={diploma.id} 
+              diploma={diploma} 
               index={index} 
-              onClick={() => setSelectedCertificate(cert.id)} 
+              onClick={() => setSelectedDiploma(diploma.id)} 
             />
           ))}
         </div>
@@ -84,12 +84,12 @@ export default function Certificados() {
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           <div className={styles.statItem}>
-            <span className={styles.statNumber}>{certificates.length}</span>
-            <span className={styles.statLabel}>{t.stats.certs}</span>
+            <span className={styles.statNumber}>{diplomas.length}</span>
+            <span className={styles.statLabel}>{t.stats.diplomas}</span>
           </div>
           <div className={styles.statDivider}></div>
           <div className={styles.statItem}>
-            <span className={styles.statNumber}>2</span>
+            <span className={styles.statNumber}>1</span>
             <span className={styles.statLabel}>{t.stats.institutions}</span>
           </div>
           <div className={styles.statDivider}></div>
@@ -101,13 +101,13 @@ export default function Certificados() {
       </div>
 
       <AnimatePresence>
-        {selectedCertificate && selectedCert && (
+        {selectedDiploma && selectedDip && (
           <motion.div
             className={styles.lightbox}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setSelectedCertificate(null)}
+            onClick={() => setSelectedDiploma(null)}
           >
             <motion.div
               className={styles.lightboxContent}
@@ -119,7 +119,7 @@ export default function Certificados() {
             >
               <button 
                 className={styles.closeButton}
-                onClick={() => setSelectedCertificate(null)}
+                onClick={() => setSelectedDiploma(null)}
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M18 6L6 18M6 6l12 12" />
@@ -127,16 +127,16 @@ export default function Certificados() {
               </button>
               
               <div className={styles.lightboxImage}>
-                <img src={selectedCert.imageUrl} alt={selectedCert.title} />
+                <img src={selectedDip.imageUrl} alt={selectedDip.title} />
               </div>
               
               <div className={styles.lightboxInfo}>
-                <h3>{selectedCert.title}</h3>
-                <p className={styles.lightboxIssuer}>{t.issuedBy} {selectedCert.issuer}</p>
-                <p className={styles.lightboxDate}>{selectedCert.date}</p>
-                {selectedCert.credentialUrl && (
+                <h3>{selectedDip.title}</h3>
+                <p className={styles.lightboxIssuer}>{t.issuedBy} {selectedDip.issuer}</p>
+                <p className={styles.lightboxDate}>{selectedDip.date}</p>
+                {selectedDip.credentialUrl && (
                   <a 
-                    href={selectedCert.credentialUrl}
+                    href={selectedDip.credentialUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={styles.credentialButton}

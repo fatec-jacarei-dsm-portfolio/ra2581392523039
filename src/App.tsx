@@ -6,6 +6,7 @@ import Curriculo from './components/Curriculo';
 import AreaProfissional from './components/AreaProfissional';
 import ProjetosAcademicos from './components/ProjetosAcademicos';
 import Certificados from './components/Certificados';
+import Diplomas from './components/Diplomas';
 import InteressesPessoais from './components/InteressesPessoais';
 import Skills from './components/Skills';
 import Footer from './components/Footer';
@@ -45,6 +46,7 @@ function App() {
         <Curriculo />
         <AreaProfissional />
         <ProjetosAcademicos />
+        <Diplomas />
         <Certificados />
         <InteressesPessoais />
         <Skills />

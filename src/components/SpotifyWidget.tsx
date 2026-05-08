@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
+import { useAppContext } from '../context/AppContext';
 import styles from './SpotifyWidget.module.css';
 
 export default function SpotifyWidget() {
+  const { language } = useAppContext();
   // Simulação de música tocando
   const currentSong = {
     title: 'Starboy',
@@ -22,7 +24,7 @@ export default function SpotifyWidget() {
         </svg>
       </div>
       <div className={styles.info}>
-        <div className={styles.status}>Ouvindo agora</div>
+        <div className={styles.status}>{language === 'pt' ? 'Ouvindo agora' : 'Listening now'}</div>
         <div className={styles.title}>{currentSong.title}</div>
         <div className={styles.artist}>{currentSong.artist}</div>
       </div>
