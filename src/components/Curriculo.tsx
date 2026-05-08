@@ -169,7 +169,7 @@ export default function Curriculo() {
             {skillCategories.map((category, catIndex) => (
               <div key={category.key} className={styles.skillCategory}>
                 <h4 className={styles.skillCategoryTitle} style={{ color: category.color }}>
-                  {category.key === 'tools' && language === 'en' ? 'Tools' : category.label}
+                  {(tSkills.categories as any)[category.key] || category.label}
                 </h4>
                 <div className={styles.skillsList}>
                   {getSkillsByCategory(category.key).map((skill, skillIndex) => (
@@ -183,7 +183,9 @@ export default function Curriculo() {
                     >
                       <div className={styles.skillInfo}>
                         <span className={styles.skillIcon}>{skillIcons[skill.name]}</span>
-                        <span className={styles.skillName}>{skill.name}</span>
+                        <span className={styles.skillName}>
+                          {category.key === 'soft' ? (tSkills.softSkills as any)[skill.name] || skill.name : skill.name}
+                        </span>
                       </div>
                     </motion.div>
                   ))}

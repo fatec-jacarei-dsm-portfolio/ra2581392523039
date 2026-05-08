@@ -58,9 +58,19 @@ export const translations = {
     spotify: {
       listeningNow: 'Ouvindo agora'
     },
-    skills: {
       title: 'Minhas Habilidades',
-      subtitle: 'Tecnologias e ferramentas que utilizo no dia a dia.'
+      subtitle: 'Tecnologias e ferramentas que utilizo no dia a dia.',
+      categories: {
+        frontend: 'Frontend',
+        backend: 'Backend',
+        tools: 'Ferramentas',
+        soft: 'Soft Skills'
+      },
+      softSkills: {
+        'Comunicação': 'Comunicação',
+        'Trabalho em Equipe': 'Trabalho em Equipe',
+        'Resolução de Problemas': 'Resolução de Problemas'
+      }
     },
     areaProfissional: {
       title: 'Área Profissional',
@@ -284,9 +294,19 @@ export const translations = {
     spotify: {
       listeningNow: 'Listening now'
     },
-    skills: {
       title: 'My Skills',
-      subtitle: 'Technologies and tools I use on a daily basis.'
+      subtitle: 'Technologies and tools I use on a daily basis.',
+      categories: {
+        frontend: 'Frontend',
+        backend: 'Backend',
+        tools: 'Tools',
+        soft: 'Soft Skills'
+      },
+      softSkills: {
+        'Comunicação': 'Communication',
+        'Trabalho em Equipe': 'Teamwork',
+        'Resolução de Problemas': 'Problem Solving'
+      }
     },
     areaProfissional: {
       title: 'Professional Area',
