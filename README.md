@@ -89,7 +89,12 @@ Portfolio/
 |---|---------|-------------|-------------|
 | 1 | **ABP 1 – AgriRS-Lab** | HTML, CSS, JavaScript | [🔗 Ver](https://github.com/KaimanByte/AgriRS-Lab) |
 | 2 | **ABP 2 – Conecta Fatec Jacareí** | React, TypeScript, JavaScript | [🔗 Ver](https://github.com/KaimanByte/Conecta-Fatec-Jacarei) |
-| 3 | **Sistema de Gestão Acadêmica** | TypeScript, JavaScript | [🔗 Ver](https://github.com/JoaoPedroLuvisariSeveriano/Sistema-de-Gestao-Academica) |
+
+### 💻 Projetos Pessoais
+
+| # | Projeto | Tecnologias | Repositório |
+|---|---------|-------------|-------------|
+| 1 | **Sistema de Gestão Acadêmica** | TypeScript, JavaScript | [🔗 Ver](https://github.com/JoaoPedroLuvisariSeveriano/Sistema-de-Gestao-Academica) |
 
 ### 🏫 ETEC São José dos Campos – Desenvolvimento de Sistemas
 
