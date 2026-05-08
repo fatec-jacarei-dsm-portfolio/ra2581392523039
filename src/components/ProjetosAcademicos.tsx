@@ -241,7 +241,7 @@ export default function ProjetosAcademicos() {
 
         {/* ══ Projetos Pessoais ══ */}
         <SubsectionHeader
-          badge={language === 'pt' ? 'Projetos Independentes' : 'Independent Projects'}
+          badge={t.personal_badge}
           badgeColor="#10b981"
           title={t.personal_section}
           subtitle={t.personal_subtitle}

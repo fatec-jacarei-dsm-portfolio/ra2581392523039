@@ -21,7 +21,7 @@ export default function Footer() {
         >
           <div className={styles.brand}>
             <span className={styles.logo}>JP</span>
-            <p className={styles.tagline}>{personalInfo.tagline}</p>
+            <p className={styles.tagline}>{translations[language].hero.tagline}</p>
           </div>
 
           <div className={styles.social}>
@@ -75,7 +75,7 @@ export default function Footer() {
           <div className={styles.copyright}>
             <p>© {currentYear} {personalInfo.name}. {t.rights}</p>
             <p className={styles.madeWith}>
-              {language === 'pt' ? 'Feito com' : 'Made with'} <span className={styles.heart}>♥</span> {language === 'pt' ? 'usando' : 'using'} React & TypeScript
+              {t.developedWith} <span className={styles.heart}>♥</span> {t.using} React & TypeScript
             </p>
           </div>
         </motion.div>

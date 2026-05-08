@@ -8,7 +8,10 @@ export const translations = {
       diplomas: 'Diplomas',
       certificados: 'Certificados',
       interesses: 'Interesses',
-      contact: 'Contato'
+      contact: 'Contato',
+      switchLanguage: 'Mudar para Inglês',
+      switchTheme: 'Mudar para Modo Claro',
+      switchThemeDark: 'Mudar para Modo Escuro'
     },
     hero: {
       tagline: 'Transformando ideias em experiências digitais memoráveis',
@@ -26,6 +29,7 @@ export const translations = {
       fatec_subtitle: 'Projetos desenvolvidos ao longo do curso de Desenvolvimento de Software Multiplataforma na Fatec Jacareí',
       personal_section: 'Projetos Pessoais',
       personal_subtitle: 'Projetos desenvolvidos de forma independente que demonstram iniciativa e habilidades individuais',
+      personal_badge: 'Projetos Independentes',
       etec_section: 'Portfólios da ETEC',
       etec_subtitle: 'Portfólios desenvolvidos durante o curso Técnico em Desenvolvimento de Sistemas na ETEC São José dos Campos',
       etec_visit: 'Acessar Portfólio',
@@ -109,7 +113,8 @@ export const translations = {
     },
     footer: {
       rights: 'Todos os direitos reservados.',
-      developedWith: 'Desenvolvido com',
+      developedWith: 'Feito com',
+      using: 'usando',
       by: 'por'
     },
     projectModal: {
@@ -222,7 +227,10 @@ export const translations = {
       diplomas: 'Diplomas',
       certificados: 'Certificates',
       interesses: 'Interests',
-      contact: 'Contact'
+      contact: 'Contact',
+      switchLanguage: 'Switch to Portuguese',
+      switchTheme: 'Switch to Light Mode',
+      switchThemeDark: 'Switch to Dark Mode'
     },
     hero: {
       tagline: 'Transforming ideas into memorable digital experiences',
@@ -240,6 +248,7 @@ export const translations = {
       fatec_subtitle: 'Projects developed during the Multiplatform Software Development course at Fatec Jacareí',
       personal_section: 'Personal Projects',
       personal_subtitle: 'Projects developed independently showcasing individual initiative and skills',
+      personal_badge: 'Independent Projects',
       etec_section: 'ETEC Portfolios',
       etec_subtitle: 'Portfolios developed during the Systems Development Technical course at ETEC São José dos Campos',
       etec_visit: 'View Portfolio',
@@ -323,7 +332,8 @@ export const translations = {
     },
     footer: {
       rights: 'All rights reserved.',
-      developedWith: 'Developed with',
+      developedWith: 'Made with',
+      using: 'using',
       by: 'by'
     },
     projectModal: {

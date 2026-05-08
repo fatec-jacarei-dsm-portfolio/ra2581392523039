@@ -105,14 +105,14 @@ export default function Navbar() {
             <button 
               className={styles.controlBtn}
               onClick={() => setLanguage(language === 'pt' ? 'en' : 'pt')}
-              title={language === 'pt' ? 'Switch to English' : 'Mudar para Português'}
+              title={t.nav.switchLanguage}
             >
               {language === 'pt' ? '🇺🇸' : '🇧🇷'}
             </button>
             <button 
               className={styles.controlBtn}
               onClick={toggleTheme}
-              title={theme === 'dark' ? 'Mudar para Light Mode' : 'Switch to Dark Mode'}
+              title={theme === 'dark' ? t.nav.switchTheme : t.nav.switchThemeDark}
             >
               {theme === 'dark' ? '☀️' : '🌙'}
             </button>
