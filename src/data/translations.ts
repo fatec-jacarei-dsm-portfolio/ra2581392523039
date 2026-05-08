@@ -43,7 +43,20 @@ export const translations = {
       email: 'E-mail',
       message: 'Mensagem',
       send: 'Enviar Mensagem',
-      success: 'Mensagem enviada com sucesso!'
+      success: 'Mensagem enviada com sucesso!',
+      error: 'Erro ao enviar mensagem. Tente novamente.',
+      sending: 'Enviando...',
+      location: 'Localização',
+      emailTitle: 'E-mail'
+    },
+    commandPalette: {
+      placeholder: 'O que você está procurando?',
+      shortcut: 'ESC',
+      toggleTheme: 'Mudar Tema',
+      switchLanguage: 'Mudar Idioma'
+    },
+    spotify: {
+      listeningNow: 'Ouvindo agora'
     },
     skills: {
       title: 'Minhas Habilidades',
@@ -224,7 +237,7 @@ export const translations = {
       curriculo: 'Resume',
       profissional: 'Experience',
       projetos: 'Projects',
-      diplomas: 'Diplomas',
+      diplomas: 'Degrees',
       certificados: 'Certificates',
       interesses: 'Interests',
       contact: 'Contact',
@@ -262,7 +275,20 @@ export const translations = {
       email: 'Email',
       message: 'Message',
       send: 'Send Message',
-      success: 'Message sent successfully!'
+      success: 'Message sent successfully!',
+      error: 'Error sending message. Please try again.',
+      sending: 'Sending...',
+      location: 'Location',
+      emailTitle: 'Email'
+    },
+    commandPalette: {
+      placeholder: 'What are you looking for?',
+      shortcut: 'ESC',
+      toggleTheme: 'Toggle Theme',
+      switchLanguage: 'Switch Language'
+    },
+    spotify: {
+      listeningNow: 'Listening now'
     },
     skills: {
       title: 'My Skills',
@@ -297,10 +323,10 @@ export const translations = {
       viewCredential: 'View Credential'
     },
     diplomas: {
-      title: 'Diplomas',
+      title: 'Degrees',
       subtitle: 'Technical education and academic degrees achieved',
       stats: {
-        diplomas: 'Diplomas',
+        diplomas: 'Degrees',
         institutions: 'Institutions',
         year: 'Current Year'
       },

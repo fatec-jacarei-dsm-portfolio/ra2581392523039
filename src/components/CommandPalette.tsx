@@ -28,8 +28,8 @@ export default function CommandPalette() {
     { id: 'projetos', icon: '🚀', label: t.nav.projetos, action: () => scrollTo('projetos') },
     { id: 'curriculo', icon: '📄', label: t.nav.curriculo, action: () => scrollTo('curriculo') },
     { id: 'diplomas', icon: '🎓', label: t.nav.diplomas, action: () => scrollTo('diplomas') },
-    { id: 'theme', icon: '🌗', label: language === 'pt' ? 'Mudar Tema' : 'Toggle Theme', action: toggleTheme },
-    { id: 'lang', icon: '🌍', label: language === 'pt' ? 'Switch to English' : 'Mudar para Português', action: () => setLanguage(language === 'pt' ? 'en' : 'pt') },
+    { id: 'theme', icon: '🌗', label: t.commandPalette.toggleTheme, action: toggleTheme },
+    { id: 'lang', icon: '🌍', label: t.commandPalette.switchLanguage, action: () => setLanguage(language === 'pt' ? 'en' : 'pt') },
   ];
 
   const filteredActions = actions.filter(a => a.label.toLowerCase().includes(query.toLowerCase()));
@@ -62,11 +62,11 @@ export default function CommandPalette() {
             <span className={styles.searchIcon}>🔍</span>
             <input 
               autoFocus
-              placeholder={language === 'pt' ? 'O que você está procurando?' : 'What are you looking for?'}
+              placeholder={t.commandPalette.placeholder}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
-            <span className={styles.shortcut}>ESC</span>
+            <span className={styles.shortcut}>{t.commandPalette.shortcut}</span>
           </div>
 
           <div className={styles.results}>

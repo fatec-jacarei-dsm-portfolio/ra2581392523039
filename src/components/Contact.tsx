@@ -75,9 +75,9 @@ export default function Contact() {
               className={styles.submit}
               disabled={status === 'sending'}
             >
-              {status === 'sending' ? (language === 'pt' ? 'Enviando...' : 'Sending...') :
+              {status === 'sending' ? t.sending :
                 status === 'success' ? t.success :
-                  status === 'error' ? (language === 'pt' ? 'Erro ao enviar' : 'Error sending') :
+                  status === 'error' ? t.error :
                     t.send}
             </button>
           </motion.form>
@@ -91,14 +91,14 @@ export default function Contact() {
             <div className={styles.contactCard}>
               <span className={styles.icon}>📍</span>
               <div>
-                <h3>Localização</h3>
+                <h3>{t.location}</h3>
                 <p>São José dos Campos, SP</p>
               </div>
             </div>
             <div className={styles.contactCard}>
               <span className={styles.icon}>✉️</span>
               <div>
-                <h3>E-mail</h3>
+                <h3>{t.emailTitle}</h3>
                 <p>joaopedroluvisariseveriano@gmail.com</p>
               </div>
             </div>

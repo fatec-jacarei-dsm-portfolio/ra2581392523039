@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useAppContext } from '../context/AppContext';
+import { translations } from '../data/translations';
 import styles from './SpotifyWidget.module.css';
 
 export default function SpotifyWidget() {
@@ -24,7 +25,7 @@ export default function SpotifyWidget() {
         </svg>
       </div>
       <div className={styles.info}>
-        <div className={styles.status}>{language === 'pt' ? 'Ouvindo agora' : 'Listening now'}</div>
+        <div className={styles.status}>{translations[language].spotify.listeningNow}</div>
         <div className={styles.title}>{currentSong.title}</div>
         <div className={styles.artist}>{currentSong.artist}</div>
       </div>
