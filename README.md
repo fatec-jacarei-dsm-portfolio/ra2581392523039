@@ -46,21 +46,22 @@ Embora seja um site 100% estático sem dependências externas, o portfólio cont
 
 ## 🏗️ Estrutura Limpa de Arquivos
 
-O projeto está organizado de forma clara na raiz do repositório, facilitando a manutenção e a visualização rápida do código fonte:
+O projeto está organizado dentro do diretório `/docs`, atendendo diretamente à configuração administrativa de publicação do GitHub Pages da FATEC, mantendo a raiz organizada e limpa:
 
 ```
 Portfolio/
-├── assets/
-│   ├── Diploma Desenvolvimento de Sistemas ETEC.jpeg  # Imagem de visualização do diploma
-│   ├── Perfil atualizada.JPG                          # Foto profissional de perfil
-│   └── vite.svg                                       # Ícone/Favicon da página
-├── css/
-│   └── style.css                                      # Design System, variáveis de tema e estilos unificados
-├── js/
-│   ├── data.js                                        # Banco de dados estruturado do site (textos e traduções bilingues)
-│   └── script.js                                      # Controladores dinâmicos de interações (Tradutor, Temas, Cursor, Modais)
-├── index.html                                         # Arquivo principal do site estruturado semanticamente em HTML5
-└── README.md                                          # Documentação profissional do projeto
+├── docs/                                          # Diretório principal de publicação do site
+│   ├── assets/
+│   │   ├── Diploma Desenvolvimento de Sistemas ETEC.jpeg  # Imagem de visualização do diploma
+│   │   ├── Perfil atualizada.JPG                          # Foto profissional de perfil
+│   │   └── vite.svg                                       # Ícone/Favicon da página
+│   ├── css/
+│   │   └── style.css                                      # Design System, variáveis de tema e estilos unificados
+│   ├── js/
+│   │   ├── data.js                                        # Banco de dados estruturado do site (textos e traduções bilingues)
+│   │   └── script.js                                      # Controladores dinâmicos de interações (Tradutor, Temas, Cursor, Modais)
+│   └── index.html                                         # Arquivo principal do site estruturado semanticamente em HTML5
+└── README.md                                              # Documentação profissional do projeto
 ```
 
 ---
@@ -88,17 +89,17 @@ Por ser um projeto puramente estático, a execução local é extremamente simpl
     cd Portfolio
     ```
 3.  **Abra o arquivo principal**:
-    Dê um duplo clique diretamente no arquivo `index.html` ou abra-o por meio de qualquer navegador de sua preferência. O site carregará instantaneamente com todas as suas funções e imagens funcionando perfeitamente de forma off-line.
+    Dê um duplo clique diretamente no arquivo `docs/index.html` ou abra-o por meio de qualquer navegador de sua preferência. O site carregará instantaneamente com todas as suas funções e imagens funcionando perfeitamente de forma off-line.
 
 ---
 
 ## 🌐 Hospedagem no GitHub Pages
 
-O deploy e hospedagem do portfólio são feitos de forma contínua através do **GitHub Pages** a partir do código fonte da raiz:
+O deploy e a hospedagem do portfólio são realizados através do **GitHub Pages** de forma totalmente estática e nativa:
 
-*   **Configuração**: O site está configurado para ler diretamente o arquivo `index.html` na raiz da branch principal (`main`).
-*   **Atualização**: Qualquer alteração enviada ao repositório via `git push` é publicada instantaneamente de forma automatizada.
-*   **URL Final de Acesso**: `https://fatec-jacarei-dsm-portfolio.github.io/ra2581392523039/`
+*   **Configuração e Segurança**: Devido às diretrizes de administração do GitHub da FATEC Jacareí, a publicação está configurada para servir diretamente a pasta `/docs` na branch principal (`main`). Isso garante que a página seja publicada de forma limpa, segura e sem builds desnecessários que atrasem o carregamento.
+*   **Atualização**: Qualquer alteração enviada ao repositório via `git push` é atualizada e sincronizada em menos de 10 segundos pelo próprio serviço de Pages do GitHub.
+*   **URL Final de Acesso**: [https://fatec-jacarei-dsm-portfolio.github.io/ra2581392523039/](https://fatec-jacarei-dsm-portfolio.github.io/ra2581392523039/)
 
 ---
 
