@@ -24,7 +24,9 @@ O site apresenta minha trajetória acadêmica na FATEC e ETEC, meus projetos des
 
 ## 🎬 Vídeo de Apresentação
 
-[Insira o link do vídeo do YouTube aqui]
+Assista ao vídeo de apresentação do portfólio acadêmico e a demonstração de suas principais funcionalidades:
+
+👉 **[Assista ao Vídeo de Apresentação no YouTube](https://www.youtube.com/watch?v=3y4TXbOuQno)**
 
 ---
 
