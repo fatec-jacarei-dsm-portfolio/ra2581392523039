@@ -8,7 +8,7 @@
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
-**🌐 [Acessar o Portfólio Online](https://joaopedroluvisariseveriano.github.io/Portfolio/)**
+**🌐 [Acessar o Portfólio Online](https://fatec-jacarei-dsm-portfolio.github.io/ra2581392523039/)**
 
 </div>
 
@@ -98,7 +98,7 @@ O deploy e hospedagem do portfólio são feitos de forma contínua através do *
 
 *   **Configuração**: O site está configurado para ler diretamente o arquivo `index.html` na raiz da branch principal (`main`).
 *   **Atualização**: Qualquer alteração enviada ao repositório via `git push` é publicada instantaneamente de forma automatizada.
-*   **URL Final de Acesso**: `https://joaopedroluvisariseveriano.github.io/Portfolio/`
+*   **URL Final de Acesso**: `https://fatec-jacarei-dsm-portfolio.github.io/ra2581392523039/`
 
 ---
 
