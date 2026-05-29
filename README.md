@@ -1,14 +1,14 @@
-# 🚀 Portfólio – João Pedro Luvisari Severiano
+# 🚀 Portfólio Profissional Acadêmico – João Pedro Luvisari Severiano
 
 <div align="center">
 
-![Preview do Portfólio](https://img.shields.io/badge/Status-Online-brightgreen?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Online-brightgreen?style=for-the-badge)
 ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Ativo-blueviolet?style=for-the-badge&logo=github)
-![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=for-the-badge&logo=typescript)
-![Vite](https://img.shields.io/badge/Vite-7-646CFF?style=for-the-badge&logo=vite)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
-**🌐 [Acessar o Portfólio](https://joaopedroLuvisarISeveriano.github.io/Portfolio/)**
+**🌐 [Acessar o Portfólio Online](https://joaopedroluvisariseveriano.github.io/Portfolio/)**
 
 </div>
 
@@ -16,180 +16,100 @@
 
 ## 📋 Sobre o Projeto
 
-Portfólio pessoal desenvolvido com **React + TypeScript + Vite**, com animações avançadas via **Framer Motion** e scroll suave com **Lenis**. O site apresenta minha trajetória acadêmica, projetos desenvolvidos, certificados e habilidades técnicas.
+Este é o meu **Portfólio Profissional Acadêmico**, desenvolvido de forma totalmente estática e pura utilizando **HTML5, CSS3 e JavaScript Vanilla** (sem processos de compilação ou build complexos). O projeto foi estruturado cuidadosamente para atender aos mais exigentes critérios acadêmicos, garantindo máxima performance, indexação semântica (SEO) e compatibilidade direta com o **GitHub Pages**.
+
+O site apresenta minha trajetória acadêmica na FATEC e ETEC, meus projetos desenvolvidos, habilidades técnicas, diplomas e certificações, empacotados em um design premium fluido e interativo.
 
 ---
 
-## ✨ Funcionalidades
+## 🎬 Vídeo de Apresentação
 
-| Funcionalidade | Descrição |
-|---|---|
-| 🎨 **Design Dark Premium** | Tema escuro com glassmorphism, gradientes e efeitos visuais modernos |
-| 🖱️ **Cursor Customizado** | Cursor interativo que acompanha o mouse |
-| ⌨️ **Command Palette** | Paleta de comandos ativada com `Ctrl+K` para navegação rápida |
-| 🌐 **Multilíngue** | Suporte completo a **Português** e **Inglês** |
-| 📱 **Responsivo** | Layout adaptado para mobile, tablet e desktop |
-| 🔄 **Animações** | Scroll suave com Lenis + animações de entrada com Framer Motion |
-| 🃏 **Cards 3D** | Efeito de tilt 3D nos cards de projeto |
-| 📽️ **Modal de Projeto** | Modal detalhado com vídeo YouTube e link para GitHub |
-| 🎓 **Portfólios ETEC** | Links diretos para os portfólios Google Sites da ETEC |
-| 📜 **Diplomas** | Exibição do Diploma de Técnico em Desenvolvimento de Sistemas |
+[Insira o link do vídeo do YouTube aqui]
 
 ---
 
-## 🏗️ Estrutura do Projeto
+## ✨ Funcionalidades Avançadas
+
+Embora seja um site 100% estático sem dependências externas, o portfólio conta com recursos de alta fidelidade visual e interatividade:
+
+| Recurso | Descrição |
+| :--- | :--- |
+| 🎨 **Design Dark Premium** | Tema escuro refinado com efeitos de glassmorphism, gradientes e sombras harmoniosas. Suporta também modo claro nativo. |
+| 🖱️ **Cursor Customizado** | Ponteiro e anel interativos que seguem o mouse de forma suave usando interpolação física (*lerp*) e reagem a elementos clicáveis. |
+| 🌐 **Tradutor Dinâmico Instantâneo** | Suporte multilíngue completo (**Português** e **Inglês**) que traduz toda a interface instantaneamente em tempo real. |
+| ⌨️ **Command Palette (Ctrl + K)** | Paleta interativa inspirada em editores profissionais que permite navegar pelas seções e alternar idioma ou tema via atalhos do teclado. |
+| 🃏 **Cards 3D e Transições** | Layout responsivo com efeitos táteis de aproximação, gradientes de borda ativos e modais animados para detalhes dos projetos. |
+
+| 📜 **Galeria de Conquistas** | Seções organizadas para exibição de Diplomas e Certificados profissionais com lupa de zoom interativa integrada. |
+
+---
+
+## 🏗️ Estrutura Limpa de Arquivos
+
+O projeto está organizado de forma clara na raiz do repositório, facilitando a manutenção e a visualização rápida do código fonte:
 
 ```
 Portfolio/
-├── public/
-│   ├── 404.html              # Redirect para GitHub Pages SPA
-│   └── Perfil atualizada.JPG # Foto de perfil
-├── src/
-│   ├── components/
-│   │   ├── Hero.tsx                        # Seção inicial com apresentação
-│   │   ├── Navbar.tsx                      # Navegação com suporte multilíngue
-│   │   ├── Curriculo.tsx                   # Formação e experiência
-│   │   ├── AreaProfissional.tsx            # Área profissional
-│   │   ├── ProjetosAcademicos.tsx          # Projetos FATEC + Portfólios ETEC ⭐
-│   │   ├── Diplomas.tsx                   # Seção de Diplomas
-│   │   ├── Certificados.tsx               # Certificados
-│   │   ├── InteressesPessoais.tsx         # Interesses pessoais
-│   │   ├── Skills.tsx                     # Dashboard de habilidades
-│   │   ├── Contact.tsx                    # Formulário de contato
-│   │   ├── Footer.tsx                     # Rodapé
-│   │   ├── ProjectModal.tsx               # Modal de detalhes do projeto
-│   │   ├── CommandPalette.tsx             # Paleta de comandos (Ctrl+K)
-│   │   ├── CustomCursor.tsx               # Cursor personalizado
-│   │   ├── SpotifyWidget.tsx              # Widget Spotify
-│   │   └── MagnetButton.tsx               # Botão com efeito magnético
-│   ├── context/
-│   │   └── AppContext.tsx                 # Estado global (tema, idioma)
-│   ├── data/
-│   │   ├── portfolio.ts                   # Dados centralizados (projetos, ETEC, etc.)
-│   │   └── translations.ts               # Traduções PT / EN
-│   ├── hooks/
-│   │   └── useTilt.ts                    # Hook de tilt 3D
-│   ├── types/
-│   │   └── index.ts                      # Tipos TypeScript
-│   ├── App.tsx                            # Componente raiz
-│   └── main.tsx                           # Entry point
-├── index.html
-├── vite.config.ts                         # Config Vite (base: /Portfolio/)
-├── tsconfig.json
-└── package.json
+├── assets/
+│   ├── Diploma Desenvolvimento de Sistemas ETEC.jpeg  # Imagem de visualização do diploma
+│   ├── Perfil atualizada.JPG                          # Foto profissional de perfil
+│   └── vite.svg                                       # Ícone/Favicon da página
+├── css/
+│   └── style.css                                      # Design System, variáveis de tema e estilos unificados
+├── js/
+│   ├── data.js                                        # Banco de dados estruturado do site (textos e traduções bilingues)
+│   └── script.js                                      # Controladores dinâmicos de interações (Tradutor, Temas, Cursor, Modais)
+├── index.html                                         # Arquivo principal do site estruturado semanticamente em HTML5
+└── README.md                                          # Documentação profissional do projeto
 ```
-
----
-
-## 🎓 Projetos Acadêmicos
-
-### 🏛️ FATEC Jacareí – Desenvolvimento de Software Multiplataforma
-
-| # | Projeto | Tecnologias | Repositório |
-|---|---------|-------------|-------------|
-| 1 | **ABP 1 – AgriRS-Lab** | HTML, CSS, JavaScript | [🔗 Ver](https://github.com/KaimanByte/AgriRS-Lab) |
-| 2 | **ABP 2 – Conecta Fatec Jacareí** | React, TypeScript, JavaScript | [🔗 Ver](https://github.com/KaimanByte/Conecta-Fatec-Jacarei) |
-
-### 💻 Projetos Pessoais
-
-| # | Projeto | Tecnologias | Repositório |
-|---|---------|-------------|-------------|
-| 1 | **Sistema de Gestão Acadêmica** | TypeScript, JavaScript | [🔗 Ver](https://github.com/JoaoPedroLuvisariSeveriano/Sistema-de-Gestao-Academica) |
-
-### 🏫 ETEC São José dos Campos – Desenvolvimento de Sistemas
-
-| Ano | Portfólio | Acesso |
-|-----|-----------|--------|
-| **2024 – 1º Período** | Portfólio ETEC – 1º Ano | [🌐 Acessar](https://sites.google.com/view/joopedroluvisariseveriano/p%C3%A1gina-inicial?authuser=1) |
-| **2024 – 2º Período** | Portfólio ETEC – 2º Ano | [🌐 Acessar](https://sites.google.com/view/joopedroluvisariseveriano1/p%C3%A1gina-inicial?authuser=1) |
-| **TCC - 2025 1º Período** | **PetNexus** – Sistema de Gestão PetShop | [🔗 GitHub](https://github.com/JoaoPedroLuvisariSeveriano/PetNexus) |
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-### Frontend
-![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
+O desenvolvimento priorizou o uso de padrões nativos e modernos da web para maior velocidade e independência de compilação:
 
-### Bibliotecas & Ferramentas
-![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)
-![Framer Motion](https://img.shields.io/badge/Framer%20Motion-0055FF?logo=framer&logoColor=white)
-![Lenis](https://img.shields.io/badge/Lenis-000000?logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white)
-![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-222222?logo=github&logoColor=white)
+*   **Estruturação**: [HTML5](https://developer.mozilla.org/pt-BR/docs/Web/HTML) semântico com otimizações de SEO.
+*   **Estilização**: [CSS3](https://developer.mozilla.org/pt-BR/docs/Web/CSS) moderno usando Custom Properties (variáveis), Grid, Flexbox e Keyframe Animations.
+*   **Lógica de Interações**: [JavaScript Vanilla](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript) nativo no padrão ES6+ com manipulação direta do DOM, manipuladores assíncronos e armazenamento local (*localStorage*).
 
 ---
 
-## 🚀 Como Executar Localmente
+## 🚀 Como Visualizar o Projeto Localmente
 
-### Pré-requisitos
-- [Node.js](https://nodejs.org/) v18+
-- [npm](https://npmjs.com/) ou [yarn](https://yarnpkg.com/)
+Por ser um projeto puramente estático, a execução local é extremamente simples e não necessita de nenhuma instalação prévia de pacotes (`npm`, `node_modules`, etc.):
 
-### Instalação
-
-```bash
-# Clone o repositório
-git clone https://github.com/JoaoPedroLuvisariSeveriano/Portfolio.git
-
-# Acesse o diretório
-cd Portfolio
-
-# Instale as dependências
-npm install
-
-# Inicie o servidor de desenvolvimento
-npm run dev
-```
-
-O site estará disponível em `http://localhost:5173`
-
-### Build para Produção
-
-```bash
-npm run build
-```
-
-Os arquivos serão gerados em `dist/`.
+1.  **Clone o repositório**:
+    ```bash
+    git clone https://github.com/JoaoPedroLuvisariSeveriano/Portfolio.git
+    ```
+2.  **Acesse o diretório**:
+    ```bash
+    cd Portfolio
+    ```
+3.  **Abra o arquivo principal**:
+    Dê um duplo clique diretamente no arquivo `index.html` ou abra-o por meio de qualquer navegador de sua preferência. O site carregará instantaneamente com todas as suas funções e imagens funcionando perfeitamente de forma off-line.
 
 ---
 
-## 🌐 Deploy no GitHub Pages
+## 🌐 Hospedagem no GitHub Pages
 
-O portfólio é hospedado via **GitHub Pages** com build automático.
+O deploy e hospedagem do portfólio são feitos de forma contínua através do **GitHub Pages** a partir do código fonte da raiz:
 
-### Configuração manual
-
-```bash
-# Build do projeto
-npm run build
-
-# Faça commit e push da branch principal
-git add .
-git commit -m "Deploy: atualização do portfólio"
-git push origin main
-```
-
-> ⚙️ Configure o GitHub Pages para usar a branch `gh-pages` ou a pasta `dist/` na branch `main`.
-
-**URL de produção:** `https://JoaoPedroLuvisariSeveriano.github.io/Portfolio/`
+*   **Configuração**: O site está configurado para ler diretamente o arquivo `index.html` na raiz da branch principal (`main`).
+*   **Atualização**: Qualquer alteração enviada ao repositório via `git push` é publicada instantaneamente de forma automatizada.
+*   **URL Final de Acesso**: `https://joaopedroluvisariseveriano.github.io/Portfolio/`
 
 ---
 
-## 📬 Contato
+## 📬 Contatos Profissionais
 
 <div align="center">
 
 | Plataforma | Link |
-|-----------|------|
-| 📧 **Email** | [joaopedroluvisariseveriano@gmail.com](mailto:joaopedroluvisariseveriano@gmail.com) |
+| :--- | :--- |
 | 💼 **LinkedIn** | [João Pedro Luvisari Severiano](https://www.linkedin.com/in/joão-pedro-luvisari-severiano-bb1aa9303/) |
 | 🐙 **GitHub** | [@JoaoPedroLuvisariSeveriano](https://github.com/JoaoPedroLuvisariSeveriano) |
-| 📸 **Instagram** | [@pedro_luvisari](https://www.instagram.com/pedro_luvisari/) |
 | 📍 **Localização** | São José dos Campos, SP – Brasil |
 
 </div>
@@ -198,14 +118,4 @@ git push origin main
 
 ## 📄 Licença
 
-Este projeto está sob a licença **MIT**. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
-
----
-
-<div align="center">
-
-Desenvolvido com ❤️ por **João Pedro Luvisari Severiano**
-
-*Estudante de Desenvolvimento de Software Multiplataforma – Fatec Jacareí*
-
-</div>
+Este projeto é open-source e está licenciado sob a licença **MIT**.
