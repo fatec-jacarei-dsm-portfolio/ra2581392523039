@@ -113,6 +113,61 @@ window.portfolioData = {
       tags: ['TypeScript', 'JavaScript', 'Other'],
       githubUrl: 'https://github.com/JoaoPedroLuvisariSeveriano/Sistema-de-Gestao-Academica',
       source: 'personal'
+    },
+    {
+      id: '5',
+      title: 'Desafio Game ODS',
+      description: {
+        pt: 'Jogo interativo focado nos Objetivos de Desenvolvimento Sustentável (ODS) da ONU. O projeto une entretenimento e educação para conscientizar os jogadores sobre sustentabilidade através de suas mecânicas.',
+        en: 'Interactive game focused on the UN\'s Sustainable Development Goals (SDGs). The project combines entertainment and education to raise players\' awareness about sustainability through gameplay mechanics.'
+      },
+      tags: ['Game Development', 'ODS', 'Educação'],
+      githubUrl: 'https://github.com/JoaoPedroLuvisariSeveriano/Desafio-Game-ODS',
+      source: 'personal'
+    },
+    {
+      id: '6',
+      title: 'Fractais Julia e Mandelbrot',
+      description: {
+        pt: 'Aplicação voltada para a renderização matemática e estudo dos famosos conjuntos de fractais de Julia e Mandelbrot, permitindo a exploração visual de padrões complexos infinitos.',
+        en: 'Application focused on mathematical rendering and study of the famous Julia and Mandelbrot fractal sets, allowing visual exploration of complex infinite patterns.'
+      },
+      tags: ['Matemática', 'Fractais', 'Visualização'],
+      githubUrl: 'https://github.com/JoaoPedroLuvisariSeveriano/Fractais-Julia-Mandelbrot-',
+      source: 'personal'
+    },
+    {
+      id: '7',
+      title: 'Sistema de Automação',
+      description: {
+        pt: 'Sistema projetado para a automação e otimização de tarefas e processos operacionais, visando aumentar a produtividade e minimizar a ocorrência de falhas manuais.',
+        en: 'System designed for the automation and optimization of operational tasks and processes, aiming to increase productivity and minimize the occurrence of manual errors.'
+      },
+      tags: ['Automação', 'Produtividade', 'Sistemas'],
+      githubUrl: 'https://github.com/JoaoPedroLuvisariSeveriano/Projeto-Sistema-de-Atomacao',
+      source: 'personal'
+    },
+    {
+      id: '8',
+      title: 'Materiais Visuais',
+      description: {
+        pt: 'Projeto focado em design gráfico e comunicação visual, demonstrando a criação de diversos materiais visuais, construção de interfaces e aplicação de identidade visual.',
+        en: 'Project focused on graphic design and visual communication, demonstrating the creation of various visual materials, interface construction, and visual identity application.'
+      },
+      tags: ['Design Gráfico', 'UI/UX', 'Comunicação Visual'],
+      githubUrl: 'https://github.com/JoaoPedroLuvisariSeveriano/Projeto-Materiais-Visuais',
+      source: 'personal'
+    },
+    {
+      id: '9',
+      title: 'Plataforma Digital de Cursos - GPC Consultoria',
+      description: {
+        pt: 'Plataforma web de ensino à distância (EAD) desenvolvida para a GPC Consultoria, oferecendo recursos completos para a disponibilização de aulas, gestão de cursos e acompanhamento de alunos.',
+        en: 'Distance learning (E-learning) web platform developed for GPC Consultoria, offering complete features for hosting classes, managing courses, and tracking student progress.'
+      },
+      tags: ['Web Development', 'EAD', 'Plataforma'],
+      githubUrl: 'https://github.com/JoaoPedroLuvisariSeveriano/Plataforma-Digital-de-Cursos-GPC-Consultoria',
+      source: 'personal'
     }
   ],
   
