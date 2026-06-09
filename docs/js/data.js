@@ -173,8 +173,8 @@ window.portfolioData = {
       id: '10',
       title: 'Jogo de Damas',
       description: {
-        pt: 'Implementação clássica do jogo de damas, focada no desenvolvimento de lógica de programação e interatividade.',
-        en: 'Classic checkers game implementation, focused on programming logic development and interactivity.'
+        pt: 'Desenvolvimento de uma versão digital e interativa do clássico Jogo de Damas. O projeto foca na construção de uma interface amigável e na implementação de algoritmos para as regras do jogo, validação de movimentos e captura de peças, demonstrando fortes habilidades em lógica de programação.',
+        en: 'Development of a digital and interactive version of the classic Checkers game. The project focuses on building a user-friendly interface and implementing algorithms for game rules, move validation, and piece capturing, demonstrating strong skills in programming logic.'
       },
       tags: ['Game Development', 'Jogos', 'Lógica'],
       githubUrl: 'https://github.com/JoaoPedroLuvisariSeveriano/Jogo-de-Damas',
