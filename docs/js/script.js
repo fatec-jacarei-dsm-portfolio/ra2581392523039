@@ -221,14 +221,15 @@ document.addEventListener('DOMContentLoaded', () => {
       if (filter === 'all') return true;
       if (filter === 'fatec') return p.source === 'fatec';
       if (filter === 'personal') return p.source === 'personal';
+      if (filter === 'etec') return p.source === 'etec';
       return false;
     });
 
     html += filteredProjects.map(proj => `
       <div class="project-card" data-id="${proj.id}">
         <div class="project-card-header">
-          <span class="project-badge ${proj.source === 'fatec' ? 'badge-fatec' : 'badge-personal'}">
-            ${proj.source === 'fatec' ? (lang === 'pt' ? 'ABP FATEC' : 'FATEC Project') : (lang === 'pt' ? 'Pessoal' : 'Personal')}
+          <span class="project-badge ${proj.source === 'fatec' ? 'badge-fatec' : (proj.source === 'etec' ? 'badge-etec' : 'badge-personal')}">
+            ${proj.source === 'fatec' ? (lang === 'pt' ? 'ABP FATEC' : 'FATEC Project') : (proj.source === 'etec' ? (lang === 'pt' ? 'TCC ETEC' : 'ETEC TCC') : (lang === 'pt' ? 'Pessoal' : 'Personal'))}
           </span>
           <div class="project-links">
             <a href="${proj.githubUrl}" target="_blank" class="project-link-icon" title="${lang === 'pt' ? 'Repositório GitHub' : 'GitHub Repository'}">
@@ -369,10 +370,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (modalTitle) modalTitle.textContent = proj.title;
     
     if (modalBadge) {
-      modalBadge.className = `modal-badge ${proj.source === 'fatec' ? 'badge-fatec' : 'badge-personal'}`;
+      modalBadge.className = `modal-badge ${proj.source === 'fatec' ? 'badge-fatec' : (proj.source === 'etec' ? 'badge-etec' : 'badge-personal')}`;
       modalBadge.textContent = proj.source === 'fatec' 
         ? (currentLanguage === 'pt' ? 'ABP FATEC' : 'FATEC ABP') 
-        : (currentLanguage === 'pt' ? 'Projeto Pessoal' : 'Personal Project');
+        : (proj.source === 'etec' ? (currentLanguage === 'pt' ? 'TCC ETEC' : 'ETEC TCC') : (currentLanguage === 'pt' ? 'Projeto Pessoal' : 'Personal Project'));
     }
 
     if (modalDesc) {

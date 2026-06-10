@@ -77,7 +77,7 @@ window.portfolioData = {
       },
       tags: ['JavaScript', 'PHP', 'SCSS', 'HTML', 'CSS', 'Hack'],
       githubUrl: 'https://github.com/JoaoPedroLuvisariSeveriano/PetNexus',
-      source: 'personal'
+      source: 'etec'
     },
     {
       id: '2',
