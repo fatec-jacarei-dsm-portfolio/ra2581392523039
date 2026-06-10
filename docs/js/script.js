@@ -995,8 +995,8 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="github-stat-label">${isPt ? 'Perfil' : 'Profile'}</div>
         </div>
         <div class="github-stat-card">
-          <div class="github-stat-value">21</div>
-          <div class="github-stat-label">${isPt ? 'Contribuições em Repositórios' : 'Contributed Repos'}</div>
+          <div class="github-stat-value">18</div>
+          <div class="github-stat-label">${isPt ? 'Meus Repositórios' : 'My Repositories'}</div>
         </div>
         <div class="github-stat-card">
           <div class="github-stat-value" style="font-size: 1.25rem; line-height: 1.5rem; margin-bottom: 0.25rem; margin-top: 0.2rem;">${dateStr}</div>
@@ -1013,8 +1013,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const isPt = currentLanguage === 'pt';
       container.innerHTML = `
         <div class="github-stat-card">
-          <div class="github-stat-value">21</div>
-          <div class="github-stat-label">${isPt ? 'Contribuições em Repositórios' : 'Contributed Repos'}</div>
+          <div class="github-stat-value">18</div>
+          <div class="github-stat-label">${isPt ? 'Meus Repositórios' : 'My Repositories'}</div>
         </div>
       `;
     }
