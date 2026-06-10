@@ -985,22 +985,26 @@ document.addEventListener('DOMContentLoaded', () => {
       
       const isPt = currentLanguage === 'pt';
       
+      const createdAt = new Date(data.created_at);
+      const dateStr = createdAt.toLocaleDateString(isPt ? 'pt-BR' : 'en-US', { year: 'numeric', month: 'short' });
+      const hireableStr = data.hireable ? (isPt ? 'Sim' : 'Yes') : (isPt ? 'Não' : 'No');
+
       container.innerHTML = `
+        <div class="github-stat-card">
+          <img src="${data.avatar_url}" alt="Avatar" style="width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--color-accent-primary); margin-bottom: 0.25rem; display: inline-block;">
+          <div class="github-stat-label">${isPt ? 'Perfil' : 'Profile'}</div>
+        </div>
         <div class="github-stat-card">
           <div class="github-stat-value">${data.public_repos}</div>
           <div class="github-stat-label">${isPt ? 'Repositórios Públicos' : 'Public Repos'}</div>
         </div>
         <div class="github-stat-card">
-          <div class="github-stat-value">${data.followers}</div>
-          <div class="github-stat-label">${isPt ? 'Seguidores' : 'Followers'}</div>
+          <div class="github-stat-value" style="font-size: 1.25rem; line-height: 1.5rem; margin-bottom: 0.25rem; margin-top: 0.2rem;">${dateStr}</div>
+          <div class="github-stat-label">${isPt ? 'Criado em' : 'Created At'}</div>
         </div>
         <div class="github-stat-card">
-          <div class="github-stat-value">${data.following}</div>
-          <div class="github-stat-label">${isPt ? 'Seguindo' : 'Following'}</div>
-        </div>
-        <div class="github-stat-card">
-          <div class="github-stat-value">${data.public_gists}</div>
-          <div class="github-stat-label">${isPt ? 'Gists' : 'Gists'}</div>
+          <div class="github-stat-value" style="font-size: 1.25rem; line-height: 1.5rem; margin-bottom: 0.25rem; margin-top: 0.2rem; color: ${data.hireable ? 'var(--color-accent-primary)' : 'inherit'};">${hireableStr}</div>
+          <div class="github-stat-label">${isPt ? 'Disponível' : 'Hireable'}</div>
         </div>
       `;
     } catch (error) {
