@@ -326,6 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'Jogos': 'Games',
     'Lógica': 'Logic',
     'Educação': 'Education',
+    'Plataforma': 'Platform',
     'Other': 'Outros' // If we want to map English back to Portuguese when in PT
   };
 

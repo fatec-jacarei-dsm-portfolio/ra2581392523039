@@ -383,8 +383,8 @@ window.portfolioTranslations = {
       scroll: 'Role para explorar'
     },
     projects: {
-      title: 'Projetos Acadêmicos',
-      subtitle: 'Projetos desenvolvidos durante minha formação que demonstram minhas habilidades técnicas e criatividade',
+      title: 'Projetos',
+      subtitle: 'Aplicações desenvolvidas na Fatec, Etec e projetos pessoais',
       filter_all: 'Todos',
       repo: 'Repositório',
       details: 'Ver Detalhes',
@@ -537,8 +537,8 @@ window.portfolioTranslations = {
       scroll: 'Scroll to explore'
     },
     projects: {
-      title: 'Academic Projects',
-      subtitle: 'Projects developed during my education that demonstrate my technical skills and creativity',
+      title: 'Projects',
+      subtitle: 'Applications developed at Fatec, Etec, and personal projects',
       filter_all: 'All',
       repo: 'Repository',
       details: 'View Details',
