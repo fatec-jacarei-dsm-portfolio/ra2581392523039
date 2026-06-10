@@ -100,7 +100,7 @@ window.portfolioData = {
       },
       tags: ['JavaScript', 'TypeScript', 'React', 'HTML', 'CSS'],
       githubUrl: 'https://github.com/KaimanByte/Conecta-Fatec-Jacarei',
-      youtubeUrl: 'https://www.youtube-nocookie.com/embed/7bFm-wabf_s',
+      youtubeUrl: 'https://www.youtube-nocookie.com/embed/1fbtvei8AE8?start=39',
       source: 'fatec'
     },
     {
