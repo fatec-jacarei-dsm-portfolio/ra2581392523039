@@ -204,6 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderDiplomas(lang);
     renderCertificates(lang);
     renderInterests(lang);
+    renderTechFilter(lang);
     
     // Adiciona efeitos ao cursor para os novos elementos criados
     addCursorHoverEffects();
@@ -304,7 +305,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. Projetos (Filtros dinâmicos + Portfólio ETEC)
+  // 3. Projetos (Filtros dinâmicos + Portfólio ETEC + Tech Filter)
+  let activeTechFilter = 'all';
+
+  function renderTechFilter(lang) {
+    const container = document.getElementById('tech-filter-container');
+    if (!container) return;
+    
+    const allTags = new Set();
+    window.portfolioData.projects.forEach(p => {
+      if(p.tags) p.tags.forEach(t => allTags.add(t));
+    });
+
+    let html = `<button class="tech-btn ${activeTechFilter === 'all' ? 'active' : ''}" data-tech="all">${lang === 'pt' ? 'Todas Tecnologias' : 'All Technologies'}</button>`;
+    
+    Array.from(allTags).sort().forEach(tag => {
+      html += `<button class="tech-btn ${activeTechFilter === tag ? 'active' : ''}" data-tech="${tag}">${tag}</button>`;
+    });
+
+    container.innerHTML = html;
+
+    container.querySelectorAll('.tech-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        activeTechFilter = e.target.getAttribute('data-tech');
+        renderTechFilter(lang);
+        renderProjects(currentLanguage, activeFilter);
+      });
+    });
+  }
+
   function renderProjects(lang, filter) {
     const projectsContainer = document.getElementById('projects-grid');
     if (!projectsContainer) return;
@@ -312,13 +341,19 @@ document.addEventListener('DOMContentLoaded', () => {
     let html = '';
 
     // Renderiza Projetos normais da Fatec/Pessoais
-    const filteredProjects = window.portfolioData.projects.filter(p => {
+    let filteredProjects = window.portfolioData.projects.filter(p => {
       if (filter === 'all') return true;
       if (filter === 'fatec') return p.source === 'fatec';
       if (filter === 'personal') return p.source === 'personal';
       if (filter === 'etec') return p.source === 'etec';
       return false;
     });
+
+    // Filtra por Tecnologia (Tag)
+    if (activeTechFilter !== 'all') {
+      filteredProjects = filteredProjects.filter(p => p.tags && p.tags.includes(activeTechFilter));
+    }
+
 
     html += filteredProjects.map(proj => `
       <div class="project-card" data-id="${proj.id}">
@@ -347,8 +382,8 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     `).join('');
 
-    // Adiciona Portfólios ETEC quando "all" ou "etec"
-    if (filter === 'all' || filter === 'etec') {
+    // Adiciona Portfólios ETEC quando "all" ou "etec" e filtro de tech é 'all'
+    if ((filter === 'all' || filter === 'etec') && activeTechFilter === 'all') {
       html += window.portfolioData.etecPortfolios.map(p => `
         <div class="project-card portfolio-card" style="border-color: rgba(99, 102, 241, 0.15)">
           <div class="project-card-header">
@@ -855,6 +890,133 @@ document.addEventListener('DOMContentLoaded', () => {
   renderSkills = function(lang) {
     originalRenderSkills(lang);
     document.querySelectorAll('.skill-card').forEach(el => observer.observe(el));
+  };
+
+  // --- TYPEWRITER EFFECT ---
+  const typewriterElement = document.getElementById('typewriter-text');
+  let typewritingTimeout;
+  const typewriterWords = {
+    pt: [
+      "Desenvolvedor de Software Multiplataforma",
+      "Especialista em Front-end",
+      "Apaixonado por Tecnologia"
+    ],
+    en: [
+      "Multiplatform Software Developer",
+      "Front-end Specialist",
+      "Passionate about Technology"
+    ]
+  };
+
+  let typewriterWordIndex = 0;
+  let typewriterCharIndex = 0;
+  let isDeleting = false;
+
+  function typeWriter() {
+    if (!typewriterElement) return;
+    const words = typewriterWords[currentLanguage] || typewriterWords['pt'];
+    const currentWord = words[typewriterWordIndex];
+    
+    if (isDeleting) {
+      typewriterElement.textContent = currentWord.substring(0, typewriterCharIndex - 1);
+      typewriterCharIndex--;
+    } else {
+      typewriterElement.textContent = currentWord.substring(0, typewriterCharIndex + 1);
+      typewriterCharIndex++;
+    }
+
+    let typeSpeed = isDeleting ? 50 : 100;
+
+    if (!isDeleting && typewriterCharIndex === currentWord.length) {
+      typeSpeed = 2000;
+      isDeleting = true;
+    } else if (isDeleting && typewriterCharIndex === 0) {
+      isDeleting = false;
+      typewriterWordIndex = (typewriterWordIndex + 1) % words.length;
+      typeSpeed = 500;
+    }
+    clearTimeout(typewritingTimeout);
+    typewritingTimeout = setTimeout(typeWriter, typeSpeed);
+  }
+  setTimeout(typeWriter, 1500);
+
+  // --- SCROLL PROGRESS & BACK TO TOP ---
+  const scrollProgress = document.getElementById('scroll-progress');
+  const backToTopBtn = document.getElementById('back-to-top');
+
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    
+    if (scrollProgress && scrollHeight > 0) {
+      const scrolled = (scrollTop / scrollHeight) * 100;
+      scrollProgress.style.width = scrolled + '%';
+    }
+
+    if (backToTopBtn) {
+      if (scrollTop > 300) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    }
+  });
+
+  backToTopBtn?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // --- GITHUB STATS FETCH ---
+  async function fetchGitHubStats() {
+    const container = document.getElementById('github-stats-container');
+    if (!container) return;
+    
+    const githubUrl = window.portfolioData.personalInfo.github;
+    const username = githubUrl.split('/').pop();
+
+    try {
+      const response = await fetch(`https://api.github.com/users/${username}`);
+      if (!response.ok) throw new Error('API Rate Limit or Network Error');
+      const data = await response.json();
+      
+      const isPt = currentLanguage === 'pt';
+      
+      container.innerHTML = `
+        <div class="github-stat-card">
+          <div class="github-stat-value">${data.public_repos}</div>
+          <div class="github-stat-label">${isPt ? 'Repositórios Públicos' : 'Public Repos'}</div>
+        </div>
+        <div class="github-stat-card">
+          <div class="github-stat-value">${data.followers}</div>
+          <div class="github-stat-label">${isPt ? 'Seguidores' : 'Followers'}</div>
+        </div>
+        <div class="github-stat-card">
+          <div class="github-stat-value">${data.public_gists}</div>
+          <div class="github-stat-label">${isPt ? 'Gists' : 'Gists'}</div>
+        </div>
+      `;
+    } catch (error) {
+      console.error('Github Fetch Error:', error);
+      // Fallback estático
+      const isPt = currentLanguage === 'pt';
+      container.innerHTML = `
+        <div class="github-stat-card">
+          <div class="github-stat-value">+10</div>
+          <div class="github-stat-label">${isPt ? 'Repositórios Públicos' : 'Public Repos'}</div>
+        </div>
+      `;
+    }
+  }
+
+  // Intercepta a tradução para também traduzir o Github Fetch dinamicamente e as Tech Filters
+  const originalTranslatePage = translatePage;
+  translatePage = function(lang) {
+    originalTranslatePage(lang);
+    fetchGitHubStats();
+    // Reinicia o typewriter quando muda o idioma
+    typewriterWordIndex = 0;
+    typewriterCharIndex = 0;
+    isDeleting = false;
   };
 
   // --- INICIALIZA A TRADUÇÃO E O CONTEÚDO ---

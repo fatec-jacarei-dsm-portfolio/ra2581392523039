@@ -34,6 +34,9 @@
 </head>
 <body>
 
+  <!-- --- PROGRESS BAR --- -->
+  <div id="scroll-progress"></div>
+
   <!-- --- PRELOADER --- -->
   <div id="preloader">
     <div class="preloader-content">
@@ -114,7 +117,7 @@
       </div>
 
       <h1 class="hero-name">João Pedro Luvisari Severiano</h1>
-      <h2 class="hero-title" data-i18n="hero.title">Desenvolvedor de Software Multiplataforma</h2>
+      <h2 class="hero-title"><span id="typewriter-text"></span><span class="typewriter-cursor">|</span></h2>
       <p class="hero-tagline" data-i18n="hero.tagline">Transformando ideias em experiências digitais memoráveis</p>
       
       <div class="hero-actions">
@@ -141,6 +144,16 @@
         </div>
         <span class="scroll-text" data-i18n="hero.scroll">Role para explorar</span>
       </div>
+    </div>
+  </section>
+
+  <!-- --- SEÇÃO: SOBRE / GITHUB STATS --- -->
+  <section id="sobre" class="section container reveal">
+    <h2 class="section-title">GitHub Stats</h2>
+    <p class="section-subtitle">Meus dados em tempo real direto da API do GitHub</p>
+    <div id="github-stats-container" class="github-stats-grid">
+      <!-- Injetado via JS -->
+      <p class="loading-github">Carregando dados do GitHub...</p>
     </div>
   </section>
 
@@ -234,19 +247,24 @@
     </div>
   </section>
 
-  <!-- --- SEÇÃO: PROJETOS ACADÊMICOS --- -->
+  <!-- --- SEÇÃO: PROJETOS ACADÊMICOS E PESSOAIS --- -->
   <section id="projetos" class="section container reveal">
-    <h2 class="section-title" data-i18n="projects.title">Projetos Acadêmicos</h2>
-    <p class="section-subtitle" data-i18n="projects.subtitle">Projetos desenvolvidos durante minha formação que demonstram minhas habilidades técnicas e criatividade</p>
+    <h2 class="section-title" data-i18n="projetos.title">Projetos</h2>
+    <p class="section-subtitle" data-i18n="projetos.subtitle">Aplicações desenvolvidas na Fatec, Etec e projetos pessoais</p>
     
     <div class="projects-filter">
-      <button class="filter-btn active" data-filter="all" data-i18n="projects.filter_all">Todos</button>
-      <button class="filter-btn" data-filter="fatec">FATEC</button>
-      <button class="filter-btn" data-filter="personal" data-i18n="projects.personal_badge">Projetos Independentes</button>
-      <button class="filter-btn" data-filter="etec">ETEC</button>
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="fatec">Fatec Jacareí</button>
+      <button class="filter-btn" data-filter="etec">Etec</button>
+      <button class="filter-btn" data-filter="personal">Pessoais</button>
     </div>
-    
-    <div id="projects-grid" class="projects-grid">
+
+    <!-- Filtro de Tecnologias -->
+    <div class="tech-filter" id="tech-filter-container">
+      <!-- Injetado via JS -->
+    </div>
+
+    <div class="projects-grid" id="projects-grid">
       <!-- Injetado dinamicamente via script.js -->
     </div>
   </section>
@@ -441,10 +459,13 @@
     </div>
   </footer>
 
+  <!-- --- BOTÃO VOLTAR AO TOPO --- -->
+  <button id="back-to-top" aria-label="Voltar ao topo">
+    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
   <!-- --- SCRIPT DA APLICAÇÃO --- -->
   <script src="./js/data.js?v=2.0"></script>
   <script src="./js/script.js?v=2.0"></script>
 </body>
 </html>
-
-<!-- Trigger build -->

@@ -2049,3 +2049,127 @@ img {
 .project-card:hover .tilt-glare, .academic-card:hover .tilt-glare {
   opacity: 1;
 }
+
+/* --- SCROLL PROGRESS BAR --- */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-accent-primary), var(--color-accent-secondary));
+  z-index: 9999;
+  transition: width 0.1s ease-out;
+}
+
+/* --- BACK TO TOP BUTTON --- */
+#back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--color-bg-elevated);
+  color: var(--color-accent-primary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  box-shadow: var(--shadow-lg);
+}
+#back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+#back-to-top:hover {
+  background: var(--color-accent-primary);
+  color: #fff;
+  transform: translateY(-5px);
+}
+
+/* --- TYPEWRITER CURSOR --- */
+.typewriter-cursor {
+  font-weight: bold;
+  color: var(--color-accent-primary);
+  animation: blink 0.7s infinite;
+  margin-left: 2px;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* --- GITHUB STATS --- */
+.github-stats-grid {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+.github-stat-card {
+  background: var(--color-bg-elevated);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  min-width: 150px;
+  text-align: center;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.github-stat-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-accent-primary);
+}
+.github-stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+  font-family: var(--font-display);
+}
+.github-stat-label {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.loading-github {
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* --- TECH FILTER BUTTONS --- */
+.tech-filter {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+.tech-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-text-secondary);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.tech-btn:hover {
+  border-color: var(--color-accent-primary);
+  color: var(--color-text-primary);
+}
+.tech-btn.active {
+  background: rgba(var(--color-accent-primary-rgb), 0.1);
+  border-color: var(--color-accent-primary);
+  color: var(--color-accent-primary);
+}
