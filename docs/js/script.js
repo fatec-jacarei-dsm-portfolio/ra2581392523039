@@ -327,14 +327,13 @@ document.addEventListener('DOMContentLoaded', () => {
     'Lógica': 'Logic',
     'Educação': 'Education',
     'Plataforma': 'Platform',
-    'Other': 'Outros' // If we want to map English back to Portuguese when in PT
+    'Outros': 'Others'
   };
 
   function translateTag(tag, lang) {
     if (lang === 'en') {
       return tagTranslations[tag] || tag;
     } else {
-      if (tag === 'Other') return 'Outros';
       return tag;
     }
   }

@@ -125,7 +125,7 @@ window.portfolioData = {
         pt: 'Sistema de Gestão Acadêmica é uma aplicação web full-stack desenvolvida para facilitar a administração de instituições de ensino. O projeto oferece módulos para cadastro e gerenciamento de alunos, cursos, turmas, professores e lançamentos de notas, com APIs REST no back-end e interface responsiva no front-end. O código está organizado em pastas /frontend e /backend, permitindo desenvolvimento e deploy independentes. Linguagens utilizadas: TypeScript (97.4%), JavaScript (2.2%) e outras.',
         en: 'Academic Management System is a full-stack web application developed to facilitate the administration of educational institutions. The project offers modules for registering and managing students, courses, classes, teachers, and grade entries, with REST APIs on the backend and a responsive interface on the frontend. The code is organized into /frontend and /backend folders, allowing independent development and deployment. Languages used: TypeScript (97.4%), JavaScript (2.2%), and others.'
       },
-      tags: ['TypeScript', 'JavaScript', 'Other'],
+      tags: ['TypeScript', 'JavaScript', 'Outros'],
       githubUrl: 'https://github.com/JoaoPedroLuvisariSeveriano/Sistema-de-Gestao-Academica',
       source: 'personal'
     },
