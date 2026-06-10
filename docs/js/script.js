@@ -987,7 +987,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       const createdAt = new Date(data.created_at);
       const dateStr = createdAt.toLocaleDateString(isPt ? 'pt-BR' : 'en-US', { year: 'numeric', month: 'short' });
-      const hireableStr = data.hireable ? (isPt ? 'Sim' : 'Yes') : (isPt ? 'Não' : 'No');
+      const hireableStr = isPt ? 'Sim' : 'Yes';
 
       container.innerHTML = `
         <div class="github-stat-card">
@@ -1003,7 +1003,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="github-stat-label">${isPt ? 'Criado em' : 'Created At'}</div>
         </div>
         <div class="github-stat-card">
-          <div class="github-stat-value" style="font-size: 1.25rem; line-height: 1.5rem; margin-bottom: 0.25rem; margin-top: 0.2rem; color: ${data.hireable ? 'var(--color-accent-primary)' : 'inherit'};">${hireableStr}</div>
+          <div class="github-stat-value" style="font-size: 1.25rem; line-height: 1.5rem; margin-bottom: 0.25rem; margin-top: 0.2rem; color: var(--color-accent-primary);">${hireableStr}</div>
           <div class="github-stat-label">${isPt ? 'Disponível' : 'Hireable'}</div>
         </div>
       `;
