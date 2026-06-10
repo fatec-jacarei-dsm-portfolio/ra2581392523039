@@ -781,8 +781,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // --- INICIALIZA A TRADUÇÃO E O CONTEÚDO ---
-  translatePage(currentLanguage);
 
   // --- INTERSECTION OBSERVER (ANIMAÇÕES DE SCROLL) ---
   const observerOptions = {
@@ -859,4 +857,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.skill-card').forEach(el => observer.observe(el));
   };
 
+  // --- INICIALIZA A TRADUÇÃO E O CONTEÚDO ---
+  translatePage(currentLanguage);
 });
