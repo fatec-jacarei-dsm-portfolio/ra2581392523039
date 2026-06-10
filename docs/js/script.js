@@ -797,8 +797,9 @@ document.addEventListener('DOMContentLoaded', () => {
         entry.target.classList.add('active');
         
         // Verifica se é uma barra de skill para animar a largura
-        if (entry.target.classList.contains('skill-bar-fill')) {
-          entry.target.style.width = entry.target.getAttribute('data-target');
+        if (entry.target.classList.contains('skill-card')) {
+          const fill = entry.target.querySelector('.skill-bar-fill');
+          if (fill) fill.style.width = fill.getAttribute('data-target');
         }
         
         // Opcional: descomente a linha abaixo para animar apenas na primeira vez
@@ -855,7 +856,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const originalRenderSkills = renderSkills;
   renderSkills = function(lang) {
     originalRenderSkills(lang);
-    document.querySelectorAll('.skill-bar-fill').forEach(el => observer.observe(el));
+    document.querySelectorAll('.skill-card').forEach(el => observer.observe(el));
   };
 
 });
