@@ -1,32 +1,22 @@
-# 🚀 Portfólio Profissional Acadêmico – João Pedro Luvisari Severiano
+# Portfólio de Projetos - Fatec Jacareí
 
-<div align="center">
-
-![Status](https://img.shields.io/badge/Status-Online-brightgreen?style=for-the-badge)
-![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Ativo-blueviolet?style=for-the-badge&logo=github)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-
-**🌐 [Acessar o Portfólio Online](https://fatec-jacarei-dsm-portfolio.github.io/ra2581392523039/)**
-
-</div>
+**Aluno:** João Pedro Luvisari Severiano  
+**Curso:** Desenvolvimento de Software Multiplataforma  
+**Turma:** 2º Semestre de 2025
 
 ---
 
-## 📋 Sobre o Projeto
+**Portfólio Online**
 
-Este é o meu **Portfólio Profissional Acadêmico**, desenvolvido de forma totalmente estática e pura utilizando **HTML5, CSS3 e JavaScript Vanilla** (sem processos de compilação ou build complexos). O projeto foi estruturado cuidadosamente para atender aos mais exigentes critérios acadêmicos, garantindo máxima performance, indexação semântica (SEO) e compatibilidade direta com o **GitHub Pages**.
-
-O site apresenta minha trajetória acadêmica na FATEC e ETEC, meus projetos desenvolvidos, habilidades técnicas, diplomas e certificações, empacotados em um design premium fluido e interativo.
+🔗 [Acesse o Portfólio](https://fatec-jacarei-dsm-portfolio.github.io/ra2581392523039/)
 
 ---
 
-## 🎬 Vídeo de Apresentação
+**Vídeos de Apresentação**
 
-Assista ao vídeo de apresentação do portfólio acadêmico e a demonstração de suas principais funcionalidades:
-
-👉 **[Assista ao Vídeo de Apresentação no YouTube](https://www.youtube.com/watch?v=3y4TXbOuQno)**
+🎤 2DSM - [Vídeo](https://www.youtube.com/watch?v=3y4TXbOuQno)  
+🎤 4DSM - [Vídeo](LINK_VIDEO_4DSM)  
+🎤 6DSM - [Vídeo](LINK_VIDEO_6DSM)
 
 ---
 
