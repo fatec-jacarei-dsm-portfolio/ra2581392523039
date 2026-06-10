@@ -73,7 +73,13 @@ window.portfolioData = {
     { name: 'Makefile', level: 50, category: 'tools' },
     { name: 'Comunicação', level: 92, category: 'soft' },
     { name: 'Trabalho em Equipe', level: 88, category: 'soft' },
-    { name: 'Resolução de Problemas', level: 90, category: 'soft' }
+    { name: 'Resolução de Problemas', level: 90, category: 'soft' },
+    { name: 'Adaptabilidade', level: 85, category: 'soft' },
+    { name: 'Pensamento Crítico', level: 88, category: 'soft' },
+    { name: 'Gestão de Tempo', level: 85, category: 'soft' },
+    { name: 'Proatividade', level: 90, category: 'soft' },
+    { name: 'Aprendizado Contínuo', level: 95, category: 'soft' },
+    { name: 'Autonomia', level: 85, category: 'soft' }
   ],
   
   projects: [
