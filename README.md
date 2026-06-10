@@ -31,8 +31,11 @@ Embora seja um site 100% estático sem dependências externas, o portfólio cont
 | 🌐 **Tradutor Dinâmico Instantâneo** | Suporte multilíngue completo (**Português** e **Inglês**) que traduz toda a interface instantaneamente em tempo real. |
 | ⌨️ **Command Palette (Ctrl + K)** | Paleta interativa inspirada em editores profissionais que permite navegar pelas seções e alternar idioma ou tema via atalhos do teclado. |
 | 🃏 **Cards 3D e Transições** | Layout responsivo com efeitos táteis de aproximação, gradientes de borda ativos e modais animados para detalhes dos projetos. |
-
 | 📜 **Galeria de Conquistas** | Seções organizadas para exibição de Diplomas e Certificados profissionais com lupa de zoom interativa integrada. |
+| ⌨️ **Efeito Typewriter** | Animação de digitação fluída no cabeçalho inicial (Hero), apresentando dinamicamente as especialidades do desenvolvedor. |
+| 🔍 **Filtro de Projetos** | Sistema de botões interativos para filtrar a galeria de projetos instantaneamente com base nas tecnologias utilizadas. |
+| 📊 **Dashboard GitHub API** | Seção com estatísticas reais consumidas ao vivo diretamente da API pública do GitHub (Avatar, Data de Criação e Repositórios). |
+| ✉️ **Contato Dinâmico** | Formulário integrado e estilizado para envio direto de mensagens, focado em prospecção profissional sem sair da página. |
 
 ---
 
