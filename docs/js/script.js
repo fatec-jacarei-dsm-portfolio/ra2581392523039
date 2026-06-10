@@ -995,6 +995,10 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="github-stat-label">${isPt ? 'Seguidores' : 'Followers'}</div>
         </div>
         <div class="github-stat-card">
+          <div class="github-stat-value">${data.following}</div>
+          <div class="github-stat-label">${isPt ? 'Seguindo' : 'Following'}</div>
+        </div>
+        <div class="github-stat-card">
           <div class="github-stat-value">${data.public_gists}</div>
           <div class="github-stat-label">${isPt ? 'Gists' : 'Gists'}</div>
         </div>
