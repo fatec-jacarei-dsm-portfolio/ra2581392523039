@@ -1922,3 +1922,130 @@ img {
     color: #0000ee !important;
   }
 }
+
+/* ==========================================================================
+   FATOR WOW: PRELOADER, COLOR PICKER, 3D TILT, SKILL BARS
+   ========================================================================== */
+
+/* --- PRELOADER --- */
+#preloader {
+  position: fixed;
+  inset: 0;
+  background: var(--color-bg-primary);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+#preloader.loaded {
+  opacity: 0;
+  visibility: hidden;
+}
+.preloader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.preloader-logo {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: 2px;
+  animation: pulseLogo 2s infinite;
+}
+.preloader-dot {
+  color: var(--color-accent-primary);
+}
+.preloader-bar {
+  width: 150px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+.preloader-bar::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; height: 100%;
+  width: 50%;
+  background: var(--color-accent-primary);
+  animation: loadingBar 1.5s infinite ease-in-out alternate;
+}
+@keyframes pulseLogo {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+@keyframes loadingBar {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+/* --- COLOR PICKER --- */
+.color-picker-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.color-options {
+  position: absolute;
+  top: 130%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: var(--color-bg-elevated);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 8px;
+  border-radius: var(--radius-md);
+  display: flex;
+  gap: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-md);
+  z-index: 100;
+}
+.color-picker-wrapper:hover .color-options {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+.color-option {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  border: 2px solid transparent;
+}
+.color-option:hover {
+  transform: scale(1.2);
+}
+.color-option.active {
+  border-color: white;
+}
+
+/* --- ANIMATED SKILL BARS --- */
+.skill-bar-fill {
+  transition: width 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* --- 3D TILT GLARE --- */
+.project-card, .academic-card {
+  transform-style: preserve-3d;
+  position: relative;
+}
+.tilt-glare {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 60%);
+  opacity: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+.project-card:hover .tilt-glare, .academic-card:hover .tilt-glare {
+  opacity: 1;
+}

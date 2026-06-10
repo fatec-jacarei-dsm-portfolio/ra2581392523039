@@ -2,6 +2,13 @@
 // Lógica Vanilla JS para interações e dinamismo sem ferramentas de build
 
 document.addEventListener('DOMContentLoaded', () => {
+  // --- PRELOADER ---
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const preloader = document.getElementById('preloader');
+      if(preloader) preloader.classList.add('loaded');
+    }, 800);
+  });
   // Inicialização de estados
   let currentLanguage = localStorage.getItem('language') || 'pt';
   let currentTheme = localStorage.getItem('theme') || 'dark';
@@ -57,6 +64,43 @@ document.addEventListener('DOMContentLoaded', () => {
   // Inicializa o tema preferido
   setTheme(currentTheme);
 
+  // --- CONTROLE DE COR DE DESTAQUE ---
+  let currentAccentColor = localStorage.getItem('accentColor') || 'indigo';
+  const colorOptions = document.querySelectorAll('.color-option');
+  
+  const accentColors = {
+    indigo: '#6366f1',
+    emerald: '#10b981',
+    rose: '#f43f5e',
+    orange: '#f97316',
+    purple: '#a855f7'
+  };
+
+  function setAccentColor(colorName) {
+    if (accentColors[colorName]) {
+      currentAccentColor = colorName;
+      localStorage.setItem('accentColor', colorName);
+      
+      // Remove active class
+      colorOptions.forEach(opt => opt.classList.remove('active'));
+      
+      // Add active class
+      const activeOpt = document.querySelector(`.color-option[data-color="${colorName}"]`);
+      if (activeOpt) activeOpt.classList.add('active');
+      
+      // Update CSS variables
+      document.documentElement.style.setProperty('--color-accent-primary', accentColors[colorName]);
+    }
+  }
+
+  colorOptions.forEach(opt => {
+    opt.addEventListener('click', (e) => {
+      setAccentColor(e.target.dataset.color);
+    });
+  });
+  
+  setAccentColor(currentAccentColor);
+
 
   // --- TRADUTOR BILINGUE DINÂMICO ---
   function translatePage(lang) {
@@ -102,6 +146,9 @@ document.addEventListener('DOMContentLoaded', () => {
   let mouseX = 0, mouseY = 0;
   let cursorX = 0, cursorY = 0;
 
+  const gradientOrb1 = document.querySelector('.gradient-orb1');
+  const gradientOrb2 = document.querySelector('.gradient-orb2');
+
   window.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
@@ -109,6 +156,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // O ponto menor segue diretamente
     if (cursorDot) {
       cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+    }
+
+    // Efeito Parallax no Fundo (Background Orbs tracking mouse)
+    if (gradientOrb1 && gradientOrb2) {
+      const x = (mouseX / window.innerWidth - 0.5) * 40;
+      const y = (mouseY / window.innerHeight - 0.5) * 40;
+      gradientOrb1.style.transform = `translate(${x}px, ${y}px)`;
+      gradientOrb2.style.transform = `translate(${-x}px, ${-y}px)`;
     }
   });
 
@@ -152,6 +207,46 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Adiciona efeitos ao cursor para os novos elementos criados
     addCursorHoverEffects();
+    // Inicializa Tilt 3D Effects
+    initVanillaTilt();
+  }
+
+  // --- VANILLA TILT 3D HOVER EFFECT ---
+  function initVanillaTilt() {
+    const cards = document.querySelectorAll('.project-card, .academic-card');
+    
+    cards.forEach(card => {
+      // Cria a div glare se não existir
+      if (!card.querySelector('.tilt-glare')) {
+        const glare = document.createElement('div');
+        glare.className = 'tilt-glare';
+        card.appendChild(glare);
+      }
+      const glareEl = card.querySelector('.tilt-glare');
+
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left; // posição do mouse dentro do card
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = ((y - centerY) / centerY) * -10; // max 10 deg rotation
+        const rotateY = ((x - centerX) / centerX) * 10;
+        
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        
+        // Move o reflexo
+        if(glareEl) {
+          glareEl.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.15) 0%, transparent 60%)`;
+        }
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+      });
+    });
   }
 
   // 1. Educação
@@ -201,7 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="skill-percent">${skill.level}%</span>
             </div>
             <div class="skill-bar-bg">
-              <div class="skill-bar-fill" style="width: ${skill.level}%"></div>
+              <div class="skill-bar-fill" style="width: 0%" data-target="${skill.level}%"></div>
             </div>
           </div>
         `;
@@ -700,6 +795,12 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('active');
+        
+        // Verifica se é uma barra de skill para animar a largura
+        if (entry.target.classList.contains('skill-bar-fill')) {
+          entry.target.style.width = entry.target.getAttribute('data-target');
+        }
+        
         // Opcional: descomente a linha abaixo para animar apenas na primeira vez
         // observer.unobserve(entry.target);
       }
@@ -711,7 +812,7 @@ document.addEventListener('DOMContentLoaded', () => {
   revealElements.forEach(el => observer.observe(el));
 
   // Como projetos, diplomas e etc. são gerados dinamicamente, precisamos aplicar observer neles logo após renderizar.
-  // Vamos encapsular o método antigo e injetar o observer.
+  // Vamos encapsular o método antigo e injetar o observer e tilt.
   const originalRenderProjects = renderProjects;
   renderProjects = function(lang, filter) {
     originalRenderProjects(lang, filter);
@@ -719,6 +820,7 @@ document.addEventListener('DOMContentLoaded', () => {
       el.classList.add('reveal');
       observer.observe(el);
     });
+    initVanillaTilt();
   };
 
   const originalRenderDiplomas = renderDiplomas;
@@ -728,6 +830,7 @@ document.addEventListener('DOMContentLoaded', () => {
       el.classList.add('reveal');
       observer.observe(el);
     });
+    initVanillaTilt();
   };
 
   const originalRenderCertificates = renderCertificates;
@@ -737,6 +840,7 @@ document.addEventListener('DOMContentLoaded', () => {
       el.classList.add('reveal');
       observer.observe(el);
     });
+    initVanillaTilt();
   };
 
   const originalRenderInterests = renderInterests;
@@ -746,6 +850,12 @@ document.addEventListener('DOMContentLoaded', () => {
       el.classList.add('reveal');
       observer.observe(el);
     });
+  };
+
+  const originalRenderSkills = renderSkills;
+  renderSkills = function(lang) {
+    originalRenderSkills(lang);
+    document.querySelectorAll('.skill-bar-fill').forEach(el => observer.observe(el));
   };
 
 });
