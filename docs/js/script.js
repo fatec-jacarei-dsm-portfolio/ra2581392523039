@@ -298,7 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
     container.innerHTML = window.portfolioData.diplomas.map(dip => `
       <div class="academic-card diploma-card">
         <div class="academic-image-wrap">
-          <img src="${dip.imageUrl}" alt="${typeof dip.title === 'object' ? dip.title[lang] : dip.title}" class="academic-image" onclick="window.openImageModal('${dip.imageUrl}')">
+          <img src="${dip.imageUrl}" alt="${typeof dip.title === 'object' ? dip.title[lang] : dip.title}" class="academic-image" loading="lazy" onclick="window.openImageModal('${dip.imageUrl}')">
           <div class="academic-image-overlay">
             <span>${lang === 'pt' ? 'Clique para ampliar' : 'Click to zoom'}</span>
           </div>
@@ -320,7 +320,7 @@ document.addEventListener('DOMContentLoaded', () => {
     container.innerHTML = window.portfolioData.certificates.map(cert => `
       <div class="academic-card certificate-card">
         <div class="academic-image-wrap">
-          <img src="${cert.imageUrl}" alt="${typeof cert.title === 'object' ? cert.title[lang] : cert.title}" class="academic-image">
+          <img src="${cert.imageUrl}" alt="${typeof cert.title === 'object' ? cert.title[lang] : cert.title}" class="academic-image" loading="lazy">
         </div>
         <div class="academic-info">
           <span class="academic-date">${cert.date}</span>
@@ -688,4 +688,64 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- INICIALIZA A TRADUÇÃO E O CONTEÚDO ---
   translatePage(currentLanguage);
+
+  // --- INTERSECTION OBSERVER (ANIMAÇÕES DE SCROLL) ---
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        // Opcional: descomente a linha abaixo para animar apenas na primeira vez
+        // observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Seleciona todos os elementos com a classe .reveal
+  const revealElements = document.querySelectorAll('.reveal');
+  revealElements.forEach(el => observer.observe(el));
+
+  // Como projetos, diplomas e etc. são gerados dinamicamente, precisamos aplicar observer neles logo após renderizar.
+  // Vamos encapsular o método antigo e injetar o observer.
+  const originalRenderProjects = renderProjects;
+  renderProjects = function(lang, filter) {
+    originalRenderProjects(lang, filter);
+    document.querySelectorAll('.project-card').forEach(el => {
+      el.classList.add('reveal');
+      observer.observe(el);
+    });
+  };
+
+  const originalRenderDiplomas = renderDiplomas;
+  renderDiplomas = function(lang) {
+    originalRenderDiplomas(lang);
+    document.querySelectorAll('.diploma-card').forEach(el => {
+      el.classList.add('reveal');
+      observer.observe(el);
+    });
+  };
+
+  const originalRenderCertificates = renderCertificates;
+  renderCertificates = function(lang) {
+    originalRenderCertificates(lang);
+    document.querySelectorAll('.certificate-card').forEach(el => {
+      el.classList.add('reveal');
+      observer.observe(el);
+    });
+  };
+
+  const originalRenderInterests = renderInterests;
+  renderInterests = function(lang) {
+    originalRenderInterests(lang);
+    document.querySelectorAll('.interest-card').forEach(el => {
+      el.classList.add('reveal');
+      observer.observe(el);
+    });
+  };
+
 });

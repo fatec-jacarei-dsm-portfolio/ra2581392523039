@@ -1845,6 +1845,80 @@ img {
   .modal-title {
     font-size: 1.5rem;
   }
-  
+}
 
+/* ==========================================================================
+   ANIMAÇÕES DE SCROLL NATIVAS (INTERSECTION OBSERVER)
+   ========================================================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   ACESSIBILIDADE: FOCO VISÍVEL POR TECLADO
+   ========================================================================== */
+:focus-visible {
+  outline: 3px solid var(--color-accent-primary);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+/* ==========================================================================
+   ESTILOS DE IMPRESSÃO (CURRÍCULO EM PDF)
+   ========================================================================== */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .header, .footer, #cursor-dot, #cursor-outline, 
+  .hero-background, .command-palette-overlay, 
+  #open-palette-btn, #theme-toggle, #lang-toggle,
+  .scroll-indicator, .modal-overlay, .zoom-modal {
+    display: none !important;
+  }
+
+  .section {
+    padding: 20px 0 !important;
+    page-break-inside: avoid;
+  }
+  
+  h1, h2, h3, h4, p, span, div {
+    color: black !important;
+    text-shadow: none !important;
+  }
+
+  .project-card, .academic-card, .skill-card, .interest-card {
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+
+  .skill-bar-bg {
+    background: #eee !important;
+  }
+
+  .skill-bar-fill {
+    background: #555 !important;
+  }
+
+  .project-tag, .interest-tag, .value-tag {
+    border: 1px solid #aaa !important;
+    background: transparent !important;
+    color: black !important;
+  }
+
+  a {
+    text-decoration: underline !important;
+    color: #0000ee !important;
+  }
 }
