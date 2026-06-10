@@ -285,7 +285,13 @@ document.addEventListener('DOMContentLoaded', () => {
           const softSkillsTranslations = {
             'Comunicação': 'Communication',
             'Trabalho em Equipe': 'Teamwork',
-            'Resolução de Problemas': 'Problem Solving'
+            'Resolução de Problemas': 'Problem Solving',
+            'Adaptabilidade': 'Adaptability',
+            'Pensamento Crítico': 'Critical Thinking',
+            'Gestão de Tempo': 'Time Management',
+            'Proatividade': 'Proactivity',
+            'Aprendizado Contínuo': 'Continuous Learning',
+            'Autonomia': 'Autonomy'
           };
           displayName = softSkillsTranslations[skill.name] || skill.name;
         }
@@ -308,6 +314,30 @@ document.addEventListener('DOMContentLoaded', () => {
   // 3. Projetos (Filtros dinâmicos + Portfólio ETEC + Tech Filter)
   let activeTechFilter = 'all';
 
+  const tagTranslations = {
+    'Design Gráfico': 'Graphic Design',
+    'Comunicação Visual': 'Visual Communication',
+    'Matemática': 'Mathematics',
+    'Fractais': 'Fractals',
+    'Visualização': 'Visualization',
+    'Automação': 'Automation',
+    'Produtividade': 'Productivity',
+    'Sistemas': 'Systems',
+    'Jogos': 'Games',
+    'Lógica': 'Logic',
+    'Educação': 'Education',
+    'Other': 'Outros' // If we want to map English back to Portuguese when in PT
+  };
+
+  function translateTag(tag, lang) {
+    if (lang === 'en') {
+      return tagTranslations[tag] || tag;
+    } else {
+      if (tag === 'Other') return 'Outros';
+      return tag;
+    }
+  }
+
   function renderTechFilter(lang) {
     const container = document.getElementById('tech-filter-container');
     if (!container) return;
@@ -320,7 +350,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let html = `<button class="tech-btn ${activeTechFilter === 'all' ? 'active' : ''}" data-tech="all">${lang === 'pt' ? 'Todas Tecnologias' : 'All Technologies'}</button>`;
     
     Array.from(allTags).sort().forEach(tag => {
-      html += `<button class="tech-btn ${activeTechFilter === tag ? 'active' : ''}" data-tech="${tag}">${tag}</button>`;
+      html += `<button class="tech-btn ${activeTechFilter === tag ? 'active' : ''}" data-tech="${tag}">${translateTag(tag, lang)}</button>`;
     });
 
     container.innerHTML = html;
@@ -368,12 +398,12 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           </div>
           <div class="project-card-body">
-            <h3 class="project-title">${proj.title}</h3>
+            <h3 class="project-title">${typeof proj.title === 'object' ? (proj.title[lang] || proj.title.pt) : proj.title}</h3>
             <p class="project-desc">${typeof proj.description === 'object' ? (proj.description[lang] ? proj.description[lang].split('\n')[0] : '') : (proj.description ? String(proj.description).split('\n')[0] : '')}</p>
           </div>
           <div class="project-card-footer">
             <div class="project-tags">
-              ${(proj.tags || []).slice(0, 3).map(tag => `<span class="project-tag">${tag}</span>`).join('')}
+              ${(proj.tags || []).slice(0, 3).map(tag => `<span class="project-tag">${translateTag(tag, lang)}</span>`).join('')}
             </div>
             <button class="project-detail-btn" onclick="window.openProjectModal('${proj.id}')">
               ${lang === 'pt' ? 'Detalhes' : 'Details'} &rarr;
@@ -501,7 +531,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalVideoContainer = document.getElementById('modal-video-container');
     const modalVideo = document.getElementById('modal-video');
 
-    if (modalTitle) modalTitle.textContent = proj.title;
+    if (modalTitle) {
+      modalTitle.textContent = typeof proj.title === 'object' ? (proj.title[currentLanguage] || proj.title.pt) : proj.title;
+    }
     
     if (modalBadge) {
       modalBadge.className = `modal-badge ${proj.source === 'fatec' ? 'badge-fatec' : (proj.source === 'etec' ? 'badge-etec' : 'badge-personal')}`;
@@ -522,7 +554,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (modalTechs) {
-      modalTechs.innerHTML = proj.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('');
+      modalTechs.innerHTML = (proj.tags || []).map(tag => `<span class="project-tag">${translateTag(tag, currentLanguage)}</span>`).join('');
     }
 
     if (modalGit) {

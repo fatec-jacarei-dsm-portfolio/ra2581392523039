@@ -120,7 +120,7 @@ window.portfolioData = {
     },
     {
       id: '4',
-      title: 'Sistema de Gestão Acadêmica',
+      title: { pt: 'Sistema de Gestão Acadêmica', en: 'Academic Management System' },
       description: {
         pt: 'Sistema de Gestão Acadêmica é uma aplicação web full-stack desenvolvida para facilitar a administração de instituições de ensino. O projeto oferece módulos para cadastro e gerenciamento de alunos, cursos, turmas, professores e lançamentos de notas, com APIs REST no back-end e interface responsiva no front-end. O código está organizado em pastas /frontend e /backend, permitindo desenvolvimento e deploy independentes. Linguagens utilizadas: TypeScript (97.4%), JavaScript (2.2%) e outras.',
         en: 'Academic Management System is a full-stack web application developed to facilitate the administration of educational institutions. The project offers modules for registering and managing students, courses, classes, teachers, and grade entries, with REST APIs on the backend and a responsive interface on the frontend. The code is organized into /frontend and /backend folders, allowing independent development and deployment. Languages used: TypeScript (97.4%), JavaScript (2.2%), and others.'
@@ -131,7 +131,7 @@ window.portfolioData = {
     },
     {
       id: '5',
-      title: 'Desafio Game ODS',
+      title: { pt: 'Desafio Game ODS', en: 'SDG Game Challenge' },
       description: {
         pt: 'Jogo interativo focado nos Objetivos de Desenvolvimento Sustentável (ODS) da ONU. O projeto une entretenimento e educação para conscientizar os jogadores sobre sustentabilidade através de suas mecânicas.',
         en: 'Interactive game focused on the UN\'s Sustainable Development Goals (SDGs). The project combines entertainment and education to raise players\' awareness about sustainability through gameplay mechanics.'
@@ -142,7 +142,7 @@ window.portfolioData = {
     },
     {
       id: '6',
-      title: 'Fractais Julia e Mandelbrot',
+      title: { pt: 'Fractais Julia e Mandelbrot', en: 'Julia and Mandelbrot Fractals' },
       description: {
         pt: 'Aplicação voltada para a renderização matemática e estudo dos famosos conjuntos de fractais de Julia e Mandelbrot, permitindo a exploração visual de padrões complexos infinitos.',
         en: 'Application focused on mathematical rendering and study of the famous Julia and Mandelbrot fractal sets, allowing visual exploration of complex infinite patterns.'
@@ -153,7 +153,7 @@ window.portfolioData = {
     },
     {
       id: '7',
-      title: 'Sistema de Automação',
+      title: { pt: 'Sistema de Automação', en: 'Automation System' },
       description: {
         pt: 'Sistema projetado para a automação e otimização de tarefas e processos operacionais, visando aumentar a produtividade e minimizar a ocorrência de falhas manuais.',
         en: 'System designed for the automation and optimization of operational tasks and processes, aiming to increase productivity and minimize the occurrence of manual errors.'
@@ -164,7 +164,7 @@ window.portfolioData = {
     },
     {
       id: '8',
-      title: 'Materiais Visuais',
+      title: { pt: 'Materiais Visuais', en: 'Visual Materials' },
       description: {
         pt: 'Projeto focado em design gráfico e comunicação visual, demonstrando a criação de diversos materiais visuais, construção de interfaces e aplicação de identidade visual.',
         en: 'Project focused on graphic design and visual communication, demonstrating the creation of various visual materials, interface construction, and visual identity application.'
@@ -175,7 +175,7 @@ window.portfolioData = {
     },
     {
       id: '9',
-      title: 'Plataforma Digital de Cursos - GPC Consultoria',
+      title: { pt: 'Plataforma Digital de Cursos - GPC Consultoria', en: 'Digital Course Platform - GPC Consultoria' },
       description: {
         pt: 'Plataforma web de ensino à distância (EAD) desenvolvida para a GPC Consultoria, oferecendo recursos completos para a disponibilização de aulas, gestão de cursos e acompanhamento de alunos.',
         en: 'Distance learning (E-learning) web platform developed for GPC Consultoria, offering complete features for hosting classes, managing courses, and tracking student progress.'
@@ -186,7 +186,7 @@ window.portfolioData = {
     },
     {
       id: '10',
-      title: 'Jogo de Damas',
+      title: { pt: 'Jogo de Damas', en: 'Checkers Game' },
       description: {
         pt: 'Desenvolvimento de uma versão digital e interativa do clássico Jogo de Damas. O projeto foca na construção de uma interface amigável e na implementação de algoritmos para as regras do jogo, validação de movimentos e captura de peças, demonstrando fortes habilidades em lógica de programação.',
         en: 'Development of a digital and interactive version of the classic Checkers game. The project focuses on building a user-friendly interface and implementing algorithms for game rules, move validation, and piece capturing, demonstrating strong skills in programming logic.'
