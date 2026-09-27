@@ -175,13 +175,13 @@ window.portfolioData = {
     },
     {
       id: '9',
-      title: { pt: 'Plataforma Digital de Cursos - GPC Consultoria', en: 'Digital Course Platform - GPC Consultoria' },
+      title: { pt: 'Plataforma Digital de Cursos — GPC Consultoria', en: 'Digital Course Platform — GPC Consultoria' },
       description: {
-        pt: 'Plataforma web de ensino à distância (EAD) desenvolvida para a GPC Consultoria, oferecendo recursos completos para a disponibilização de aulas, gestão de cursos e acompanhamento de alunos.',
-        en: 'Distance learning (E-learning) web platform developed for GPC Consultoria, offering complete features for hosting classes, managing courses, and tracking student progress.'
+        pt: 'Sistema de Gestão de Aprendizagem (LMS/EAD) robusto e seguro, projetado para capacitação técnica com rigor pedagógico. A plataforma garante o acompanhamento da trilha de estudos com travas de tempo, rastreia ações num log de auditoria imutável e emite certificados com controlo de assinatura dupla.',
+        en: 'Robust and secure Learning Management System (LMS/EAD), designed for technical training with pedagogical rigor. The platform tracks study trails with time locks, records actions in an immutable audit log, and issues certificates with dual-signature control.'
       },
-      tags: ['Web Development', 'EAD', 'Plataforma'],
-      githubUrl: 'https://github.com/JoaoPedroLuvisariSeveriano/Plataforma-Digital-de-Cursos-GPC-Consultoria',
+      tags: ['React', 'TypeScript', 'Vite', 'Node.js', 'Express', 'Firebase', 'EAD', 'Educação', 'Plataforma'],
+      githubUrl: 'https://github.com/JoaoPedroLuvisariSeveriano/lms-gpc-plano-seguranca',
       source: 'personal'
     },
     {
@@ -193,6 +193,39 @@ window.portfolioData = {
       },
       tags: ['Game Development', 'Jogos', 'Lógica'],
       githubUrl: 'https://github.com/JoaoPedroLuvisariSeveriano/Jogo-de-Damas',
+      source: 'personal'
+    },
+    {
+      id: '11',
+      title: { pt: 'Plataforma EAD — Capacitação SICOEX', en: 'E-Learning Platform — SICOEX Training' },
+      description: {
+        pt: 'Plataforma EAD para capacitar colaboradores nos processos de controlo de explosivos e auditoria do SICOEX. Inclui trilhas de aprendizagem, screencasts, fórum de dúvidas e simulador interativo de formulários operacionais com foco na mitigação de riscos.',
+        en: 'E-learning platform to train employees in explosive control processes and SICOEX auditing. Features learning trails, screencasts, Q&A forum, and an interactive simulator of operational forms focused on risk mitigation.'
+      },
+      tags: ['React', 'TypeScript', 'Vite', 'CSS', 'EAD', 'Educação', 'Plataforma'],
+      githubUrl: 'https://github.com/JoaoPedroLuvisariSeveriano/capacitacao-sicoex-app',
+      source: 'personal'
+    },
+    {
+      id: '12',
+      title: { pt: 'Sistema de Controle de Ordens de Serviço', en: 'Service Order Control System' },
+      description: {
+        pt: 'Sistema web para gestão de serviços prestados, construído com arquitetura MVC. Inclui painel de controlo com métricas, CRUD completo, filtros dinâmicos, disparo automático de e-mails e motor de cálculo de comissões escalonadas.',
+        en: 'Web system for managing service orders, built with MVC architecture. Features a metrics dashboard, full CRUD, dynamic filters, automated email dispatch, and a tiered commission calculation engine.'
+      },
+      tags: ['PHP', 'MVC', 'MySQL', 'PDO', 'HTML', 'CSS', 'Sistemas'],
+      githubUrl: 'https://github.com/JoaoPedroLuvisariSeveriano/ordem-servicos-mvc',
+      source: 'personal'
+    },
+    {
+      id: '13',
+      title: { pt: 'Processamento Distribuído de Apostas em Go', en: 'Distributed Betting Processing in Go' },
+      description: {
+        pt: 'Solução backend de alto desempenho para processamento distribuído de apostas. Focada em resiliência e segurança financeira, assegura integridade atómica contra race conditions via Pessimistic Locking de base de dados e gestão de concorrência rigorosa.',
+        en: 'High-performance backend solution for distributed betting processing. Focused on resilience and financial security, it ensures atomic integrity against race conditions through database Pessimistic Locking and strict concurrency management.'
+      },
+      tags: ['Go', 'PostgreSQL', 'Docker', 'SQS', 'Backend', 'Sistemas'],
+      githubUrl: 'https://github.com/JoaoPedroLuvisariSeveriano/processamento-apostas-go',
       source: 'personal'
     }
   ],
