@@ -933,14 +933,14 @@ document.addEventListener('DOMContentLoaded', () => {
   let typewritingTimeout;
   const typewriterWords = {
     pt: [
-      "Desenvolvedor de Software Multiplataforma",
-      "Especialista em Front-end",
-      "Apaixonado por Tecnologia"
+      "Desenvolvedor Full Stack",
+      "Engenheiro de Software",
+      "Especialista em Back-end & APIs"
     ],
     en: [
-      "Multiplatform Software Developer",
-      "Front-end Specialist",
-      "Passionate about Technology"
+      "Full Stack Developer",
+      "Software Engineer",
+      "Back-end & APIs Specialist"
     ]
   };
 

@@ -410,7 +410,7 @@ window.portfolioTranslations = {
     },
     hero: {
       title: 'Desenvolvedor de Software Multiplataforma',
-      tagline: 'Transformando ideias em experiências digitais memoráveis',
+      tagline: 'Construindo sistemas robustos, escaláveis e de alto desempenho.',
       cta_projects: 'Ver Projetos',
       cta_resume: 'Meu Currículo',
       scroll: 'Role para explorar'
@@ -567,7 +567,7 @@ window.portfolioTranslations = {
     },
     hero: {
       title: 'Multiplatform Software Developer',
-      tagline: 'Transforming ideas into memorable digital experiences',
+      tagline: 'Building robust, scalable, and high-performance systems.',
       cta_projects: 'View Projects',
       cta_resume: 'My Resume',
       scroll: 'Scroll to explore'
