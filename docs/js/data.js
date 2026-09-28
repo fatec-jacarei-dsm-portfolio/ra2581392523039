@@ -262,7 +262,7 @@ window.portfolioData = {
       id: '1',
       title: 'Getting Started with Cisco Packet Tracer',
       issuer: 'Cisco Networking Academy',
-      date: '2024',
+      date: '2025',
       imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400',
       credentialUrl: 'https://www.netacad.com'
     },
@@ -270,7 +270,7 @@ window.portfolioData = {
       id: '2',
       title: 'Linux Unhatched',
       issuer: 'Cisco Networking Academy',
-      date: '2024',
+      date: '2025',
       imageUrl: 'https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=400',
       credentialUrl: 'https://www.netacad.com'
     },
@@ -281,7 +281,7 @@ window.portfolioData = {
         en: 'Cyber Threat Management'
       },
       issuer: 'Cisco Networking Academy',
-      date: '2024',
+      date: '2025',
       imageUrl: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400',
       credentialUrl: 'https://www.netacad.com'
     },
@@ -292,7 +292,7 @@ window.portfolioData = {
         en: 'Introduction to Cybersecurity'
       },
       issuer: 'Cisco Networking Academy',
-      date: '2024',
+      date: '2025',
       imageUrl: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400',
       credentialUrl: 'https://www.netacad.com'
     },
@@ -303,7 +303,7 @@ window.portfolioData = {
         en: 'School of Innovators (20th Edition)'
       },
       issuer: 'Escola de Inovadores',
-      date: '2024',
+      date: '2025',
       imageUrl: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400',
       credentialUrl: 'https://escoladeinovadores.com.br'
     }
