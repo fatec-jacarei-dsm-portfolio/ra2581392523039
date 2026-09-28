@@ -317,7 +317,7 @@ window.portfolioData = {
         en: 'Systems Development Technician'
       },
       issuer: 'ETEC São José dos Campos',
-      date: '2024',
+      date: '2025',
       imageUrl: './assets/Diploma Desenvolvimento de Sistemas ETEC.jpeg',
       credentialUrl: ''
     }
