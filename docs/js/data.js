@@ -153,24 +153,24 @@ window.portfolioData = {
     },
     {
       id: '7',
-      title: { pt: 'Sistema de Automação', en: 'Automation System' },
+      title: { pt: 'Automação de Marketing via SMS', en: 'SMS Marketing Automation' },
       description: {
-        pt: 'Sistema projetado para a automação e otimização de tarefas e processos operacionais, visando aumentar a produtividade e minimizar a ocorrência de falhas manuais.',
-        en: 'System designed for the automation and optimization of operational tasks and processes, aiming to increase productivity and minimize the occurrence of manual errors.'
+        pt: 'Sistema desenvolvido em Python para a automação de campanhas de marketing via SMS. O projeto visa otimizar processos operacionais, escalar o disparo de mensagens e minimizar a ocorrência de erros manuais em tarefas repetitivas.',
+        en: 'System developed in Python to automate SMS marketing campaigns. The project aims to optimize operational processes, scale message dispatching, and minimize manual errors in repetitive tasks.'
       },
-      tags: ['Automação', 'Produtividade', 'Sistemas'],
-      githubUrl: 'https://github.com/JoaoPedroLuvisariSeveriano/Projeto-Sistema-de-Atomacao',
+      tags: ['Automação', 'Produtividade', 'Sistemas', 'Python', 'Marketing'],
+      githubUrl: 'https://github.com/JoaoPedroLuvisariSeveriano/automacao-marketing-sms',
       source: 'personal'
     },
     {
       id: '8',
-      title: { pt: 'Materiais Visuais', en: 'Visual Materials' },
+      title: { pt: 'Identidade Visual & Comunicação', en: 'Visual Identity & Communication' },
       description: {
-        pt: 'Projeto focado em design gráfico e comunicação visual, demonstrando a criação de diversos materiais visuais, construção de interfaces e aplicação de identidade visual.',
-        en: 'Project focused on graphic design and visual communication, demonstrating the creation of various visual materials, interface construction, and visual identity application.'
+        pt: 'Repositório focado na construção de identidades visuais completas, englobando design gráfico, criação de logótipos, construção de interfaces (UI/UX) e aplicação de guias de estilo coerentes para comunicação visual moderna.',
+        en: 'Repository focused on building complete visual identities, encompassing graphic design, logo creation, interface construction (UI/UX), and the application of cohesive style guides for modern visual communication.'
       },
-      tags: ['Design Gráfico', 'UI/UX', 'Comunicação Visual'],
-      githubUrl: 'https://github.com/JoaoPedroLuvisariSeveriano/Projeto-Materiais-Visuais',
+      tags: ['Design Gráfico', 'UI/UX', 'Comunicação Visual', 'JavaScript'],
+      githubUrl: 'https://github.com/JoaoPedroLuvisariSeveriano/identidade-visual',
       source: 'personal'
     },
     {
