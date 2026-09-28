@@ -112,6 +112,6 @@ O deploy e a hospedagem do portfólio são realizados através do **GitHub Pages
 
 ---
 
-## 📄 Licença
+##  Licença
 
 Este projeto é open-source e está licenciado sob a licença **MIT**.
