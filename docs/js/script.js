@@ -1027,7 +1027,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="github-stat-label">${isPt ? 'Perfil' : 'Profile'}</div>
         </div>
         <div class="github-stat-card">
-          <div class="github-stat-value">18</div>
+          <div class="github-stat-value">${data.public_repos}</div>
           <div class="github-stat-label">${isPt ? 'Meus Repositórios' : 'My Repositories'}</div>
         </div>
         <div class="github-stat-card">
@@ -1045,7 +1045,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const isPt = currentLanguage === 'pt';
       container.innerHTML = `
         <div class="github-stat-card">
-          <div class="github-stat-value">18</div>
+          <div class="github-stat-value">26</div>
           <div class="github-stat-label">${isPt ? 'Meus Repositórios' : 'My Repositories'}</div>
         </div>
       `;
