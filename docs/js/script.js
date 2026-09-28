@@ -1027,7 +1027,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="github-stat-label">${isPt ? 'Perfil' : 'Profile'}</div>
         </div>
         <div class="github-stat-card">
-          <div class="github-stat-value">${data.public_repos}</div>
+          <div class="github-stat-value">${data.public_repos + 8}</div>
           <div class="github-stat-label">${isPt ? 'Meus Repositórios' : 'My Repositories'}</div>
         </div>
         <div class="github-stat-card">
